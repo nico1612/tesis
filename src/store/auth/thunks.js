@@ -1,28 +1,31 @@
-import { checkingCredentials,logout  } from "./authSlice";
+import axios from "axios";
+import { checkingCredentials,login,logout, setError  } from "./authSlice";
 
-//const url=import.meta.env.VITE_APP_IP
+
 
 export const startLogin=({Email, Password})=>{
     return async(dispatch)=>{
 
         dispatch( checkingCredentials() );
-        /*const options = {
+        const options = {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify({"eMail":Email,"password":Password})
+            data:{"correo":Email,"password":Password}
         };
-        const result=await fetch(`${url}/user/login`, options)
-        if(result.ok){
-            const {body}=await result.json()
-            dispatch( login( body ));
+
+        const result=await axios(`http://localhost:8080/api/auth/login`,options)
+      
+        if(result.data.ok){
+            const {data}=result
+            console.log(data)
+            dispatch( login( data ));
         }
         else{
             dispatch(logout(result.status))
             dispatch(setError())
-        }*/
-        console.log({Email, Password})
+        }
 
     }
 

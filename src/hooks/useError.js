@@ -8,12 +8,12 @@ export const useError=()=>{
 
     return{
         ErrorMail,
-        setErrorMail,
-        ErrorPassword,
-        setErrorPassword,
-        ErrorName,
-        setErrorName,
         ErrorSurname,
-        setErrorSurname
+        ErrorPassword,
+        ErrorName,
+        setErrorMail,
+        setErrorPassword,
+        setErrorName,
+        setErrorSurname,
     }
 }

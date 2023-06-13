@@ -28,7 +28,7 @@ export const LoginPage=()=>{
     useEffect(()=>{
         if(error)
         dispatch(setError())
-    },[])
+    },)
 
     const onSubmit=(event)=>{
 
@@ -94,6 +94,9 @@ export const LoginPage=()=>{
 
                     <div className="my-3 mb-6 col-sm-4-auto p-5 text-center">
                         <span>No tienes cuenta? </span> <Link to={"/auth/register"}>Registrarse</Link>
+                    </div>
+                    <div className="mb-6 col-sm-4-auto  p-5 text-center">
+                        <span>registro medico </span> <Link to={"/auth/medico"}>registrase</Link>
                     </div>
                 </form>
             </div>

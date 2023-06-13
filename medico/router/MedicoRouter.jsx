@@ -1,12 +1,11 @@
-import { Navigate, Route, Routes } from "react-router-dom"
 
-import {HomePage, HistorialPage, ChatPage, BuscarPage } from "../pages"
-import { Footer, Navbar } from "../components"
+//import {HomePage, HistorialPage, ChatPage, BuscarPage } from "../pages"
+//import { Footer, Navbar } from "../components"
 
-export const UsuariosRouter=()=>{
+export const MedicoRouter=()=>{
     return(
         <>
-            <Navbar/>
+    {/*        <Navbar/>
             <Routes>
                 <Route path="home" element={<HomePage/>}/>
                 <Route path="historial" element={<HistorialPage/>}/>
@@ -16,7 +15,7 @@ export const UsuariosRouter=()=>{
 
                 <Route path="/*" element={<Navigate to="/home"/>}/>
             </Routes>
-            <Footer/>
+            <Footer/>*/}
         </>
     )
 }

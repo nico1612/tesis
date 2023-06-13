@@ -1,5 +1,5 @@
 
-export const checkFormRegister=({Email,Password,Name,Surname,setErrorMail,setErrorName,setErrorPassword,setErrorSurname})=>{
+export const checkFormRegister=({Name,Surname,setErrorName,setErrorSurname})=>{
 
     let ok=true;
 
@@ -17,6 +17,6 @@ export const checkFormRegister=({Email,Password,Name,Surname,setErrorMail,setErr
     else{
         setErrorSurname(false)
     }
-
+    
     return ok
 }

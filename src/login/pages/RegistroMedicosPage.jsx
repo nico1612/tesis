@@ -1,9 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
-import { startRegister,setError } from "../../store/"
+import { startRegister,setError } from "../../store"
 import { useError, useForm } from "../../hooks"
 import { checkFormLogin, checkFormRegister } from "../helpers"
 
@@ -11,24 +11,26 @@ const formData={
     Email:'',
     Surname:'',
     Name:'',
-    Password:''
+    Password:'',
+    Licencia:''
 }
 
-export const RegisterPage=()=>{
+export const RegisterMedicosPage=()=>{
 
-    const {Email,Name,Surname,Password,onInputChange}= useForm(formData)
+    const {Email,Name,Surname,Password,Licencia,onInputChange}= useForm(formData)
 
     const {error} =useSelector(state=>state.auth)
     const dispatch =useDispatch()
+    const [ErrorLicencia,setErrorLicencia]=useState(false)
 
     const {ErrorMail,
-        setErrorMail,
         ErrorPassword,
-        setErrorPassword,
         ErrorName,
-        setErrorName,
         ErrorSurname,
-        setErrorSurname
+        setErrorMail,
+        setErrorName,
+        setErrorPassword,
+        setErrorSurname,
     }= useError()
 
     useEffect(()=>{
@@ -39,8 +41,13 @@ export const RegisterPage=()=>{
     const onSubmit=(event)=>{
 
         event.preventDefault()
-
-        if(checkFormRegister({ Name, Surname, setErrorName, setErrorSurname}) && checkFormLogin({Email,Password,setErrorMail,setErrorPassword})){
+        if(ErrorLicencia===''){
+            setErrorLicencia(false)
+        }
+        else{
+            setErrorLicencia(true)
+        }
+        if(checkFormRegister({ Name, Surname, setErrorName, setErrorSurname}) && ErrorLicencia && checkFormLogin({Email,Password,setErrorMail,setErrorPassword})){
             dispatch( startRegister({ Email, Password,Name,Surname }) );
         }
     }
@@ -121,6 +128,21 @@ export const RegisterPage=()=>{
                                 </div>
                                 <p>Contraseña es requerido</p>
                             </>
+                            
+                        }
+                        {
+                            (!ErrorLicencia)
+                            ?<div className="mb-6 col-sm-4-auto p-4 text-center">
+                                <label className="form-label"> Licencia</label>
+                                <input type="licencia" className="form-control" name= "Licencia" value={Licencia} onChange={onInputChange}/>
+                            </div>
+                            :<>
+                                <div className="mb-6 col-sm-4-auto p-4 text-center border  border-danger">
+                                    <label className="form-label"> Licencia</label>
+                                    <input type="Licencia" className="form-control" name= "Licencia" value={Licencia} onChange={onInputChange}/>
+                                </div>
+                                <p>Licencia es requerido</p>
+                            </>
                         }
 
                         <div className="mb-6 col-sm-4-auto p-4 text-center">
@@ -132,7 +154,7 @@ export const RegisterPage=()=>{
                         </div>
 
                         <div className="mb-6 col-sm-4-auto  p-5 text-center">
-                            <span>registro medico </span> <Link to={"/medico"}>registrase</Link>
+                            <span>registro persona </span> <Link to={"/auth/login"}>registrase</Link>
                         </div>
                     </form>
                 </div>
