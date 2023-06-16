@@ -21,7 +21,7 @@ export const AppRouter = () => {
                 :(rol==="MEDICO_ROLE")
                 ?<Route path="/*" element={ <MedicoRouter/> } /> 
                 :<Route path="/*" element={ <UsuariosRouter/> } />
-                :<Route path="/medico/*" element={<AuthRouter/>}/>
+                :<Route path="/auth/*" element={<AuthRouter/>}/>
             }
 
             <Route path='/*' element={ <Navigate to='/auth/' />  } />
