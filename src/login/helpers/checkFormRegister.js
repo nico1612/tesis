@@ -1,22 +1,16 @@
-
-export const checkFormRegister=({Name,Surname,setErrorName,setErrorSurname})=>{
-
-    let ok=true;
-
-    if(Name===''){
-        setErrorName(true)
-        ok=false
-    }
-    else{
-        setErrorName(false)
-    }
-    if(Surname===''){
-        setErrorSurname(true)
-        ok=false
-    }
-    else{
-        setErrorSurname(false)
-    }
-    
-    return ok
-}
+export const checkFormRegister = ({ Name, Surname, setErrorName, setErrorSurname }) => {
+    const checkField = (value, setError) => {
+      if (value === '') {
+        setError(true);
+        return false;
+      } else {
+        setError(false);
+        return true;
+      }
+    };
+  
+    const isNameValid = checkField(Name, setErrorName);
+    const isSurnameValid = checkField(Surname, setErrorSurname);
+  
+    return isNameValid && isSurnameValid;
+  };

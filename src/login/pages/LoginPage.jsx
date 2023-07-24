@@ -1,105 +1,78 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { startLogin, setError } from "../../store/";
+import { useError, useForm } from "../../hooks";
+import { checkFormLogin } from "../helpers";
 
-import { startLogin,setError } from "../../store/"
-import { useError, useForm } from "../../hooks"
-import { checkFormLogin } from "../helpers"
+const formData = {
+  Email: '',
+  Password: ''
+};
 
-const formData={ 
-    Email:'',
-    Password:''
-}
+export const LoginPage = () => {
+  const dispatch = useDispatch();
+  const { Email, Password, onInputChange } = useForm(formData);
 
-export const LoginPage=()=>{
+  const { ErrorMail, setErrorMail, ErrorPassword, setErrorPassword } = useError();
+  const { error } = useSelector(state => state.auth);
 
-    const dispatch =useDispatch()
-    const {Email,Password,onInputChange}= useForm(formData)
-
-    const {ErrorMail,
-        setErrorMail,
-        ErrorPassword,
-        setErrorPassword
-    }= useError()
-
-    const {error} =useSelector(state=>state.auth)
-
-    useEffect(()=>{
-        if(error)
-        dispatch(setError())
-    },)
-
-    const onSubmit=(event)=>{
-
-        event.preventDefault()
-
-        if(checkFormLogin({Email,
-            Password,
-            setErrorMail,
-            setErrorPassword,
-            })){
-            dispatch( startLogin( {Email, Password} ) );
-        }
+  useEffect(() => {
+    if (error) {
+      dispatch(setError());
     }
+  }, [error, dispatch]);
 
-    return(
-        <div className="container">
-            <div className="row">
-                <div className="col">
-                    <h1 className="fw-bold text-center py-5">Bienvenido</h1>
-                </div>
+  const onSubmit = (event) => {
+    event.preventDefault();
 
-                {
-                    (error) &&
-                    <div className="alert alert-danger" role="alert">
-                        usuario y/o contraseña incorrectas
-                    </div>
-                }
+    if (checkFormLogin({ Email, Password, setErrorMail, setErrorPassword })) {
+      dispatch(startLogin({ Email, Password }));
+    }
+  };
 
-                <form onSubmit={onSubmit}>
-    
-                    {
-                        (ErrorMail)
-                        ?<>
-                            <div className="mb-6 col-sm-4-auto p-4 text-center border border-danger">
-                                <label className="form-label"> Mail</label>
-                                <input type="email" className="form-control" name= "Email" value={Email} onChange={onInputChange}/>
-                            </div> <p>Mail es requerido correctamente</p>
-                        </>
-                        :<div className="mb-6 col-sm-4-auto p-4 text-center">
-                            <label className="form-label"> Mail</label>
-                            <input type="email" className="form-control" name= "Email" value={Email} onChange={onInputChange}/>
-                        </div>
-                    }
-
-                    {
-                        (!ErrorPassword)
-                        ?<div className="mb-6 col-sm-4-auto p-4 text-center">
-                            <label className="form-label"> Password</label>
-                            <input type="password" className="form-control" name= "Password" value={Password} onChange={onInputChange}/>
-                        </div>
-                        :<>
-                            <div className="mb-6 col-sm-4-auto p-4 text-center border  border-danger">
-                                <label className="form-label"> Password</label>
-                                <input type="password" className="form-control" name= "Password" value={Password} onChange={onInputChange}/>
-                            </div>
-                            <p>Contraseña es requerido</p>
-                        </>
-                    }
-
-                    <div className="mb-6 col-sm-4-auto p-4 text-center">
-                        <button type="submit" className="btn btn-primary" onClick={onSubmit} > Iniciar sesion</button>
-                    </div>
-
-                    <div className="my-3 mb-6 col-sm-4-auto p-5 text-center">
-                        <span>No tienes cuenta? </span> <Link to={"/auth/register"}>Registrarse</Link>
-                    </div>
-                    <div className="mb-6 col-sm-4-auto  p-5 text-center">
-                        <span>registro medico </span> <Link to={"/auth/medico"}>registrase</Link>
-                    </div>
-                </form>
-            </div>
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <h1 className="fw-bold text-center py-5">Bienvenido</h1>
         </div>
-    )
-}
+
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            usuario y/o contraseña incorrectas
+          </div>
+        )}
+
+        <form onSubmit={onSubmit}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorMail ? 'border border-danger' : ''}`}>
+            <label className="form-label"> Mail</label>
+            <input type="email" className="form-control" name="Email" value={Email} onChange={onInputChange} />
+            {ErrorMail && <p>Mail es requerido correctamente</p>}
+          </div>
+
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorPassword ? 'border border-danger' : ''}`}>
+            <label className="form-label"> Password</label>
+            <input type="password" className="form-control" name="Password" value={Password} onChange={onInputChange} />
+            {ErrorPassword && <p>Contraseña es requerido</p>}
+          </div>
+
+          <div className="mb-6 col-sm-4-auto p-4 text-center">
+            <button type="submit" className="btn btn-primary">
+              Iniciar sesión
+            </button>
+          </div>
+
+          <div className="my-3 mb-6 col-sm-4-auto p-5 text-center">
+            <span>No tienes cuenta? </span> <Link to={"/auth/register"}>Registrarse</Link>
+          </div>
+
+          <div className="mb-6 col-sm-4-auto p-5 text-center">
+            <span>Registro médico </span> <Link to={"/auth/medico"}>Registrarse</Link>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};

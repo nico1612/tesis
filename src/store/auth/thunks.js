@@ -1,36 +1,32 @@
 import axios from "axios";
-import { checkingCredentials,login,logout, setError  } from "./authSlice";
+import { checkingCredentials, login, logout, setError } from "./authSlice";
 
+export const startLogin = ({ Email, Password }) => {
+  return async (dispatch) => {
+    try {
+      dispatch(checkingCredentials());
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: { "correo": Email, "password": Password },
+      };
 
+      const result = await axios(`http://localhost:8080/api/auth/login`, options);
 
-export const startLogin=({Email, Password})=>{
-    return async(dispatch)=>{
-
-        dispatch( checkingCredentials() );
-        const options = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            data:{"correo":Email,"password":Password}
-        };
-
-        const result=await axios(`http://localhost:8080/api/auth/login`,options)
-      
-        if(result.data.ok){
-            const {data}=result
-            console.log(data)
-            dispatch( login( data ));
-        }
-        else{
-            dispatch(logout(result.status))
-            dispatch(setError())
-        }
-
+      if (result.data.ok) {
+        const { data } = result;
+        console.log(data);
+        dispatch(login(data));
+      } else {
+        dispatch(setError());
+      }
+    } catch (error) {
+      dispatch(setError());
     }
-
-    
-}
+  };
+};
 
 export const startRegister=({email,surname,name,password})=>{
     
