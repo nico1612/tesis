@@ -2,10 +2,15 @@
 //import {HomePage, HistorialPage, ChatPage, BuscarPage } from "../pages"
 //import { Footer, Navbar } from "../components"
 
+import { Navigate, Route, Routes } from "react-router-dom"
+
+import { BuscarPage, ChatPage, HistorialPage, HomePage } from "../pages"
+import { Footer, Navbar } from "../components"
+
 export const MedicoRouter=()=>{
     return(
         <>
-    {/*        <Navbar/>
+            <Navbar/>
             <Routes>
                 <Route path="home" element={<HomePage/>}/>
                 <Route path="historial" element={<HistorialPage/>}/>
@@ -15,7 +20,7 @@ export const MedicoRouter=()=>{
 
                 <Route path="/*" element={<Navigate to="/home"/>}/>
             </Routes>
-            <Footer/>*/}
+            <Footer/>
         </>
     )
 }

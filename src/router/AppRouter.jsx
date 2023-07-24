@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { AuthRouter } from "../login";
 import { UsuariosRouter } from "../usuarios/router/UsuariosRouter";
-import { MedicoRouter } from "../../medico/router/MedicoRouter";
+import { MedicoRouter } from "../medico/router/MedicoRouter";
 
 export const AppRouter = () => {
   const { status, rol } = useSelector((state) => state.auth);

@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-import { startRegister, setError } from "../../store/";
+import { startRegister, setError } from "../../store";
 import { useError, useForm } from "../../hooks";
 import { checkFormLogin, checkFormRegister } from "../helpers";
 
 const formData = {
-  Email: '',
-  Surname: '',
-  Name: '',
-  Password: ''
+  Email: "",
+  Surname: "",
+  Name: "",
+  Password: "",
 };
 
 export const RegisterPage = () => {
@@ -20,20 +19,20 @@ export const RegisterPage = () => {
     Name,
     Surname,
     Password,
-    onInputChange
+    onInputChange,
   } = useForm(formData);
 
-  const { error } = useSelector(state => state.auth);
+  const { error } = useSelector((state) => state.auth);
 
   const {
     ErrorMail,
-    setErrorMail,
     ErrorPassword,
-    setErrorPassword,
     ErrorName,
-    setErrorName,
     ErrorSurname,
-    setErrorSurname
+    setErrorMail,
+    setErrorPassword,
+    setErrorName,
+    setErrorSurname,
   } = useError();
 
   useEffect(() => {
@@ -50,13 +49,13 @@ export const RegisterPage = () => {
         Name,
         Surname,
         setErrorName,
-        setErrorSurname
+        setErrorSurname,
       }) &&
       checkFormLogin({
         Email,
         Password,
         setErrorMail,
-        setErrorPassword
+        setErrorPassword,
       })
     ) {
       dispatch(startRegister({ Email, Password, Name, Surname }));
@@ -77,25 +76,25 @@ export const RegisterPage = () => {
         )}
 
         <form className="col-xs-12" onSubmit={onSubmit}>
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorName ? 'border border-danger' : ''}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorName ? "border border-danger" : ""}`}>
             <label className="form-label"> Nombre</label>
             <input type="text" className="form-control" name="Name" value={Name} onChange={onInputChange} />
             {ErrorName && <p>Nombre es requerido</p>}
           </div>
 
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorSurname ? 'border border-danger' : ''}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorSurname ? "border border-danger" : ""}`}>
             <label className="form-label"> Apellido</label>
             <input type="text" className="form-control" name="Surname" value={Surname} onChange={onInputChange} />
             {ErrorSurname && <p>Apellido es requerido</p>}
           </div>
 
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorMail ? 'border border-danger' : ''}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorMail ? "border border-danger" : ""}`}>
             <label className="form-label"> Mail</label>
             <input type="email" className="form-control" name="Email" value={Email} onChange={onInputChange} />
             {ErrorMail && <p>Mail es requerido</p>}
           </div>
 
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorPassword ? 'border border-danger' : ''}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorPassword ? "border border-danger" : ""}`}>
             <label className="form-label"> Password</label>
             <input type="password" className="form-control" name="Password" value={Password} onChange={onInputChange} />
             <span id="passwordHelpInline" className="form-text">
@@ -111,11 +110,11 @@ export const RegisterPage = () => {
           </div>
 
           <div className="mb-6 col-sm-4-auto p-5 text-center">
-            <span> Tienes cuenta? </span> <Link to={"/auth/login"}>Iniciar sesión</Link>
+            <span> Tienes cuenta? </span> <Link to="/auth/login">Iniciar sesión</Link>
           </div>
 
           <div className="mb-6 col-sm-4-auto p-5 text-center">
-            <span>registro médico </span> <Link to={"/auth/medico"}>Registrarse</Link>
+            <span>registro médico </span> <Link to="/auth/medico">Registrarse</Link>
           </div>
         </form>
       </div>

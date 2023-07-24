@@ -1,19 +1,19 @@
-import { useState } from "react"
+import { useState } from "react";
 
-export const useError=()=>{
-    const [ErrorMail,setErrorMail] =useState(false)
-    const [ErrorPassword,setErrorPassword] =useState(false)
-    const [ErrorName,setErrorName] =useState(false)
-    const [ErrorSurname,setErrorSurname] =useState(false)
+export const useError = () => {
+  const [errorMail, setErrorMail] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
+  const [errorName, setErrorName] = useState(false);
+  const [errorSurname, setErrorSurname] = useState(false);
 
-    return{
-        ErrorMail,
-        ErrorSurname,
-        ErrorPassword,
-        ErrorName,
-        setErrorMail,
-        setErrorPassword,
-        setErrorName,
-        setErrorSurname,
-    }
-}
+  return {
+    errorMail,
+    errorPassword,
+    errorName,
+    errorSurname,
+    setErrorMail,
+    setErrorPassword,
+    setErrorName,
+    setErrorSurname,
+  };
+};

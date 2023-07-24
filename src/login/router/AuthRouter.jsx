@@ -5,7 +5,7 @@ import { Footer, Navbar } from "../components"
 
 export const AuthRouter=()=>{
     return(
-        <body className=''>
+        <>
             <Navbar/>
             <Routes >
                 <Route path="/" element={<HomePage/>}/>
@@ -16,6 +16,6 @@ export const AuthRouter=()=>{
                 <Route path="/*" element={<Navigate to="/auth"/>}/>
             </Routes>
             <Footer/>
-        </body>
+        </>
     )
 }

@@ -6,6 +6,7 @@ export const Navbar = () => {
       <Link className="navbar-brand" to="/">
         home
       </Link>
+
       <button
         className="navbar-toggler"
         type="button"
@@ -17,16 +18,22 @@ export const Navbar = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
+
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ml-auto">
+        <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to="/acerca">
-              acerca de nosotros
+            <Link className="nav-link" to="/historial">
+              historial
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/auth/login">
-              login
+            <Link className="nav-link" to="/buscar">
+              buscar pacientes
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/chat">
+              hablar pacientes
             </Link>
           </li>
         </ul>
