@@ -1,24 +1,24 @@
 import { useForm } from "../../hooks";
 
-export const HistorialPage=()=>{
-    const { searchText, onInputChange } = useForm({
-        searchText: q
-      });
-    
-    return(
-        <form>
-            <div className="app">
-                <h1>buscar paciente</h1>
-            </div>
-            <input 
-                type="text"
-                placeholder="Search a hero"
-                className="form-control"
-                name="searchText"
-                autoComplete="off"
-                value={ searchText }
-                onChange={ onInputChange }
-              />
-        </form>
-    )
-}
+export const HistorialPage = () => {
+  const { searchText, onInputChange } = useForm({
+    searchText: ''
+  });
+
+  return (
+    <div className="app">
+      <h1>Buscar paciente</h1>
+      <form>
+        <input
+          type="text"
+          placeholder="Buscar un paciente"
+          className="form-control"
+          name="searchText"
+          autoComplete="off"
+          value={searchText}
+          onChange={onInputChange}
+        />
+      </form>
+    </div>
+  );
+};
