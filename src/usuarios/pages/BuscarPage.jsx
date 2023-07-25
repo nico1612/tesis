@@ -1,25 +1,31 @@
-import { useForm } from "../../hooks";
+import { useForm } from '../../hooks';
 
-export const BuscarPage=()=>{
+export const BuscarPage = () => {
+  const { searchText, onInputChange } = useForm({
+    searchText: ''
+  });
 
-    const { searchText, onInputChange } = useForm({
-        searchText: q
-      });
-    
-    return(
-        <form>
-            <div className="app">
-                <h1>buscar paciente</h1>
-            </div>
-            <input 
-                type="text"
-                placeholder="Search a hero"
-                className="form-control"
-                name="searchText"
-                autoComplete="off"
-                value={ searchText }
-                onChange={ onInputChange }
-              />
-        </form>
-    )
-}
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(searchText);
+    // dispatch()
+  };
+
+  return (
+    <div className="app">
+      <h1>Buscar médico</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          placeholder="Buscar un médico"
+          className="form-control"
+          name="searchText"
+          autoComplete="off"
+          value={searchText}
+          onChange={onInputChange}
+        />
+        <button className="btn btn-primary">Buscar</button>
+      </form>
+    </div>
+  );
+};
