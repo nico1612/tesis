@@ -15,9 +15,8 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
   const { Email, Password, onInputChange } = useForm(formData);
 
-  const { ErrorMail, setErrorMail, ErrorPassword, setErrorPassword } = useError();
+  const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError();
   const { error } = useSelector(state => state.auth);
-
   useEffect(() => {
     if (error) {
       dispatch(setError());
@@ -30,6 +29,7 @@ export const LoginPage = () => {
     if (checkFormLogin({ Email, Password, setErrorMail, setErrorPassword })) {
       dispatch(startLogin({ Email, Password }));
     }
+    console.log(ErrorMail)
   };
 
   return (
@@ -46,16 +46,16 @@ export const LoginPage = () => {
         )}
 
         <form onSubmit={onSubmit}>
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorMail ? 'border border-danger' : ''}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorMail ? 'border border-danger' : ''}`}>
             <label className="form-label"> Mail</label>
             <input type="email" className="form-control" name="Email" value={Email} onChange={onInputChange} />
-            {ErrorMail && <p>Mail es requerido correctamente</p>}
+            {errorMail && <p>Mail es requerido correctamente</p>}
           </div>
 
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorPassword ? 'border border-danger' : ''}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorPassword ? 'border border-danger' : ''}`}>
             <label className="form-label"> Password</label>
             <input type="password" className="form-control" name="Password" value={Password} onChange={onInputChange} />
-            {ErrorPassword && <p>Contraseña es requerido</p>}
+            {errorPassword && <p>Contraseña es requerido</p>}
           </div>
 
           <div className="mb-6 col-sm-4-auto p-4 text-center">

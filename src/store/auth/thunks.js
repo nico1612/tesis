@@ -28,7 +28,7 @@ export const startLogin = ({ Email, Password }) => {
   };
 };
 
-export const startRegister=({email,surname,name,password})=>{
+export const startRegister=({Email, Password, Name, Surname })=>{
     
     return async(dispatch)=>{
 
@@ -51,7 +51,7 @@ export const startRegister=({email,surname,name,password})=>{
             dispatch(setError())
 
         }*/
-        console.log({email,surname,name,password})
+        console.log({Email, Password, Name, Surname })
 
     }
 }

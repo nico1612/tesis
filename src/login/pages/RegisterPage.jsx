@@ -25,10 +25,10 @@ export const RegisterPage = () => {
   const { error } = useSelector((state) => state.auth);
 
   const {
-    ErrorMail,
-    ErrorPassword,
-    ErrorName,
-    ErrorSurname,
+    errorMail,
+    errorPassword,
+    errorName,
+    errorSurname,
     setErrorMail,
     setErrorPassword,
     setErrorName,
@@ -76,31 +76,31 @@ export const RegisterPage = () => {
         )}
 
         <form className="col-xs-12" onSubmit={onSubmit}>
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorName ? "border border-danger" : ""}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorName ? "border border-danger" : ""}`}>
             <label className="form-label"> Nombre</label>
             <input type="text" className="form-control" name="Name" value={Name} onChange={onInputChange} />
-            {ErrorName && <p>Nombre es requerido</p>}
+            {errorName && <p>Nombre es requerido</p>}
           </div>
 
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorSurname ? "border border-danger" : ""}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorSurname ? "border border-danger" : ""}`}>
             <label className="form-label"> Apellido</label>
             <input type="text" className="form-control" name="Surname" value={Surname} onChange={onInputChange} />
-            {ErrorSurname && <p>Apellido es requerido</p>}
+            {errorSurname && <p>Apellido es requerido</p>}
           </div>
 
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorMail ? "border border-danger" : ""}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorMail ? "border border-danger" : ""}`}>
             <label className="form-label"> Mail</label>
             <input type="email" className="form-control" name="Email" value={Email} onChange={onInputChange} />
-            {ErrorMail && <p>Mail es requerido</p>}
+            {errorMail && <p>Mail es requerido</p>}
           </div>
 
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${ErrorPassword ? "border border-danger" : ""}`}>
+          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorPassword ? "border border-danger" : ""}`}>
             <label className="form-label"> Password</label>
             <input type="password" className="form-control" name="Password" value={Password} onChange={onInputChange} />
             <span id="passwordHelpInline" className="form-text">
               Debe tener 8 caracteres, por lo menos 1 mayúscula, 1 minúscula, 1 número y 1 caracter especial.
             </span>
-            {ErrorPassword && <p>Contraseña es requerida</p>}
+            {errorPassword && <p>Contraseña es requerida</p>}
           </div>
 
           <div className="mb-6 col-sm-4-auto p-4 text-center">
