@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 export const HomePage = () => {
   const [archivos, setArchivos] = useState([]);
@@ -18,20 +18,14 @@ export const HomePage = () => {
   };
 
   return (
-    <>
-      <br />
-      <h1 className="d-flex justify-content-center">
-        Subir imágenes del área afectada
-      </h1>
-      <br />
-      <div className="app d-flex justify-content-center">
-        <br />
+    <div className="container">
+      <h1 className="text-center my-4">Subir imágenes del área afectada</h1>
+      <div className="d-flex justify-content-center my-4">
         <input type="file" name="files" multiple onChange={subirArchivos} />
-        <br />
-        <button className="btn btn-primary" onClick={insertarArchivos}>
+        <button className="btn btn-primary ms-2" onClick={insertarArchivos}>
           Insertar archivos
         </button>
       </div>
-    </>
+    </div>
   );
 };

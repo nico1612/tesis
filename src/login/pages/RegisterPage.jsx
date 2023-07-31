@@ -64,59 +64,81 @@ export const RegisterPage = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col">
-          <h2 className="fw-bold text-center py-5">Registrese</h2>
+      <div className="row justify-content-center">
+        <div className="col-md-6 mt-5">
+          <h2 className="fw-bold text-center mb-5">Regístrate</h2>
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              Usuario ya registrado
+            </div>
+          )}
+          <form onSubmit={onSubmit}>
+            <div className={`mb-3 ${errorName ? "has-error" : ""}`}>
+              <label className="form-label">Nombre</label>
+              <input
+                type="text"
+                className={`form-control ${errorName ? "is-invalid" : ""}`}
+                name="Name"
+                value={Name}
+                onChange={onInputChange}
+              />
+              {errorName && <div className="invalid-feedback">Nombre es requerido</div>}
+            </div>
+
+            <div className={`mb-3 ${errorSurname ? "has-error" : ""}`}>
+              <label className="form-label">Apellido</label>
+              <input
+                type="text"
+                className={`form-control ${errorSurname ? "is-invalid" : ""}`}
+                name="Surname"
+                value={Surname}
+                onChange={onInputChange}
+              />
+              {errorSurname && <div className="invalid-feedback">Apellido es requerido</div>}
+            </div>
+
+            <div className={`mb-3 ${errorMail ? "has-error" : ""}`}>
+              <label className="form-label">Mail</label>
+              <input
+                type="email"
+                className={`form-control ${errorMail ? "is-invalid" : ""}`}
+                name="Email"
+                value={Email}
+                onChange={onInputChange}
+              />
+              {errorMail && <div className="invalid-feedback">Mail es requerido</div>}
+            </div>
+
+            <div className={`mb-3 ${errorPassword ? "has-error" : ""}`}>
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                className={`form-control ${errorPassword ? "is-invalid" : ""}`}
+                name="Password"
+                value={Password}
+                onChange={onInputChange}
+              />
+              <span id="passwordHelpInline" className="form-text">
+                Debe tener 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial.
+              </span>
+              {errorPassword && <div className="invalid-feedback">Contraseña es requerida</div>}
+            </div>
+
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">
+                Registrarse
+              </button>
+            </div>
+          </form>
+
+          <div className="my-3 text-center">
+            <span>¿Ya tienes cuenta? </span> <Link to="/auth/login">Iniciar sesión</Link>
+          </div>
+
+          <div className="text-center">
+            <span>Registro médico </span> <Link to="/auth/medico">Registrarse</Link>
+          </div>
         </div>
-
-        {error && (
-          <div className="alert alert-danger" role="alert">
-            Usuario registrado
-          </div>
-        )}
-
-        <form className="col-xs-12" onSubmit={onSubmit}>
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorName ? "border border-danger" : ""}`}>
-            <label className="form-label"> Nombre</label>
-            <input type="text" className="form-control" name="Name" value={Name} onChange={onInputChange} />
-            {errorName && <p>Nombre es requerido</p>}
-          </div>
-
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorSurname ? "border border-danger" : ""}`}>
-            <label className="form-label"> Apellido</label>
-            <input type="text" className="form-control" name="Surname" value={Surname} onChange={onInputChange} />
-            {errorSurname && <p>Apellido es requerido</p>}
-          </div>
-
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorMail ? "border border-danger" : ""}`}>
-            <label className="form-label"> Mail</label>
-            <input type="email" className="form-control" name="Email" value={Email} onChange={onInputChange} />
-            {errorMail && <p>Mail es requerido</p>}
-          </div>
-
-          <div className={`mb-6 col-sm-4-auto p-4 text-center ${errorPassword ? "border border-danger" : ""}`}>
-            <label className="form-label"> Password</label>
-            <input type="password" className="form-control" name="Password" value={Password} onChange={onInputChange} />
-            <span id="passwordHelpInline" className="form-text">
-              Debe tener 8 caracteres, por lo menos 1 mayúscula, 1 minúscula, 1 número y 1 caracter especial.
-            </span>
-            {errorPassword && <p>Contraseña es requerida</p>}
-          </div>
-
-          <div className="mb-6 col-sm-4-auto p-4 text-center">
-            <button type="submit" className="btn btn-primary">
-              Registrarse
-            </button>
-          </div>
-
-          <div className="mb-6 col-sm-4-auto p-5 text-center">
-            <span> Tienes cuenta? </span> <Link to="/auth/login">Iniciar sesión</Link>
-          </div>
-
-          <div className="mb-6 col-sm-4-auto p-5 text-center">
-            <span>registro médico </span> <Link to="/auth/medico">Registrarse</Link>
-          </div>
-        </form>
       </div>
     </div>
   );

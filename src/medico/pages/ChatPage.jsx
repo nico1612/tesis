@@ -2,7 +2,7 @@ export const ChatPage=()=>{
 
     return(
         <>
-            <div>Buscar</div>
+            <div>chat</div>
         </>
     )
 }
