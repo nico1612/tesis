@@ -2,10 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useForm } from "../../hooks/useForm";
 import { useSelector } from "react-redux";
+import { FormBuscarPacientes } from "../components/FormBuscarPacientes";
+import { BuscarPacientes } from "../components/BuscarPacientes";
 
 export const BuscarPage = () => {
 
-  const [paciente, setPaciente] = useState([]); // Utiliza useState para manejar el estado de los pacientes
+  const [pacientes, setPaciente] = useState([]); // Utiliza useState para manejar el estado de los pacientes
   const { searchText, onInputChange } = useForm({
     searchText: ''
   });
@@ -45,31 +47,9 @@ export const BuscarPage = () => {
   return (
     <div className="container">
       <h1 className="text-center my-4">Buscar paciente</h1>
-      <form onSubmit={onSubmit} className="d-flex justify-content-center">
-        <input
-          type="text"
-          placeholder="Buscar un paciente"
-          className="form-control me-2"
-          name="searchText"
-          autoComplete="off"
-          value={searchText}
-          onChange={onInputChange}
-        />
-        <button className="btn btn-primary" type="submit">Buscar</button>
-      </form>
-      {paciente.length === 0 ? null : (
-        <div>
-          <h2 className="mt-4">Resultados de la búsqueda:</h2>
-          {paciente.map((paciente) => (
-            <div key={paciente.uid} className="card mt-2"> {/* Agrega la propiedad key con un valor único, como el ID del paciente */}
-              <div className="card-body">
-                <h5 className="card-title">Nombre: {paciente.nombre}</h5>
-                <p className="card-text">Apellido: {paciente.apellido}</p>
-                <p className="card-text">Correo: {paciente.correo}</p>
-                <button className="btn btn-secondary" onClick={() => mandarSolicitud({paciente})}>Agregar médico</button>              </div>
-            </div>
-          ))}
-        </div>
+      <FormBuscarPacientes onSubmit={onSubmit} searchText={searchText} onInputChange={onInputChange}/>
+      {pacientes.length === 0 ? null : (
+        <BuscarPacientes pacientes={pacientes} mandarSolicitud={mandarSolicitud}/>
       )}
     </div>
   );
