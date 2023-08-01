@@ -31,7 +31,7 @@ export const BuscarPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      data:{"receptor":medico.uid,"emisor":userId}
+      data:{"receptor":paciente.uid,"emisor":userId}
     }
 
     try {
