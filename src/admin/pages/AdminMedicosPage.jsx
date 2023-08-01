@@ -6,43 +6,47 @@ import { useNavigate } from "react-router-dom";
 
 export const AdminMedicosPages = () => {
   const dispatch = useDispatch();
-  const Navigate=useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(startGettingMedicos());
   }, []);
 
   const { medicos } = useSelector((state) => state.medico);
-  console.log(medicos)
-  const cambiarestado=({medico})=>{  
-    
-    dispatch(setActiveMedico({medico}))
-   Navigate(`/medicos/${medico.nombre}`)
-  }
+
+  const cambiarestado = ({ medico }) => {
+    dispatch(setActiveMedico({ medico }));
+    navigate(`/medicos/${medico.nombre}`);
+  };
+
   return (
-    <div>
-      <table className="table">
-        <thead>
+    <div className="container">
+      <h2 className="my-4">Listado de Médicos</h2>
+      <table className="table table-bordered">
+        <thead className="table-primary">
           <tr>
-            <th scope="col">nombre</th>
-            <th scope="col">apellido</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
             <th scope="col">Estado</th>
-            <th scope="col">licencia</th>
-            <th scope="col">cambiar estado</th>
+            <th scope="col">Licencia</th>
+            <th scope="col">Cambiar Estado</th>
           </tr>
         </thead>
         <tbody>
           {medicos.map((medico) => (
-             <tr key={medico.id}>
+            <tr key={medico.id}>
               <td>{medico.nombre}</td>
               <td>{medico.apellido}</td>
               <td>{medico.estado ? "Activo" : "Inactivo"}</td>
               <td>{medico.licencia}</td>
               <td>
-                <button className="btn" onClick={() => cambiarestado({medico})}>
-                    actualizar estado
+                <button
+                  className={`btn ${medico.estado ? "btn-success" : "btn-danger"}`}
+                  onClick={() => cambiarestado({ medico })}
+                >
+                  {medico.estado ? "Desactivar" : "Activar"}
                 </button>
-                </td>
+              </td>
             </tr>
           ))}
         </tbody>
