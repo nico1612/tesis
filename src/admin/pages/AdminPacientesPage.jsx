@@ -16,8 +16,9 @@ export const AdminPacientesPages = () => {
   const { pacientes } = useSelector((state) => state.paciente);
 
   const cambiarestado = ({ paciente }) => {
+    console.log(paciente)
     dispatch(setActivePaciente({ paciente }));
-    navigate(`/paciente/${paciente.nombre}`);
+    navigate(`/pacientes/${paciente.nombre}`);
   };
 
   return (

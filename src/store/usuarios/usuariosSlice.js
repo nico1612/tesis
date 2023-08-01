@@ -15,11 +15,9 @@ export const pacientesSlice = createSlice({
             state.isSaving = false;
         },
         setActivePaciente: (state, action) => {
-            if(action.payload!==undefined)
             state.active = action.payload;
-            else{
-                state.active=null
-            }
+            console.log(state.active)
+
         },
         setPacientes: (state, action) => {
             state.pacientes = action.payload;

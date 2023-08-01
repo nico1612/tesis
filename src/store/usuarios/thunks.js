@@ -5,7 +5,6 @@ export const startGettingpacientes=()=>{
 
     return async (dispatch)=>{
 
-        
         const options = {
             method: "GET",
             headers: {
@@ -22,11 +21,10 @@ export const startGettingpacientes=()=>{
 
 }
 
-export const putMedicos=({ paciente})=>{
+export const putUsuario=({ paciente})=>{
 
     return async (dispatch)=>{
 
-        console.log(paciente)
         const options = {
             method: "PUT",
             headers: {
