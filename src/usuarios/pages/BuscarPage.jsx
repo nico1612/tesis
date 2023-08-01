@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from '../../hooks';
 import { useSelector } from 'react-redux';
+import { MedicosBuscar } from '../components/MedicosBuscar';
 
 export const BuscarPage = () => {
   const [medicos, setMedicos] = useState([]);
@@ -62,16 +63,7 @@ export const BuscarPage = () => {
           {medicos.length === 0 ? null : (
             <div className="mt-4">
               <h2>Resultados de la búsqueda:</h2>
-              {medicos.map((medico) => (
-                <div key={medico.uid} className="card mt-3">
-                  <div className="card-body">
-                    <h5 className="card-title">Nombre: {medico.nombre}</h5>
-                    <p className="card-text">Apellido: {medico.apellido}</p>
-                    <p className="card-text">Correo: {medico.correo}</p>
-                    <button className="btn btn-secondary" onClick={() => mandarSolicitud({medico})}>Agregar médico</button>
-                  </div>
-                </div>
-              ))}
+              <MedicosBuscar medicos={medicos} mandarSolicitud={mandarSolicitud}/>
             </div>
           )}
         </div>
