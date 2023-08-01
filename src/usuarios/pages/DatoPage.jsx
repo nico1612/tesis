@@ -13,7 +13,6 @@ export const DatoPage = () => {
               <h4>Nombre: {name}</h4>
               <h4>Correo: {email}</h4>
             </div>
-            {/* Agregar aquí otros datos relevantes si los hay */}
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useForm } from '../../hooks';
 import { useSelector } from 'react-redux';
 import { MedicosBuscar } from '../components/MedicosBuscar';
+import { FormBuscar } from '../components/FormBuscar';
 
 export const BuscarPage = () => {
   const [medicos, setMedicos] = useState([]);
@@ -46,20 +47,7 @@ export const BuscarPage = () => {
       <div className="row justify-content-center">
         <div className="col-md-8">
           <h1 className="text-center mb-4">Buscar médico</h1>
-          <form className="d-flex" onSubmit={onSubmit}>
-            <input
-              type="text"
-              placeholder="Buscar un médico"
-              className="form-control me-2"
-              name="searchText"
-              autoComplete="off"
-              value={searchText}
-              onChange={onInputChange}
-            />
-            <button className="btn btn-primary" type="submit">
-              Buscar
-            </button>
-          </form>
+         <FormBuscar onSubmit={onSubmit} searchText={searchText} onInputChange={onInputChange}/>
           {medicos.length === 0 ? null : (
             <div className="mt-4">
               <h2>Resultados de la búsqueda:</h2>
