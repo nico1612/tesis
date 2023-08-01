@@ -26,19 +26,19 @@ export const putMedicos=({ medico})=>{
 
     return async (dispatch)=>{
 
-        
+        console.log(medico)
         const options = {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
+            data:{"medico":medico}
         };
-        updateMedicos({ medico })
-        const {data} = await axios("http://localhost:8080/api/medico/", options);
-        console.log(data)
-        //const {medicos} =data
 
-        //dispatch( setMedicos(medicos))
+        const id=medico.uid
+       
+        await axios(`http://localhost:8080/api/medico/${id}`, options);
+        
     }
 
 }
