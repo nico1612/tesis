@@ -1,3 +1,5 @@
 export * from "./Footer"
 export * from "./Navbar"
 export * from "./Sidebar"
+export * from "./FormBuscar"
+export * from "./MedicosBuscar"

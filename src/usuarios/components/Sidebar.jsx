@@ -7,6 +7,7 @@ export const Sidebar = () => {
         <br/>
       <ul>
         <li><Link to="/dato">Datos personales</Link></li>
+        <li><Link to="/solicitudes"> solicitudes</Link></li>
         {/* Agrega más enlaces aquí */}
       </ul>
     </div>

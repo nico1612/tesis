@@ -1,6 +1,8 @@
 import axios from "axios";
 import { setMedicos, updateMedicos } from "./medicosSlice"
 
+const url=import.meta.env.VITE_APP_IP
+
 export const startGettingMedicos=()=>{
 
     return async (dispatch)=>{
@@ -13,7 +15,7 @@ export const startGettingMedicos=()=>{
             },
         };
 
-        const {data} = await axios("http://localhost:8080/api/medico/", options);
+        const {data} = await axios(`${url}/api/medico/`, options);
         //console.log(data)
         const {medicos} =data
 
@@ -37,7 +39,7 @@ export const putMedicos=({ medico})=>{
 
         const id=medico.uid
        
-        await axios(`http://localhost:8080/api/medico/${id}`, options);
+        await axios(`${url}/api/medico/${id}`, options);
         
     }
 
@@ -56,7 +58,7 @@ export const cambiarEstado=({medico})=>{
             data:{"medico":medico}
         };
 
-       await axios("http://localhost:8080/api/medico/", options);
+       await axios(`${url}/api/medico/`, options);
        
 
         dispatch( updateMedicos(medico))*/

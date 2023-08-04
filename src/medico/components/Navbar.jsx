@@ -1,6 +1,15 @@
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { startLogout } from "../../store/auth/thunks";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(startLogout());
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -36,6 +45,11 @@ export const Navbar = () => {
               <Link className="nav-link" to="/chat">
                 Hablar con pacientes
               </Link>
+            </li>
+            <li className="nav-item">
+              <button className="btn btn-primary" onClick={logout}>
+                Logout
+              </button>
             </li>
           </ul>
         </div>

@@ -1,5 +1,3 @@
-
-
 export const BuscarPacientes=({ pacientes,mandarSolicitud})=>{
     return(
         <div>
@@ -10,7 +8,7 @@ export const BuscarPacientes=({ pacientes,mandarSolicitud})=>{
                 <h5 className="card-title">Nombre: {paciente.nombre}</h5>
                 <p className="card-text">Apellido: {paciente.apellido}</p>
                 <p className="card-text">Correo: {paciente.correo}</p>
-                <button className="btn btn-secondary" onClick={() => mandarSolicitud({paciente})}>Agregar médico</button>              </div>
+                <button className="btn btn-secondary" onClick={() => mandarSolicitud({paciente})}>Agregar paciente</button>              </div>
             </div>
           ))}
         </div>

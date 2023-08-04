@@ -2,8 +2,9 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from '../../hooks';
 import { useSelector } from 'react-redux';
-import { MedicosBuscar } from '../components/MedicosBuscar';
-import { FormBuscar } from '../components/FormBuscar';
+import { FormBuscar, MedicosBuscar } from '../components';
+
+const url=import.meta.env.VITE_APP_IP
 
 export const BuscarPage = () => {
   const [medicos, setMedicos] = useState([]);
@@ -17,7 +18,7 @@ export const BuscarPage = () => {
     event.preventDefault();
     console.log(searchText);
     try {
-      const response = await axios.get(`http://localhost:8080/api/buscar/medicos/${searchText}`);
+      const response = await axios.get(`${url}/api/buscar/medicos/${searchText}`);
       console.log(response.data.results);
       setMedicos(response.data.results);
     } catch (error) {
@@ -36,7 +37,7 @@ export const BuscarPage = () => {
     }
 
     try {
-      const response = await axios(`http://localhost:8080/api/solicitud`,formData);
+      const response = await axios(`${url}/api/solicitud`,formData);
       console.log(response.data.results);
     } catch (error) {
       console.error('Error en la solicitud:', error.message);

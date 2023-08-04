@@ -1,6 +1,8 @@
 import axios from "axios";
 import { setActivePaciente, setPacientes } from "./usuariosSlice";
 
+const url=import.meta.env.VITE_APP_IP
+
 export const startGettingpacientes=()=>{
 
     return async (dispatch)=>{
@@ -12,7 +14,7 @@ export const startGettingpacientes=()=>{
             },
         };
 
-        const response = await axios("http://localhost:8080/api/usuarios/", options);
+        const response = await axios(`${url}/api/usuarios/`, options);
         const {usuario}=response.data
         console.log(usuario)
         dispatch( setPacientes(usuario))
@@ -35,7 +37,7 @@ export const putUsuario=({ paciente})=>{
 
         const id=paciente.uid
        
-        await axios(`http://localhost:8080/api/usuarios/${id}`, options);
+        await axios(`${url}/api/usuarios/${id}`, options);
         
     }
 

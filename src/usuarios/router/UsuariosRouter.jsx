@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { HomePage, HistorialPage ,ChatPage, BuscarPage, DatoPage } from "../pages"
+import { HomePage, HistorialPage ,ChatPage, BuscarPage, DatoPage, SolicitudesPages } from "../pages"
 import { Footer, Navbar, Sidebar } from "../components"
 
 export const UsuariosRouter = () => {
@@ -15,6 +15,8 @@ export const UsuariosRouter = () => {
             <Route path="chat" element={<ChatPage />} />
             <Route path="buscar" element={<BuscarPage />} />
             <Route path="dato" element={<DatoPage />} />
+            <Route path="solicitudes" element={<SolicitudesPages />} />
+
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
         </div>

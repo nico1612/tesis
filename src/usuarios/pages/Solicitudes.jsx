@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
+const url=import.meta.env.VITE_APP_IP
+
 export const Solicitudes = () => {
   const { userId } = useSelector((state) => state.auth);
   const [solicitudes, setSolicitudes] = useState([]);
@@ -9,7 +11,7 @@ export const Solicitudes = () => {
   useEffect(() => {
     const fetchSolicitudes = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/buscar/solicitud/${userId}`);
+        const response = await axios.get(`${url}/api/buscar/solicitud/${userId}`);
         console.log(response.data.results); // Muestra la respuesta en la consola para verificarla
         setSolicitudes(response.data.results); // Establece el estado de los pacientes con la lista de resultados
       } catch (error) {

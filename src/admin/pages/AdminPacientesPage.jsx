@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { setActivePaciente } from "../../store/usuarios/usuariosSlice";
 import { startGettingpacientes } from "../../store/usuarios/thunks";
+import { TablaCliente } from "../components";
 
 export const AdminPacientesPages = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,6 @@ export const AdminPacientesPages = () => {
   const { pacientes } = useSelector((state) => state.paciente);
 
   const cambiarestado = ({ paciente }) => {
-    console.log(paciente)
     dispatch(setActivePaciente({ paciente }));
     navigate(`/pacientes/${paciente.nombre}`);
   };
@@ -24,39 +24,7 @@ export const AdminPacientesPages = () => {
   return (
     <div className="container">
       <h2 className="my-4">Listado de Pacientes</h2>
-      <table className="table table-bordered">
-        <thead className="table-primary">
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Cambiar Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pacientes.map((paciente) => (
-            <tr key={paciente.id}>
-              <td>{paciente.nombre}</td>
-              <td>
-                <span
-                  className={`badge ${
-                    paciente.estado ? "bg-success" : "bg-danger"
-                  }`}
-                >
-                  {paciente.estado ? "Activo" : "Inactivo"}
-                </span>
-              </td>
-              <td>
-                <button
-                  className={`btn ${paciente.estado ? "btn-success" : "btn-danger"}`}
-                  onClick={() => cambiarestado({ paciente })}
-                >
-                  {paciente.estado ? "Desactivar" : "Activar"}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TablaCliente pacientes={pacientes} cambiarestado={cambiarestado}/>
     </div>
   );
 };

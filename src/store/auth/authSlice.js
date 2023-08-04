@@ -10,6 +10,8 @@ export const authSlice = createSlice({
         email:null,
         userId:null,
         name:null,
+        apellido:null,
+        licencia:null,
         errorMessage:null,
         error:false,
         token:null,
@@ -22,9 +24,13 @@ export const authSlice = createSlice({
             state.email = payload.usuario.correo,
             state.userId = payload.usuario.uid,
             state.name = payload.usuario.nombre,
+            state.apellido=payload.usuario.apellido
             state.error=false,
             state.token=payload.token,
             state.rol=payload.usuario.rol
+            if(payload.usuario.licencia){
+                state.licencia=payload.usuario.licencia
+            }
         },
         logout:(state,{payload})=>{
             state.status='not-authenticated';
