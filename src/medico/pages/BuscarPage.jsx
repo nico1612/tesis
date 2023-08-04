@@ -15,10 +15,9 @@ export const BuscarPage = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(searchText);
     try {
       const response = await axios.get(`${url}/api/buscar/usuarios/${searchText}`);
-      console.log(response.data); // Muestra la respuesta en la consola para verificarla
+      console.log(response); // Muestra la respuesta en la consola para verificarla
       setPacientes(response.data.results); // Establece el estado de los pacientes con la lista de resultados
     } catch (error) {
       console.error('Error en la solicitud:', error.message);

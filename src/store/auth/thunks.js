@@ -20,6 +20,9 @@ export const startLogin = ({ Email, Password }) => async (dispatch) => {
 
     if (response.data.ok) {
       const { data } = response;
+      const dataJSON = JSON.stringify(data.usuario);
+      localStorage.setItem("usuario", dataJSON);
+
       dispatch(login(data));
     } else {
       dispatch(setError());
@@ -28,6 +31,11 @@ export const startLogin = ({ Email, Password }) => async (dispatch) => {
     dispatch(setError());
   }
 };
+
+export const Login = ({ usuario }) => async (dispatch) => {
+  const data={usuario:usuario}
+  dispatch(login(data));
+}
 
 export const startRegister = ({ Email, Password, Name, Surname }) => async (dispatch) => {
   try {
@@ -41,7 +49,7 @@ export const startRegister = ({ Email, Password, Name, Surname }) => async (disp
       data: { nombre: Name, apellido: Surname, correo: Email, password: Password, rol: "PACIENTE_ROLE" },
     };
 
-    const response = await axios(`${url}/api/usuarios`, options);
+    const response = await axios(`${url}/api/pacientes`, options);
     if (response.statusText==='OK') {
       dispatch(startLogin({ Email, Password }));
     } else {
@@ -63,7 +71,6 @@ export const startRegisterMedico = ({ Email, Password, Name, Surname, Licencia }
       data: { nombre: Name, apellido: Surname, correo: Email, password: Password, rol: "MEDICO_ROLE", licencia: Licencia },
     };
 
-    console.log(url)
     await axios(`${url}/api/medico`, options);
   } catch (error) {
     console.error(error);
@@ -71,6 +78,7 @@ export const startRegisterMedico = ({ Email, Password, Name, Surname, Licencia }
 };
 
 export const startLogout = () => (dispatch) => {
+  localStorage.removeItem('usuario');
   dispatch(clearMedicosLogout())
   dispatch(clearPacienteLogout())
   dispatch(logout());

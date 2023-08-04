@@ -13,7 +13,7 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchPacientes = async () => {
       try {
-        const response = await axios.get(`${url}/api/usuarios/${userId}`);
+        const response = await axios.get(`${url}/api/pacientes/${userId}`);
         setPacientes(response.data.usuarios);
         setLoading(false);
       } catch (error) {

@@ -14,7 +14,7 @@ export const startGettingpacientes=()=>{
             },
         };
 
-        const response = await axios(`${url}/api/usuarios/`, options);
+        const response = await axios(`${url}/api/pacientes/`, options);
         const {usuario}=response.data
         console.log(usuario)
         dispatch( setPacientes(usuario))
@@ -37,7 +37,7 @@ export const putUsuario=({ paciente})=>{
 
         const id=paciente.uid
        
-        await axios(`${url}/api/usuarios/${id}`, options);
+        await axios(`${url}/api/pacientes/${id}`, options);
         
     }
 
