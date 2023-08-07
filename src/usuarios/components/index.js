@@ -1,5 +1,4 @@
-export * from "./Footer"
-export * from "./Navbar"
-export * from "./Sidebar"
+export * from "../../componentes/Navbar"
+export * from "../../componentes/Sidebar"
 export * from "./FormBuscar"
 export * from "./MedicosBuscar"

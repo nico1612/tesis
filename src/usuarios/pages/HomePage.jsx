@@ -26,6 +26,7 @@ export const HomePage = () => {
     }
     formData.append("id", userId); // Agregamos el userId al formData con el nombre "id"
 
+    
     try {
       const results = await axios.put(`${url}/api/uploads/files`, formData, {
         headers: {
@@ -36,8 +37,6 @@ export const HomePage = () => {
       setArchivos([]);
       const { _id, ...datosSinId } = results.data;
       setResultados(datosSinId);
-      console.log(datosSinId);
-      console.log(_id);
     } catch (error) {
       console.error("Error al enviar la imagen:", error.message);
       alert("Error al enviar la imagen.");

@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { startLogout } from "../../store/auth/thunks";
+import { startLogout } from "../store/auth/thunks";
 
-export const Navbar = () => {
+export const Navbar = ({nombre,rol}) => {
 
   const dispatch = useDispatch();
 
@@ -12,10 +12,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <Link className="navbar-brand" to="/">
-          Home
-        </Link>
-
+   
         <button
           className="navbar-toggler"
           type="button"
@@ -27,7 +24,8 @@ export const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
+        <h3>{rol}:</h3>
+        <h4>{nombre}</h4>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">

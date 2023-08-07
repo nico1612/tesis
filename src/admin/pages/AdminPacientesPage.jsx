@@ -15,7 +15,8 @@ export const AdminPacientesPages = () => {
   }, []);
 
   const { pacientes } = useSelector((state) => state.paciente);
-
+  
+console.log(pacientes)
   const cambiarestado = ({ paciente }) => {
     dispatch(setActivePaciente({ paciente }));
     navigate(`/pacientes/${paciente.nombre}`);
@@ -24,7 +25,7 @@ export const AdminPacientesPages = () => {
   return (
     <div className="container">
       <h2 className="my-4">Listado de Pacientes</h2>
-      <TablaCliente pacientes={pacientes} cambiarestado={cambiarestado}/>
+        <TablaCliente pacientes={pacientes} cambiarestado={cambiarestado}/>
     </div>
   );
 };

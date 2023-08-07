@@ -1,11 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { startLogout } from "../../store/auth/thunks";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
-
+  const { name } = useSelector((state) => state.auth);
   const logout = () => {
     dispatch(startLogout());
   };
@@ -13,10 +13,8 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <Link className="navbar-brand" to="/">
-          Home
-        </Link>
-
+        <h3>medico:</h3>
+        <h4>{name}</h4>
         <button
           className="navbar-toggler"
           type="button"
