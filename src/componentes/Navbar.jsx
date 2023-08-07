@@ -24,8 +24,7 @@ export const Navbar = ({nombre,rol}) => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <h3>{rol}:</h3>
-        <h4>{nombre}</h4>
+        <h3>{rol}: {nombre}</h3>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
