@@ -1,8 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { HomePage, HistorialPage ,ChatPage, BuscarPage, DatoPage, ChatMedico, MedicosRelaciones } from "../pages"
 import { useSelector } from "react-redux";
-import { Footer, Navbar } from "../../componentes";
+import { Footer } from "../../componentes";
 import { Sidebar } from "../components/Sidebar";
+import { Navbar } from "../components";
 
 export const UsuariosRouter = () => {
   const { name } = useSelector((state) => state.auth);
