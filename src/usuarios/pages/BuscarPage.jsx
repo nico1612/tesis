@@ -64,9 +64,8 @@ export const BuscarPage = () => {
                 <MedicosBuscar medicos={medicos} mandarSolicitud={mandarSolicitud}/>
               </div>
             )}
-            {hasSentRequest && <div className="alert alert-info">{message}</div>}
+          </div>
         </div>
-      </div>
     </div>
   );
 };

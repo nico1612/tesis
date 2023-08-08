@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Card, Button, Spinner, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineMessage } from 'react-icons/ai'; // Importa el ícono que deseas utilizar
 
 const url = import.meta.env.VITE_APP_IP;
 
@@ -47,7 +48,9 @@ export const ChatPage = () => {
                             <Card>
                                 <Card.Body>
                                     <Card.Title>{medico.nombre} {medico.apellido}</Card.Title>
-                                    <Button onClick={() => chatear(medico)} variant="primary">Chatear</Button>
+                                    <Button onClick={() => chatear(medico)} variant="primary">
+                                        <AiOutlineMessage /> Chatear
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>

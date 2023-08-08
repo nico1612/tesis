@@ -35,11 +35,6 @@ export const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/buscar">
-                Buscar pacientes
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" to="/chat">
                 Hablar con pacientes
               </Link>

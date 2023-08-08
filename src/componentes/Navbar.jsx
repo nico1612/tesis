@@ -1,18 +1,20 @@
+import React from 'react';
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt, faHistory, faSearch, faComment } from '@fortawesome/free-solid-svg-icons'; // Importa los íconos que deseas utilizar
 import { startLogout } from "../store/auth/thunks";
 
-export const Navbar = ({nombre,rol}) => {
-
+export const Navbar = ({ nombre, rol }) => {
   const dispatch = useDispatch();
 
   const logout = () => {
     dispatch(startLogout());
   };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-   
         <button
           className="navbar-toggler"
           type="button"
@@ -29,22 +31,22 @@ export const Navbar = ({nombre,rol}) => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/historial">
-                Historial
+                <FontAwesomeIcon icon={faHistory} /> Historial
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/buscar">
-                Buscar médico
+                <FontAwesomeIcon icon={faSearch} /> Buscar médico
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/chat">
-                Hablar con médico
+                <FontAwesomeIcon icon={faComment} /> Hablar con médico
               </Link>
             </li>
             <li className="nav-item">
               <button className="btn btn-primary" onClick={logout}>
-                Logout
+                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
               </button>
             </li>
           </ul>

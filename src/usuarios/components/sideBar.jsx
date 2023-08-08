@@ -19,13 +19,8 @@ export const Sidebar = () => {
           </Link>
         </li>
         <li className="list-group-item">
-          <Link to="/solicitudes" className="nav-link">
-            <FontAwesomeIcon icon={faFileAlt} /> Listado de solicitudes
-          </Link>
-        </li>
-        <li className="list-group-item">
           <Link to="/relaciones" className="nav-link">
-            <FontAwesomeIcon icon={faFileAlt} /> Relaciones
+            <FontAwesomeIcon icon={faFileAlt} /> medicos
           </Link>
         </li>
       </ul>

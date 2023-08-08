@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import io from 'socket.io-client';
+import { BiSend } from 'react-icons/bi'; // Importa el ícono que deseas utilizar
 
 const url = import.meta.env.VITE_APP_IP;
 
@@ -85,7 +86,7 @@ export const ChatMedico = () => {
                     placeholder="Escribe tu mensaje..."
                 />
                 <button type="submit" className="btn btn-primary">
-                    Enviar
+                    <BiSend /> Enviar
                 </button>
             </form>
         </div>

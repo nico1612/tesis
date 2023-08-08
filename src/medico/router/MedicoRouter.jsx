@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 
-import { BuscarPage, ChatPaciente, ChatPage, DatoPage, HistorialPacientesPage, HistorialPage, HomePage, SolicitudesPages } from "../pages"
+import { ChatPaciente, ChatPage, DatoPage, HistorialPacientesPage, HistorialPage, HomePage, SolicitudesPages } from "../pages"
 import {  Navbar } from "../components"
 import { Footer, Sidebar } from "../../componentes"
 
@@ -20,7 +20,6 @@ export const MedicoRouter=()=>{
                     <Route path="historial/:nombre" element={<HistorialPacientesPage/>}/>
                     <Route path="chat" element={<ChatPage/>}/>
                     <Route path="chat/:chat" element={<ChatPaciente/>}/>
-                    <Route path="buscar/" element={<BuscarPage/>}/>
                     <Route path="dato" element={<DatoPage />} />
                     <Route path="solicitudes" element={<SolicitudesPages />} />
 
