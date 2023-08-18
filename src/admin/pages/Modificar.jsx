@@ -1,12 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { putMedicos } from "../../store";
+import axios from "axios";
+
+const url=import.meta.env.VITE_APP_IP
 
 export const Modificar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { active } = useSelector((state) => state.medico);
 
+  const eliminar =async()=>{
+    const formData = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    await axios(`${url}/api/medico/${active.medico.uid}`,formData)
+    navigate(-1)
+  }
   const handleChangeValue = () => {
     // Crea una copia del objeto active y del objeto medico
     const newActive = { ...active };
@@ -50,6 +63,10 @@ export const Modificar = () => {
             >
               Cancelar
             </button>
+            <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={eliminar}>eliminar</button>
           </div>
         </div>
       </div>

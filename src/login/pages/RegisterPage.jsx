@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { startRegister, setError } from "../../store";
 import { useError, useForm } from "../../hooks";
-import { checkFormLogin, checkFormRegister } from "../helpers";
+import { checkFormLogin, checkFormRegister, estilosfondo } from "../helpers";
+import { cuadroRegistro } from "../helpers/estilosHome";
 
 const formData = {
   Email: "",
@@ -34,7 +35,7 @@ export const RegisterPage = () => {
     setErrorName,
     setErrorSurname,
   } = useError();
-
+ 
   useEffect(() => {
     if (error) {
       dispatch(setError());
@@ -63,7 +64,7 @@ export const RegisterPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={cuadroRegistro}>
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
           <h2 className="fw-bold text-center mb-5">Regístrate</h2>

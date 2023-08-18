@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 import { startLogin, setError } from "../../store/";
 import { useError, useForm } from "../../hooks";
-import { checkFormLogin } from "../helpers";
+import { checkFormLogin, estilosfondo } from "../helpers";
+import { body, cabeza, cuerpo, cuerpo2, cuerpo3 } from "../helpers/estilosLogin";
+import { DERMISOLUTION } from "../helpers/estilosHome";
 
 const formData = {
   Email: "",
@@ -33,10 +35,11 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-md-6 mt-5">
-          <h1 className="fw-bold text-center mb-5">Bienvenido a Dermi Solution</h1>
+    <div className="container" style={body}>
+      <div className="row justify-content-center" style={cuerpo}>
+        <div className="col-md-6 mt-5" style={cuerpo2}>
+          <div style={cuerpo3}>
+          <h1 className="fw-bold text-center mb-5" >Bienvenido a Dermi Solution</h1>
           {error && (
             <div className="alert alert-danger" role="alert">
               Usuario y/o contraseña incorrectas
@@ -75,11 +78,12 @@ export const LoginPage = () => {
           </form>
 
           <div className="my-3 text-center">
-            <span>No tienes cuenta? </span> <Link to={"/auth/register"}>Registrarse</Link>
+            <span>No tienes cuenta? </span> <Link to="/auth/register">Registrarse</Link>
           </div>
 
           <div className="text-center">
-            <span>Registro médico </span> <Link to={"/auth/medico"}>Registrarse</Link>
+            <span>Registro médico </span> <Link to="/auth/medico">Registrarse</Link>
+          </div>
           </div>
         </div>
       </div>

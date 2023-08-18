@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { startRegister, setError, startRegisterMedico } from "../../store";
+import { setError, startRegisterMedico } from "../../store";
 import { useError, useForm } from "../../hooks";
-import { checkFormLogin, checkFormRegister } from "../helpers";
+import { checkFormLogin, checkFormRegister, estilosfondo } from "../helpers";
+import { cuadroRegistro } from "../helpers/estilosHome";
 
 const formData = {
   Email: "",
@@ -74,7 +75,7 @@ export const RegisterMedicosPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={cuadroRegistro}>
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
           <h2 className="fw-bold text-center mb-5">Regístrate como médico</h2>

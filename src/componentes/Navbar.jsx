@@ -30,17 +30,17 @@ export const Navbar = ({ nombre, rol }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/historial">
+              <Link className="nav-link active" to="/historial">
                 <FontAwesomeIcon icon={faHistory} /> Historial
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/buscar">
+              <Link className="nav-link active" to="/buscar">
                 <FontAwesomeIcon icon={faSearch} /> Buscar médico
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/chat">
+              <Link className="nav-link active" to="/chat">
                 <FontAwesomeIcon icon={faComment} /> Hablar con médico
               </Link>
             </li>

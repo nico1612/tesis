@@ -71,7 +71,8 @@ export const startRegisterMedico = ({ Email, Password, Name, Surname, Licencia }
       data: { nombre: Name, apellido: Surname, correo: Email, password: Password, rol: "MEDICO_ROLE", licencia: Licencia },
     };
 
-    await axios(`${url}/api/medico`, options);
+    const response=await axios(`${url}/api/medico`, options);
+    console.log(response.data)
   } catch (error) {
     console.error(error);
   }
