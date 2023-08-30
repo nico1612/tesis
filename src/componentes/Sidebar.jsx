@@ -13,27 +13,27 @@ export const Sidebar = () => {
   const textColor = location.pathname === "/" ? "#000" : "#fff"; // Texto negro cuando no hay coincidencia de ruta
 
   return (
-    <div className="sidebar-container">
-      <nav className="sidebar">
+    <div  style={{ display: '1', height:"100vh",background: "#07D2FE" }} className="sidebar-container">
+      <nav >
         <div className="sidebar-header">
           <Link className="navbar-brand" to="/">
-            <h3 className="navbar-brand" style={{ color: textColor }}>
+            <h3 className="navbar-brand">
               <FaUser />    medico: {name}
             </h3>
           </Link>
         </div>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">
+        <ul className="list-group">
+          <li >
             <Link to="/dato" className={`nav-link ${location.pathname === '/dato' ? 'active' : ''}`}>
               <FontAwesomeIcon icon={faUser} /> Datos personales
             </Link>
           </li>
-          <li className="list-group-item">
+          <li>
             <Link to="/solicitudes" className={`nav-link ${location.pathname === '/solicitudes' ? 'active' : ''}`}>
               <FontAwesomeIcon icon={faFileAlt} /> Listado de solicitudes
             </Link>
           </li>
-          <li className="list-group-item">
+          <li >
               <Link
                 className="nav-link"
                 exact
@@ -43,7 +43,7 @@ export const Sidebar = () => {
                 <FaCommentAlt /> Historial
               </Link>
             </li>
-            <li className="list-group-item">
+            <li >
               <Link
                 className="nav-link"
                 exact

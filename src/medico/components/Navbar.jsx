@@ -15,12 +15,11 @@ export const Navbar = () => {
 
   // Definimos las variables para los colores del fondo y del texto
   const bgColor = location.pathname === "/" ? "#f8f9fa" : "#007bff"; // Azul más claro cuando no hay coincidencia de ruta
-  const textColor = location.pathname === "/" ? "#000" : "#fff"; // Texto negro cuando no hay coincidencia de ruta
 
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light"
-      style={{ backgroundColor: bgColor }}
+      style={{ backgroundColor: "#07D2FE" }}
     >
       <div className="container">
         <div className="collapse navbar-collapse" id="navbarNav">

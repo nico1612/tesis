@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setError, startRegisterMedico } from "../../store";
 import { useError, useForm } from "../../hooks";
 import { checkFormLogin, checkFormRegister } from "../helpers";
+import { ApellidoLabel, ApellidoText, ButtonRegistrar, LicenciaInput, RegistroText, TienesCuenta, correoText, inputCorreo, licenciaText, noTienesCuenta, nombreLabel, nombreText, passwordLabel, passwordText, registrete } from "../estilos/estiloMedico";
 
 const formData = {
   Email: "",
@@ -77,7 +78,7 @@ export const RegisterMedicosPage = () => {
     <div className="container" >
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
-          <h2 className="fw-bold text-center mb-5">Regístrate como médico</h2>
+          <h2 style={registrete} className="fw-bold text-center mb-5">Regístrate</h2>
           {error && (
             <div className="alert alert-danger" role="alert">
               Usuario ya registrado
@@ -85,81 +86,83 @@ export const RegisterMedicosPage = () => {
           )}
           <form onSubmit={onSubmit}>
             <div className={`mb-3 ${errorName ? "has-error" : ""}`}>
-              <label className="form-label">Nombre</label>
+              <label style={nombreText} className="form-label">Nombre</label>
               <input
                 type="text"
                 className={`form-control ${errorName ? "is-invalid" : ""}`}
                 name="Name"
                 value={Name}
                 onChange={onInputChange}
+                style={nombreLabel}
               />
               {errorName && <div className="invalid-feedback">Nombre es requerido</div>}
             </div>
 
             <div className={`mb-3 ${errorSurname ? "has-error" : ""}`}>
-              <label className="form-label">Apellido</label>
+              <label style={ApellidoText} className="form-label">Apellido</label>
               <input
                 type="text"
                 className={`form-control ${errorSurname ? "is-invalid" : ""}`}
                 name="Surname"
                 value={Surname}
                 onChange={onInputChange}
+                style={ApellidoLabel}
               />
               {errorSurname && <div className="invalid-feedback">Apellido es requerido</div>}
             </div>
 
             <div className={`mb-3 ${errorMail ? "has-error" : ""}`}>
-              <label className="form-label">Mail</label>
+              <label style={correoText} className="form-label">Mail</label>
               <input
                 type="email"
                 className={`form-control ${errorMail ? "is-invalid" : ""}`}
                 name="Email"
                 value={Email}
                 onChange={onInputChange}
+                style={inputCorreo}
               />
               {errorMail && <div className="invalid-feedback">Mail es requerido</div>}
             </div>
 
             <div className={`mb-3 ${errorPassword ? "has-error" : ""}`}>
-              <label className="form-label">Password</label>
+              <label style={passwordText} className="form-label">Password</label>
               <input
                 type="password"
                 className={`form-control ${errorPassword ? "is-invalid" : ""}`}
                 name="Password"
                 value={Password}
                 onChange={onInputChange}
+                style={passwordLabel}
               />
-              <span id="passwordHelpInline" className="form-text">
-                Debe tener 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial.
-              </span>
               {errorPassword && <div className="invalid-feedback">Contraseña es requerida</div>}
             </div>
 
             <div className={`mb-3 ${ErrorLicencia ? "has-error" : ""}`}>
-              <label className="form-label">Licencia</label>
+              <label style={licenciaText} className="form-label">Licencia</label>
               <input
                 type="text"
                 className={`form-control ${ErrorLicencia ? "is-invalid" : ""}`}
                 name="Licencia"
                 value={Licencia}
                 onChange={onInputChange}
+                style={LicenciaInput}
               />
               {ErrorLicencia && <div className="invalid-feedback">Licencia es requerida</div>}
             </div>
 
             <div className="d-grid">
-              <button type="submit" className="btn btn-primary" >
-                Registrarse
+              <button style={ButtonRegistrar} type="submit" className="btn btn-primary" >
+                Registrarse 
               </button>
             </div>
           </form>
 
-          <div className="my-3 text-center">
+          <div style={noTienesCuenta} className="my-3 text-center">
             <span>¿Ya tienes cuenta? </span> <Link to="/auth/login">Iniciar sesión</Link>
           </div>
 
-          <div className="text-center">
-            <span>Registro persona </span> <Link to="/auth/register">Registrarse</Link>
+          <div style={TienesCuenta} className="text-center">
+            <span>Registro paciente </span> <Link to="/auth/register">Registrarse</Link>
           </div>
         </div>
       </div>

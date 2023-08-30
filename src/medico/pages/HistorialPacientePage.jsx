@@ -27,7 +27,6 @@ export const HistorialPacientesPage = () => {
     fetchConsultas();
   }, [id]);
 
-
   const regresar = () => {
     navigate(-1);
   };
@@ -35,23 +34,25 @@ export const HistorialPacientesPage = () => {
   return (
     <div className="container py-4">
       <h2 className="my-4">Historial de Consultas de {nombre} {apellido}</h2>
-      {loading ? (
-        <div className="text-center">Cargando...</div>
-      ) : consultas.length > 0 ? (
-        <div>
-          {consultas.map((consulta) => (
-            <div key={consulta._id} className="card mb-3">
-              <div className="card-body">
-                <p className="card-text">Fecha: {consulta.dia}/{consulta.mes}/{consulta.ano}</p>
-                <p className="card-text">Resultado: {consulta.resultado}</p>
-                <img src={consulta.img} alt="Consulta" />
+      <div className="row">
+        {loading ? (
+          <div className="text-center">Cargando...</div>
+        ) : consultas.length > 0 ? (
+          consultas.map((consulta) => (
+            <div key={consulta._id} className="col-md-4 mb-4">
+              <div className="card">
+                <img src={consulta.img} className="card-img-top" alt="Consulta" />
+                <div className="card-body">
+                  <p className="card-text">Fecha: {consulta.dia}/{consulta.mes}/{consulta.ano}</p>
+                  <p className="card-text">Resultado: {consulta.resultado}</p>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-      ) : (
-        <div className="alert alert-warning">No se encontraron consultas.</div>
-      )}
+          ))
+        ) : (
+          <div className="alert alert-warning">No se encontraron consultas.</div>
+        )}
+      </div>
       <button className="btn btn-primary mt-3" onClick={regresar}>Regresar</button>
     </div>
   );
