@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setError, startRegisterMedico } from "../../store";
 import { useError, useForm } from "../../hooks";
-import { checkFormLogin, checkFormRegister, estilosfondo } from "../helpers";
-import { cuadroRegistro } from "../helpers/estilosHome";
+import { checkFormLogin, checkFormRegister } from "../helpers";
 
 const formData = {
   Email: "",
@@ -75,7 +74,7 @@ export const RegisterMedicosPage = () => {
   };
 
   return (
-    <div className="container" style={cuadroRegistro}>
+    <div className="container" >
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
           <h2 className="fw-bold text-center mb-5">Regístrate como médico</h2>

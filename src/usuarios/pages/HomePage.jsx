@@ -35,7 +35,7 @@ export const HomePage = () => {
       });
       alert("Imagen enviada exitosamente.");
       setArchivos([]);
-      console.log
+      console.log(results.data)
       const { _id, ...datosSinId } = results.data;
       setResultados(datosSinId);
     } catch (error) {
@@ -72,6 +72,7 @@ export const HomePage = () => {
                 Fecha: {resultados.dia}/{resultados.mes}/{resultados.ano}
               </p>
               <p className="card-text">Resultado dermatitis atopica: {resultados.resultadoDA}</p>
+              <p className="card-text">Resultado psoriasis: {resultados.ResPsoriasis}</p>
               <img
                 src={resultados.img}
                 alt="Consulta"

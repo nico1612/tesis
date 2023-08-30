@@ -42,7 +42,7 @@ export const MedicosRelaciones = () => {
         <div>
           <h2 className="text-center mb-4">Información de los médicos:</h2>
           {medicos.map((medico, index) => (
-            <div key={index} className="card mb-3">
+            <div style={{background: "#12FFF1",borderRadius: "15px",  flexDirection: "column", justifyContent: "center", alignItems: "center"}} key={index} className="card mb-3">
               <div className="card-body">
                 <h3 className="card-title">Médico {index + 1}:</h3>
                 <p><strong>Nombre:</strong> {medico.nombre}</p>

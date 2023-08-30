@@ -1,13 +1,20 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { HomePage, LoginPage, RegisterMedicosPage, RegisterPage } from "../pages";
-import { Navbar, Footer } from "../components";
-import { body, cuerpo } from "../helpers/estilosHome";
+import { Footer } from "../components";
+import { Sidebar } from "../components/Sidebar";
+import { DERMI, dermisolution, fondo, sideBar } from "../estilos/estilos";
 
 export const AuthRouter = () => {
   return (
-    <div >
-      <Navbar />
-      <div style={{ ...cuerpo, ...body }}>
+    <div style={{ display: 'flex', height:"100vh",     background: "#12FFF1" }}>
+      <Sidebar  />
+      <div style={{ flex: 1, marginLeft: '250px', }}>
+        <div style={DERMI}>
+          <h4 style={dermisolution}>
+            DERMI-SOLUTION
+          </h4>
+          
+        </div>
         <Routes>
           <Route path="/" element={<HomePage style={{ marginBottom: '88px' }} />} />
           <Route path="/login" element={<LoginPage />} />
@@ -16,9 +23,8 @@ export const AuthRouter = () => {
 
           <Route path="/*" element={<Navigate to="/auth" />} />
         </Routes>
+        <Footer style={{ position: "absolute", bottom: "0",width: "100%",height: "40px"}} />
       </div>
-     
-      <Footer />
     </div>
   );
 };

@@ -5,15 +5,13 @@ import { AuthRouter } from "../login";
 import { UsuariosRouter } from "../usuarios/router/UsuariosRouter";
 import { MedicoRouter } from "../medico/router/MedicoRouter";
 import { AdminRoute } from "../admin/router/AdminRouter";
-import './styles.css'
+
 
 export const AppRouter = () => {
   const { status, rol } = useSelector((state) => state.auth);
-  const stylesGenericos={
-    background: "#072FFE"
-  }
+
   return (
-    <div style={stylesGenericos}>
+    <div>
        <Routes >
       {/* Rutas autenticadas */}
       {status === "authenticated" ? (

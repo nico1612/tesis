@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 
 import { startLogin, setError } from "../../store/";
 import { useError, useForm } from "../../hooks";
-import { checkFormLogin, estilosfondo } from "../helpers";
-import { body, cabeza, cuerpo, cuerpo2, cuerpo3 } from "../helpers/estilosLogin";
-import { DERMISOLUTION } from "../helpers/estilosHome";
-
+import { checkFormLogin } from "../helpers";
+import {labelCorreo,textoIniciarsesion,PasswordText,passwordLabel,Iniciarsesion,registroMedico,Registro, correoText } from "../estilos/estilosLogin";
 const formData = {
   Email: "",
   Password: ""
@@ -35,11 +33,10 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="container" style={body}>
-      <div className="row justify-content-center" style={cuerpo}>
-        <div className="col-md-6 mt-5" style={cuerpo2}>
-          <div style={cuerpo3}>
-          <h1 className="fw-bold text-center mb-5" >Bienvenido a Dermi Solution</h1>
+    <div className="container" >
+      <div >
+        <div >
+          <div >
           {error && (
             <div className="alert alert-danger" role="alert">
               Usuario y/o contraseña incorrectas
@@ -47,8 +44,8 @@ export const LoginPage = () => {
           )}
           <form onSubmit={onSubmit}>
             <div className={`mb-3 ${errorMail ? "has-error" : ""}`}>
-              <label className="form-label">Mail</label>
-              <input
+              <label style={correoText} className="form-label">Mail</label>
+              <input style={labelCorreo}
                 type="email"
                 className={`form-control ${errorMail ? "is-invalid" : ""}`}
                 name="Email"
@@ -59,29 +56,31 @@ export const LoginPage = () => {
             </div>
 
             <div className={`mb-3 ${errorPassword ? "has-error" : ""}`}>
-              <label className="form-label">Password</label>
+              <label className="form-label" style={PasswordText}>Password</label>
               <input
                 type="password"
                 className={`form-control ${errorPassword ? "is-invalid" : ""}`}
                 name="Password"
                 value={Password}
                 onChange={onInputChange}
+                style={passwordLabel}
               />
               {errorPassword && <div className="invalid-feedback">Contraseña es requerida</div>}
             </div>
 
             <div className="d-grid">
-              <button type="submit" className="btn btn-primary">
-                Iniciar sesión
+              <button style={Iniciarsesion} type="submit">
+                <p style={textoIniciarsesion}>Iniciar sesión </p>
+                
               </button>
             </div>
           </form>
 
-          <div className="my-3 text-center">
+          <div style={Registro} className="my-3 text-center">
             <span>No tienes cuenta? </span> <Link to="/auth/register">Registrarse</Link>
           </div>
 
-          <div className="text-center">
+          <div style={registroMedico} className="text-center">
             <span>Registro médico </span> <Link to="/auth/medico">Registrarse</Link>
           </div>
           </div>

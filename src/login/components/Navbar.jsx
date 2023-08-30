@@ -11,7 +11,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-nav"> {/* Cambia la clase bg-light por bg-nav */}
       <div className="container">
-        <Link className="navbar-brand " to="/home"> {/* Agrega la clase text-white */}
+        <Link className="navbar-brand text-white" to="/home"> {/* Agrega la clase text-white */}
           Home
         </Link>
         <button
@@ -27,12 +27,12 @@ export const Navbar = () => {
         >
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/acerca"> {/* Agrega la clase text-white */}
+              <Link className="navbar-brand text-white" to="/acerca"> {/* Agrega la clase text-white */}
                 Acerca de nosotros
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/auth/login"> {/* Agrega la clase text-white */}
+              <Link className="navbar-brand text-white" to="/auth/login"> {/* Agrega la clase text-white */}
                 Iniciar sesión
               </Link>
             </li>

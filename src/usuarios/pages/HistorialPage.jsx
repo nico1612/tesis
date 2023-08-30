@@ -18,10 +18,8 @@ export const HistorialPage = () => {
           axios.get(`${url}/api/buscar/consultas/${id}`),
           axios.get(`${url}/api/pacientes/estadisticas/${id}`)
         ]);
-
         setConsultas(consultasResponse.data.results);
         setEstadisticas(estadisticasResponse.data.resultados);
-        console.log(estadisticas)
         setLoading(false);
       } catch (error) {
         console.error("Error en la solicitud:", error.message);
@@ -31,6 +29,8 @@ export const HistorialPage = () => {
     };
 
     fetchConsultasAndEstadisticas();
+    console.log(estadisticas)
+
   }, [id, url]);
 
   return (
@@ -47,33 +47,38 @@ export const HistorialPage = () => {
                 <strong>Total de consultas:</strong> {estadisticas.total}
               </p>
               <div className="row">
-                <div className="col-md-4">
-                  <p className="text-primary">
-                    <strong>Dermatitis Atópica:</strong> {estadisticas.dermatitisAtopica}
-                  </p>
-                  <p className="text-primary">
-                    <strong>Dermatitis de Contacto:</strong> {estadisticas.dermatitisDeContacto}
-                  </p>
-                  <p className="text-primary">
-                    <strong>Psoriasis:</strong> {estadisticas.psiorasis}
-                  </p>
-                  <p className="text-primary">
-                    <strong>Ninguna de las anteriores:</strong> {estadisticas.otros}
-                  </p>
-                </div>
-                <div className="col-md-8">
-                  <p className="text-primary">
-                    <strong>Del total el {estadisticas.porcentajeDermatitisAtopica}% fueron de dermatitis Atópica</strong>
-                  </p>
-                  <p className="text-primary">
-                    <strong>Del total el {estadisticas.porcentajePsiorasis}% fueron de Psoriasis</strong>
-                  </p>
-                  <p className="text-primary">
-                    <strong>Del total el {estadisticas.porcentajDermatitisDeContacto}% fueron de dermatitis de Contacto</strong>
-                  </p>
-                  <p className="text-primary">
-                    <strong>Del total el {estadisticas.porcentajeOtros}% pertenecen a otra categoría</strong>
-                  </p>
+                <div>
+                  <table className="table table-bordered mt-3">
+                    <thead className="thead-dark shadow ">
+                      <tr>
+                        <th className="text-center" scope="col">enfermedad</th>
+                        <th className="text-center" scope="col">resultado</th>
+                        <th className="text-center" scope="col">%</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="text-center border-dark"> Psoriasis</td>
+                        <td className="text-center border-dark">{estadisticas.psiorasis}</td>
+                        <td className="text-center border-dark">{estadisticas.porcentajePsiorasis}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-center border-dark"> Dermatitis atópica </td>
+                        <td className="text-center border-dark">{estadisticas.dermatitisAtopica}</td>
+                        <td className="text-center border-dark">{estadisticas.porcentajeDermatitisAtopica}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-center border-dark"> Dermatitis de contacto</td>
+                        <td className="text-center border-dark">{estadisticas.dermatitisDeContacto}</td>
+                        <td className="text-center border-dark">{estadisticas.porcentajDermatitisDeContacto}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-center border-dark"> ninguno de los anteriores</td>
+                        <td className="text-center border-dark">{estadisticas.otros}</td>
+                        <td className="text-center border-dark">{estadisticas.porcentajeOtros}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -86,13 +91,9 @@ export const HistorialPage = () => {
                       <p className="card-text">
                         Fecha: {consulta.dia}/{consulta.mes}/{consulta.ano}
                       </p>
-                      {consulta.resultado === "ninguno de los tres" ? (
-                        <p className="card-text">
-                          No es dermatitis atópica, dermatitis de contacto o psoriasis.
-                        </p>
-                      ) : (
-                        <p className="card-text">Resultado: {consulta.resultado}</p>
-                      )}
+                      <p className="card-text">Resultado dermatitis atópica: {consulta.resultadoDA}</p>
+                      <p className="card-text">Resultado psoriasis: {consulta.ResPsoriasis}</p>
+
                       {consulta.img && (
                         <img src={consulta.img} alt="Consulta" className="img-fluid" />
                       )}

@@ -1,11 +1,11 @@
-import { DERMISOLUTION, cuadrocentral, textoDERMISOLUTION } from "../helpers/estilosHome"
+import { dermiSolution, parrafo, textoPrincipal } from "../estilos/estilos"
 
 export const HomePage=()=>{
 
     return(
-        <div style={cuadrocentral}>
-            <h1 style={DERMISOLUTION}>DERMI-SOLUTION</h1>
-            <p style={textoDERMISOLUTION}>Esta cerca tuyo para mejorar tu calidad de vida</p>
+        <div style={textoPrincipal}>
+            <h1 style={dermiSolution} >DERMI-SOLUTION</h1>
+            <p style={parrafo}>Esta cerca tuyo para mejorar tu calidad de vida</p>
         </div>
     )
 }

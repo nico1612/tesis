@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useLocation } from "react-router-dom"; // Usamos NavLink en lugar de Link
+import { useLocation } from "react-router-dom"; // Usamos NavLink en lugar de Link
 import { startLogout } from "../../store/auth/thunks";
-import { FaUser, FaCommentAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 export const Navbar = () => {
   const dispatch = useDispatch();
@@ -23,46 +23,9 @@ export const Navbar = () => {
       style={{ backgroundColor: bgColor }}
     >
       <div className="container">
-        <h3 className="navbar-brand" style={{ color: textColor }}>
-          <FaUser /> medico:
-        </h3>
-        <h4 className="navbar-brand" style={{ color: textColor }}>
-          {name}
-        </h4>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-  
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                exact
-                to="/historial"
-                activeClassName="active"
-              >
-                <FaCommentAlt /> Historial
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                exact
-                to="/chat"
-                activeClassName="active"
-              >
-                <FaCommentAlt /> Hablar con pacientes
-              </NavLink>
-            </li>
+         
             <li className="nav-item">
               {/* Utilizamos solo el ícono de logout sin texto */}
               <button
@@ -74,6 +37,7 @@ export const Navbar = () => {
                 onClick={logout}
               >
                 <FaSignOutAlt />
+                cerrar sesion
               </button>
             </li>
           </ul>

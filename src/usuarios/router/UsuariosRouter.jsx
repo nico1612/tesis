@@ -2,17 +2,17 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { HomePage, HistorialPage ,ChatPage, BuscarPage, DatoPage, ChatMedico, MedicosRelaciones } from "../pages"
 import { useSelector } from "react-redux";
 import { Footer } from "../../componentes";
-import { Sidebar } from "../components/Sidebar";
 import { Navbar } from "../components";
+import { Sidebar } from "../components/sideBar";
 
 export const UsuariosRouter = () => {
   const { name } = useSelector((state) => state.auth);
 
   return (
-    <div style={{ display: "flex" }}>
-    <Sidebar />
+    <div style={{ display: 'flex', height:"100vh"}}>
+    <Sidebar rol={"paciente"} nombre={name}/>
     <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-      <Navbar rol={"paciente"} nombre={name}  />
+      <Navbar/>
       <div style={{ padding: "20px", flexGrow: 1 }}>
       <Routes>
             <Route path="home" element={<HomePage  />} />
@@ -25,7 +25,7 @@ export const UsuariosRouter = () => {
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
         </div>
-        <Footer/>
+        <Footer style={{ position: "absolute", bottom: "0",width: "100%",height: "40px"}}/>
       </div>
     </div>
   );
