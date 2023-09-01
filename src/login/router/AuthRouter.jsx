@@ -3,6 +3,7 @@ import { HomePage, LoginPage, RegisterMedicosPage, RegisterPage } from "../pages
 import { Footer } from "../components";
 import { Sidebar } from "../components/Sidebar";
 import { DERMI, dermisolution, fondo, sideBar } from "../estilos/estilos";
+import { TerminosYCondiciones } from "../pages/TerminosYcondiciones";
 
 export const AuthRouter = () => {
   return (
@@ -22,6 +23,7 @@ export const AuthRouter = () => {
           <Route path="/medico" element={<RegisterMedicosPage />} />
 
           <Route path="/*" element={<Navigate to="/auth" />} />
+          <Route path="/terminos" element={<TerminosYCondiciones/>}></Route>
         </Routes>
         <Footer style={{ position: "absolute", bottom: "0",width: "100%",height: "40px"}} />
       </div>
