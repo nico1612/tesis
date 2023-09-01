@@ -71,8 +71,16 @@ export const HomePage = () => {
               <p className="card-text">
                 Fecha: {resultados.dia}/{resultados.mes}/{resultados.ano}
               </p>
-              <p className="card-text">Resultado dermatitis atopica: {resultados.resultadoDA}</p>
-              <p className="card-text">Resultado psoriasis: {resultados.ResPsoriasis}</p>
+              {resultados.resultadoDA >= 0.5 ? (
+                <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis atópica.</p>
+              ) : (
+                <p className="card-text">El área afectada no coincide con dermatitis atópica.</p>
+              )}
+              {resultados.ResPsoriasis >= 0.5  ? (
+                <p className="card-text">El área afectada tiene similitudes con un caso de psoriasis.</p>
+              ) : (
+                <p className="card-text">El área afectada no coincide con psoriasis.</p>
+              )}
               <img
                 src={resultados.img}
                 alt="Consulta"

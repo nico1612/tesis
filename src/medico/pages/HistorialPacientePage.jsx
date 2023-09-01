@@ -44,7 +44,16 @@ export const HistorialPacientesPage = () => {
                 <img src={consulta.img} className="card-img-top" alt="Consulta" />
                 <div className="card-body">
                   <p className="card-text">Fecha: {consulta.dia}/{consulta.mes}/{consulta.ano}</p>
-                  <p className="card-text">Resultado: {consulta.resultado}</p>
+                  {consulta.resultadoDA >= 0.5 ? (
+                        <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis atópica.</p>
+                      ) : (
+                        <p className="card-text">El área afectada no coincide con dermatitis atópica.</p>
+                      )}
+                      {consulta.ResPsoriasis >= 0.5  ? (
+                        <p className="card-text">El área afectada tiene similitudes con un caso de psoriasis.</p>
+                      ) : (
+                        <p className="card-text">El área afectada no coincide con psoriasis.</p>
+                  )}
                 </div>
               </div>
             </div>

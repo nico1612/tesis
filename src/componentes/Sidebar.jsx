@@ -54,7 +54,6 @@ export const Sidebar = () => {
               </Link>
             </li>
         </ul>
-        <div className="sidebar-footer"></div>
       </nav>
     </div>
   );

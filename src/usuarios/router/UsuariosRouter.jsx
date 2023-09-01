@@ -25,7 +25,9 @@ export const UsuariosRouter = () => {
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
         </div>
+        <div >
         <Footer style={{ position: "absolute", bottom: "0",width: "100%",height: "40px"}}/>
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ export const correoText={
     position: "absolute",
     width: "170px",
     height: "30px",
-    left: "60%",
+    left: "50%",
     top: "30%",
     fontFamily: 'Inter',
     fontStyle: "normal",
@@ -22,7 +22,7 @@ export const inputCorreo={
     position: "absolute",
     width: "300px",
     height: "32px",
-    left: "50%",
+    left: "45%",
     top: "35%",
     background: "#FFFFFF",
     borderRadius: "15px"
@@ -34,7 +34,7 @@ export const inputNombre={
     position: "absolute",
     width: "300px", /* Adjusted for computer screen */
     height: "32px",/* Adjusted for computer screen */
-    left: "50%",/* Adjusted for computer screen */
+    left: "45%",/* Adjusted for computer screen */
     top: "15%", /* Adjusted for computer screen */
     background: "#FFFFFF",
     borderRadius: "15px"
@@ -46,7 +46,7 @@ export const inputApellido={
     position: "absolute",
     width: "300px", /* Adjusted for computer screen */
     height: "32px", /* Adjusted for computer screen */
-    left: "50%", /* Adjusted for computer screen */
+    left: "45%", /* Adjusted for computer screen */
     top: "25%", /* Adjusted for computer screen */
     background: "#FFFFFF",
     borderRadius: "15px"
@@ -57,7 +57,7 @@ export const passwordText={
     position: "absolute",
     width: "160px", /* Adjusted for computer screen */
     height: "30px", /* Adjusted for computer screen */
-    left: "60%", /* Adjusted for computer screen */
+    left: "50%", /* Adjusted for computer screen */
     top: "40%", /* Adjusted for computer screen */
     fontFamily: 'Inter',
     fontStyle: "normal",
@@ -75,7 +75,7 @@ export const inputPassword={
     position: "absolute",
     width: "300px", /* Adjusted for computer screen */
     height: "28px", /* Adjusted for computer screen */
-    left: "50%", /* Adjusted for computer screen */
+    left: "45%", /* Adjusted for computer screen */
     top: "45%", /* Adjusted for computer screen */
     background: "#FFFFFF",
     borderRadius: "15px"
@@ -144,8 +144,6 @@ export const registroText={
 
 /* ¿Ya tienes cuenta? Iniciar sesión */
 export const tienesCuente={
-    width: "250px", /* Adjusted for computer screen */
-    height: "21px", /* Adjusted for computer screen */
     left: "30%", /* Adjusted for computer screen */
     top: "30%", /* Adjusted for computer screen */
     fontFamily: 'Inter',
@@ -162,14 +160,11 @@ export const tienesCuente={
 /* Registro médico Registrarse */
 export const médico={
     position: "absolute",
-    width: "220px", /* Adjusted for computer screen */
-    height: "18px", /* Adjusted for computer screen */
     left: "50%", /* Adjusted for computer screen */
     top: "80%", /* Adjusted for computer screen */
     fontFamily: 'Inter',
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "14px", /* Adjusted for computer screen */
     lineHeight: "18px", /* Adjusted for computer screen */
     display: "flex",
     alignItems: "center",
@@ -196,13 +191,12 @@ export const Registrese={
     color: "#000000",
 }
 
-
 /* Nombre */
 export const NombreText={
     position: "absolute",
     width: "140px", /* Adjusted for computer screen */
     height: "21px", /* Adjusted for computer screen */
-    left: "60%", /* Adjusted for computer screen */
+    left: "50%", /* Adjusted for computer screen */
     top: "10%", /* Adjusted for computer screen */
     fontFamily: 'Inter',
     fontStyle: "normal",
@@ -220,7 +214,7 @@ export const Apellido={
     position: "absolute",
     width: "140px", /* Adjusted for computer screen */
     height: "21px", /* Adjusted for computer screen */
-    left: "60%", /* Adjusted for computer screen */
+    left: "50%", /* Adjusted for computer screen */
     top: "20%", /* Adjusted for computer screen */
     fontFamily: 'Inter',
     fontStyle: "normal",
