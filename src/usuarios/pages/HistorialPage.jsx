@@ -101,7 +101,11 @@ export const HistorialPage = () => {
                       ) : (
                         <p className="card-text">El área afectada no coincide con psoriasis.</p>
                       )}
-
+                      {consulta.ResDermatitisContacto >= 0.5  ? (
+                        <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis de contacto.</p>
+                      ) : (
+                          <p className="card-text">El área afectada no coincide con dermatitis de contacto.</p>
+                      )}
                       {consulta.img && (
                         <img src={consulta.img} alt="Consulta" className="img-fluid" />
                       )}

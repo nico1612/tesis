@@ -81,6 +81,11 @@ export const HomePage = () => {
               ) : (
                 <p className="card-text">El área afectada no coincide con psoriasis.</p>
               )}
+              {resultados.ResDermatitisContacto >= 0.5  ? (
+                <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis de contacto.</p>
+              ) : (
+                <p className="card-text">El área afectada no coincide con dermatitis de contacto.</p>
+              )}
               <img
                 src={resultados.img}
                 alt="Consulta"
