@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
 
 export const DatoPage = () => {
-  const { email, name } = useSelector((state) => state.auth);
+  const { email, name } = useSelector((state) => state.auth)
 
   return (
     <div className="container mt-5">
@@ -17,5 +17,5 @@ export const DatoPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

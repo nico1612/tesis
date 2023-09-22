@@ -1,48 +1,58 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import React, { useState } from "react"
+import { useSelector } from "react-redux"
+import axios from "axios"
+import CryptoJS from "crypto-js"
 
 export const HomePage = () => {
-  const { userId } = useSelector((state) => state.auth);
-  const url = import.meta.env.VITE_APP_IP;
-  const [archivos, setArchivos] = useState([]);
-  const [resultados, setResultados] = useState();
-
+  const { userId } = useSelector((state) => state.auth)
+  const url = import.meta.env.VITE_APP_IP
+  const key = import.meta.env.VITE_APP_SECRETORPRIVATEKEY
+  const [encriptcion,setEncriptcion]=useState()
+  const [archivos, setArchivos] = useState([])
+  const [resultados, setResultados] = useState()
+  const [base64,setBase64]=useState()
   const subirArchivos = (e) => {
-    setArchivos(e.target.files);
-  };
+    setArchivos(e.target.files)
+    Array.from(e.target.files).forEach(archivo=>{
+      var auxiliar=[]
+      var reader=new FileReader()
+      reader.readAsDataURL(archivo)
+      reader.onload=function(){
+        setBase64(reader.result)
+        auxiliar=base64.split(",")
+        setBase64(auxiliar[1])
+        setEncriptcion(CryptoJS.AES.encrypt(base64,import.meta.env.VITE_APP_SECRETORPRIVATEKEY))
+      }
+    })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!archivos) {
-      alert("Por favor selecciona una imagen");
-      return;
+      alert("Por favor selecciona una imagen")
+      return
     }
 
-    const formData = new FormData();
-    for (let i = 0; i < archivos.length; i++) {
-      formData.append("files", archivos[i]); // Usamos "files" como nombre para la clave del archivo
-    }
-    formData.append("id", userId); // Agregamos el userId al formData con el nombre "id"
-
-    
+    const formData = new FormData()
+    formData.append("id", userId)
+    formData.append("encriptcion",encriptcion)
     try {
-      const results = await axios.put(`${url}/api/uploads/files`, formData, {
+      const results = await axios.put(`${url}/api/uploads/files/2`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      });
-      alert("Imagen enviada exitosamente.");
-      setArchivos([]);
+      })
+      alert("Imagen enviada exitosamente.")
+      setArchivos([])
       console.log(results.data)
-      const { _id, ...datosSinId } = results.data;
-      setResultados(datosSinId);
+      const { _id, ...datosSinId } = results.data
+      setResultados(datosSinId)
     } catch (error) {
-      console.error("Error al enviar la imagen:", error.message);
-      alert("Error al enviar la imagen.");
+      console.error("Error al enviar la imagen:", error.message)
+      alert("Error al enviar la imagen.")
     }
-  };
+  }
 
   return (
     <div className="container py-4">
@@ -96,5 +106,5 @@ export const HomePage = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}

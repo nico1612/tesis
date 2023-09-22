@@ -1,15 +1,15 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 
 export const HistorialPage = () => {
-  const url = import.meta.env.VITE_APP_IP;
-  const { userId } = useSelector((state) => state.auth);
-  const id = userId;
+  const url = import.meta.env.VITE_APP_IP
+  const { userId } = useSelector((state) => state.auth)
+  const id = userId
 
-  const [loading, setLoading] = useState(true);
-  const [consultas, setConsultas] = useState([]);
-  const [estadisticas, setEstadisticas] = useState({});
+  const [loading, setLoading] = useState(true)
+  const [consultas, setConsultas] = useState([])
+  const [estadisticas, setEstadisticas] = useState({})
 
   useEffect(() => {
     const fetchConsultasAndEstadisticas = async () => {
@@ -17,21 +17,21 @@ export const HistorialPage = () => {
         const [consultasResponse, estadisticasResponse] = await Promise.all([
           axios.get(`${url}/api/buscar/consultas/${id}`),
           axios.get(`${url}/api/pacientes/estadisticas/${id}`)
-        ]);
-        setConsultas(consultasResponse.data.results);
-        setEstadisticas(estadisticasResponse.data.resultados);
-        setLoading(false);
+        ])
+        setConsultas(consultasResponse.data.results)
+        setEstadisticas(estadisticasResponse.data.resultados)
+        setLoading(false)
       } catch (error) {
-        console.error("Error en la solicitud:", error.message);
-        setLoading(false);
-        setConsultas([]);
+        console.error("Error en la solicitud:", error.message)
+        setLoading(false)
+        setConsultas([])
       }
-    };
+    }
 
-    fetchConsultasAndEstadisticas();
+    fetchConsultasAndEstadisticas()
     console.log(estadisticas)
 
-  }, [id, url]);
+  }, [id, url])
 
   return (
     <div className="container py-4">
@@ -120,5 +120,5 @@ export const HistorialPage = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
