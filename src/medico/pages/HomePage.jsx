@@ -1,37 +1,37 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 export const HomePage = () => {
-  const { userId } = useSelector((state) => state.auth);
-  const url = import.meta.env.VITE_APP_IP;
-  const [pacientes, setPacientes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const { userId } = useSelector((state) => state.auth)
+  const url = import.meta.env.VITE_APP_IP
+  const [pacientes, setPacientes] = useState([])
+  const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchPacientes = async () => {
       try {
-        const response = await axios.get(`${url}/api/pacientes/${userId}`);
-        setPacientes(response.data.usuarios);
-        setLoading(false);
+        const response = await axios.get(`${url}/api/pacientes/${userId}`)
+        setPacientes(response.data.usuarios)
+        setLoading(false)
       } catch (error) {
-        console.error("Error en la solicitud:", error.message);
-        setLoading(false);
-        setPacientes([]);
+        console.error("Error en la solicitud:", error.message)
+        setLoading(false)
+        setPacientes([])
       }
-    };
+    }
 
-    fetchPacientes();
-  }, [userId]);
+    fetchPacientes()
+  }, [userId])
 
   const verHistorial = (usuario) => {
-    const { nombre, apellido, uid } = usuario;
+    const { nombre, apellido, uid } = usuario
     navigate(`/historial/${nombre}`, {
       state: { id: uid, nombre, apellido },
-    });
-  };
+    })
+  }
 
   return (
     <div className="container py-4">
@@ -61,5 +61,5 @@ export const HomePage = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}

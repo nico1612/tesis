@@ -1,9 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { medicosSlice } from "./medicos";
-import { pacientesSlice } from "./usuarios";
-import { authSlice } from "./auth";
-
-
+import { configureStore } from "@reduxjs/toolkit"
+import { medicosSlice } from "./medicos"
+import { pacientesSlice } from "./usuarios"
+import { authSlice } from "./auth"
 
 export default configureStore({
   reducer: {

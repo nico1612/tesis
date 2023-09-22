@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { homeSidebar, login, sideBar, sideBarAcerca } from '../estilos/estilos';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { homeSidebar, login, sideBar, sideBarAcerca } from '../estilos/estilos'
 
 export const Sidebar = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false)
 
   const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
+    setShowMenu(!showMenu)
+  }
  
   return (
     <nav className="sidebar"  style={sideBar}>
@@ -32,5 +32,5 @@ export const Sidebar = () => {
         </ul>
       <div className="sidebar-footer"></div>
     </nav>
-  );
-};
+  )
+}

@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setError, startRegisterMedico } from "../../store";
-import { useError, useForm } from "../../hooks";
-import { checkFormLogin, checkFormRegister } from "../helpers";
-import { ApellidoLabel, ApellidoText, ButtonRegistrar, LicenciaInput, RegistroText, TienesCuenta, correoText, inputCorreo, licenciaText, noTienesCuenta, nombreLabel, nombreText, passwordLabel, passwordText, registrete } from "../estilos/estiloMedico";
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { setError, startRegisterMedico } from "../../store"
+import { useError, useForm } from "../../hooks"
+import { checkFormLogin, checkFormRegister } from "../helpers"
+import { ApellidoLabel, ApellidoText, ButtonRegistrar, LicenciaInput, RegistroText, TienesCuenta, correoText, inputCorreo, licenciaText, noTienesCuenta, nombreLabel, nombreText, passwordLabel, passwordText, registrete } from "../estilos/estiloMedico"
 
 const formData = {
   Email: "",
@@ -12,10 +12,10 @@ const formData = {
   Name: "",
   Password: "",
   Licencia: "",
-};
+}
 
 export const RegisterMedicosPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const {
     Email,
     Name,
@@ -23,9 +23,9 @@ export const RegisterMedicosPage = () => {
     Password,
     Licencia,
     onInputChange,
-  } = useForm(formData);
-  const { error } = useSelector((state) => state.auth);
-  const [ErrorLicencia, setErrorLicencia] = useState(false);
+  } = useForm(formData)
+  const { error } = useSelector((state) => state.auth)
+  const [ErrorLicencia, setErrorLicencia] = useState(false)
 
   const {
     errorMail,
@@ -36,21 +36,21 @@ export const RegisterMedicosPage = () => {
     setErrorName,
     setErrorPassword,
     setErrorSurname,
-  } = useError();
+  } = useError()
 
   useEffect(() => {
     if (error) {
-      dispatch(setError());
+      dispatch(setError())
     }
-  }, [error, dispatch]);
+  }, [error, dispatch])
 
   const onSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     if (ErrorLicencia === "") {
-      setErrorLicencia(true);
+      setErrorLicencia(true)
     } else {
-      setErrorLicencia(false);
+      setErrorLicencia(false)
     }
 
     if (
@@ -69,10 +69,10 @@ export const RegisterMedicosPage = () => {
       })
     ) {
       console.log({ Email, Password, Name, Surname, Licencia })
-      dispatch(startRegisterMedico({ Email, Password, Name, Surname, Licencia }));
+      dispatch(startRegisterMedico({ Email, Password, Name, Surname, Licencia }))
     }
     console.log({ errorName, errorMail, errorPassword, errorSurname,ErrorLicencia })
-  };
+  }
 
   return (
     <div className="container" >
@@ -167,5 +167,5 @@ export const RegisterMedicosPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

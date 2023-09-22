@@ -1,12 +1,12 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { HomePage, HistorialPage ,ChatPage, BuscarPage, DatoPage, ChatMedico, MedicosRelaciones } from "../pages"
-import { useSelector } from "react-redux";
-import { Footer } from "../../componentes";
-import { Navbar } from "../components";
-import { Sidebar } from "../components/sideBar";
+import { useSelector } from "react-redux"
+import { Footer } from "../../componentes"
+import { Navbar } from "../components"
+import { Sidebar } from "../components/sideBar"
 
 export const UsuariosRouter = () => {
-  const { name } = useSelector((state) => state.auth);
+  const { name } = useSelector((state) => state.auth)
 
   return (
     <div style={{ display: 'flex', height:"100vh"}}>
@@ -30,5 +30,5 @@ export const UsuariosRouter = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }

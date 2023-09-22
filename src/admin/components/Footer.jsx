@@ -1,6 +1,5 @@
 import { dermisuliton, footer } from "../estilos/componentes"
 
-
 export const Footer=()=>{
 
     return(

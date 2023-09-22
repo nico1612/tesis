@@ -1,37 +1,37 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Card, Button, Spinner, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { Card, Button, Spinner, Row, Col } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
-const url = import.meta.env.VITE_APP_IP;
+const url = import.meta.env.VITE_APP_IP
 
 export const ChatPage = () => {
-    const { userId } = useSelector((state) => state.auth);
-    const id = userId;
-    const [pacientes, setPacientes] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { userId } = useSelector((state) => state.auth)
+    const id = userId
+    const [pacientes, setPacientes] = useState([])
+    const [loading, setLoading] = useState(true)
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchConsultas = async () => {
             try {
-                const { data } = await axios.get(`${url}/api/pacientes/${id}`);
-                setPacientes(data.usuarios);
-                setLoading(false);
+                const { data } = await axios.get(`${url}/api/pacientes/${id}`)
+                setPacientes(data.usuarios)
+                setLoading(false)
             } catch (error) {
-                console.error("Error en la solicitud:", error.message);
-                setLoading(false);
+                console.error("Error en la solicitud:", error.message)
+                setLoading(false)
             }
-        };
+        }
 
-        fetchConsultas();
-    }, [id]);
+        fetchConsultas()
+    }, [id])
 
     const chatear = (paciente) => {
-        navigate(`/chat/${paciente.uid}`);
-    };
+        navigate(`/chat/${paciente.uid}`)
+    }
 
     return (
         <div className="container mt-4">
@@ -57,5 +57,5 @@ export const ChatPage = () => {
                 <p className="text-center">No hay médicos disponibles.</p>
             )}
         </div>
-    );
-};
+    )
+}

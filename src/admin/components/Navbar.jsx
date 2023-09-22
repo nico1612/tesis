@@ -1,17 +1,17 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
-import { RiLogoutBoxLine } from 'react-icons/ri'; // Importa los iconos que deseas utilizar
-import { startLogout } from "../../store/auth/thunks";
-import { navbar } from "../estilos/componentes";
+import React from "react"
+import { useDispatch } from "react-redux"
+import { Link, useLocation } from "react-router-dom"
+import { RiLogoutBoxLine } from 'react-icons/ri'
+import { startLogout } from "../../store/auth/thunks"
+import { navbar } from "../estilos/componentes"
 
 export const Navbar = () => {
-  const location = useLocation();
-  const dispatch = useDispatch();
+  const location = useLocation()
+  const dispatch = useDispatch()
 
   const logout = () => {
-    dispatch(startLogout());
-  };
+    dispatch(startLogout())
+  }
 
   return (
     <nav style={navbar} className="navbar navbar-expand-lg navbar-light">
@@ -38,5 +38,5 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}

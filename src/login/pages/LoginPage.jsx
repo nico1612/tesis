@@ -1,36 +1,36 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
-import { startLogin, setError } from "../../store/";
-import { useError, useForm } from "../../hooks";
-import { checkFormLogin } from "../helpers";
-import {labelCorreo,textoIniciarsesion,PasswordText,passwordLabel,Iniciarsesion,registroMedico,Registro, correoText } from "../estilos/estilosLogin";
+import { startLogin, setError } from "../../store/"
+import { useError, useForm } from "../../hooks"
+import { checkFormLogin } from "../helpers"
+import {labelCorreo,textoIniciarsesion,PasswordText,passwordLabel,Iniciarsesion,registroMedico,Registro, correoText } from "../estilos/estilosLogin"
 const formData = {
   Email: "",
   Password: ""
-};
+}
 
 export const LoginPage = () => {
-  const dispatch = useDispatch();
-  const { Email, Password, onInputChange } = useForm(formData);
+  const dispatch = useDispatch()
+  const { Email, Password, onInputChange } = useForm(formData)
 
-  const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError();
-  const { error } = useSelector((state) => state.auth);
+  const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError()
+  const { error } = useSelector((state) => state.auth)
 
   useEffect(() => {
     if (error) {
-      dispatch(setError());
+      dispatch(setError())
     }
-  }, [error, dispatch]);
+  }, [error, dispatch])
 
   const onSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     if (checkFormLogin({ Email, Password, setErrorMail, setErrorPassword })) {
-      dispatch(startLogin({ Email, Password }));
+      dispatch(startLogin({ Email, Password }))
     }
-  };
+  }
 
   return (
     <div className="container" >
@@ -87,5 +87,5 @@ export const LoginPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

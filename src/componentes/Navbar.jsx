@@ -1,15 +1,15 @@
-import React from 'react';
-import { useDispatch } from "react-redux";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'; // Importa los íconos que deseas utilizar
-import { startLogout } from "../store/auth/thunks";
+import React from 'react'
+import { useDispatch } from "react-redux"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { startLogout } from "../store/auth/thunks"
 
 export const Navbar = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const logout = () => {
-    dispatch(startLogout());
-  };
+    dispatch(startLogout())
+  }
 
   return (
     <nav style={{background: "#07D2FE"}} className="navbar navbar-expand-lg ">
@@ -36,5 +36,5 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}

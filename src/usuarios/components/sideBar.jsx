@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faFileAlt, faHistory, faSearch, faComment } from '@fortawesome/free-solid-svg-icons'; // Importa los íconos que deseas utilizar
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa la hoja de estilos de Bootstrap
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faFileAlt, faHistory, faSearch, faComment } from '@fortawesome/free-solid-svg-icons'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const Sidebar = ({ nombre, rol }) => {
   return (
@@ -42,5 +42,5 @@ export const Sidebar = ({ nombre, rol }) => {
       <div className="sidebar-footer">
       </div>
     </nav>
-  );
-};
+  )
+}

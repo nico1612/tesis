@@ -1,28 +1,29 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const TerminosYCondiciones = () => {
 
     const navigate=useNavigate()
-    const [scrollAtBottom, setScrollAtBottom] = useState(false);
+    const [scrollAtBottom, setScrollAtBottom] = useState(false)
 
     const handleScroll = (e) => {
-      const element = e.target;
+      const element = e.target
       if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-        setScrollAtBottom(true);
+        setScrollAtBottom(true)
       } else {
-        setScrollAtBottom(false);
+        setScrollAtBottom(false)
       }
-    };
+    }
+
     useEffect(() => {
-        const contentElement = document.getElementById("contenido");
+        const contentElement = document.getElementById("contenido")
         if (contentElement) {
-          contentElement.addEventListener("scroll", handleScroll);
+          contentElement.addEventListener("scroll", handleScroll)
           return () => {
-            contentElement.removeEventListener("scroll", handleScroll);
-          };
+            contentElement.removeEventListener("scroll", handleScroll)
+          }
         }
-    }, []);
+    }, [])
 
     const estiloTerminos = {
         fontFamily: 'Arial, sans-serif',
@@ -38,30 +39,30 @@ export const TerminosYCondiciones = () => {
         position: 'absolute',
         top: '10%', 
         left:"30%"
-    };
+    }
 
     const estiloTitulo = {
         fontSize: '24px',
         fontWeight: 'bold',
         marginBottom: '20px',
-    };
+    }
 
     const estiloSubtitulo = {
         fontSize: '18px',
         fontWeight: 'bold',
         marginTop: '20px',
-    };
+    }
 
     const estiloParrafo = {
         fontSize: '16px',
         marginBottom: '10px',
         lineHeight: '1.5',
-    };
+    }
 
     const estiloLista = {
         listStyleType: 'disc',
         marginLeft: '20px',
-    };
+    }
 
     const estiloBoton = {
         backgroundColor: "green",
@@ -72,7 +73,7 @@ export const TerminosYCondiciones = () => {
         position: 'absolute',
         top: '80%', 
         left:"55%"
-      };
+    }
     
 
     const aceptar=()=>{

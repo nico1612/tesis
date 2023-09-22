@@ -1,35 +1,35 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export const HistorialPacientesPage = () => {
-  const location = useLocation();
-  const { id, nombre, apellido } = location.state;
-  const url = import.meta.env.VITE_APP_IP;
+  const location = useLocation()
+  const { id, nombre, apellido } = location.state
+  const url = import.meta.env.VITE_APP_IP
 
-  const [loading, setLoading] = useState(true);
-  const [consultas, setConsultas] = useState([]);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
+  const [consultas, setConsultas] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchConsultas = async () => {
       try {
-        const response = await axios.get(`${url}/api/buscar/consultas/${id}`);
-        setConsultas(response.data.results);
-        setLoading(false);
+        const response = await axios.get(`${url}/api/buscar/consultas/${id}`)
+        setConsultas(response.data.results)
+        setLoading(false)
       } catch (error) {
-        console.error("Error en la solicitud:", error.message);
-        setLoading(false);
-        setConsultas([]);
+        console.error("Error en la solicitud:", error.message)
+        setLoading(false)
+        setConsultas([])
       }
-    };
+    }
 
-    fetchConsultas();
-  }, [id]);
+    fetchConsultas()
+  }, [id])
 
   const regresar = () => {
-    navigate(-1);
-  };
+    navigate(-1)
+  }
 
   return (
     <div className="container py-4">
@@ -69,5 +69,5 @@ export const HistorialPacientesPage = () => {
       </div>
       <button className="btn btn-primary mt-3" onClick={regresar}>Regresar</button>
     </div>
-  );
-};
+  )
+}

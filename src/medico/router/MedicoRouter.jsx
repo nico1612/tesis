@@ -4,10 +4,9 @@ import { ChatPaciente, ChatPage, DatoPage, HistorialPacientesPage, HistorialPage
 import {  Navbar } from "../components"
 import { Footer, Sidebar } from "../../componentes"
 
-
 export const MedicoRouter=()=>{
-    return(
 
+    return(
         <div style={{ display: "flex" }}>
             <Sidebar />
         

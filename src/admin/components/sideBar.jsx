@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa la hoja de estilos de Bootstrap
-import { RiUserLine, RiUserSearchLine } from 'react-icons/ri';
-import { sidebar } from '../estilos/componentes';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { RiUserLine, RiUserSearchLine } from 'react-icons/ri'
+import { sidebar } from '../estilos/componentes'
 
 export const Sidebar = () => {
   return (
@@ -27,5 +27,5 @@ export const Sidebar = () => {
       <div className="sidebar-footer">
       </div>
     </nav>
-  );
-};
+  )
+}

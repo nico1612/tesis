@@ -1,11 +1,9 @@
-
-
 export const TablaSolicitudes=({Aceptar,Rechazar,solicitudes})=>{
 
     return(
-        <div className="container mt-4">
-      <h2 className="text-center">Lista de Solicitudes</h2>
-      <table className="table table-bordered mt-3">
+      <div className="container mt-4">
+        <h2 className="text-center">Lista de Solicitudes</h2>
+        <table className="table table-bordered mt-3">
         <thead className="thead-dark shadow">
           <tr>
             <th className="text-center" scope="col">Apellido</th>

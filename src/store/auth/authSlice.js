@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 
 export const authSlice = createSlice({
@@ -33,7 +33,7 @@ export const authSlice = createSlice({
             }
         },
         logout:(state,{payload})=>{
-            state.status='not-authenticated';
+            state.status='not-authenticated'
             state.email=null,
             state.userId=null,
             state.name=null,
@@ -49,6 +49,6 @@ export const authSlice = createSlice({
             state.error=!state.error
         }
     }
-});
+})
 
-export const { login,logout,checkingCredentials,setError } = authSlice.actions;
+export const { login,logout,checkingCredentials,setError } = authSlice.actions

@@ -1,34 +1,34 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { startRegister, setError } from "../../store";
-import { useError, useForm } from "../../hooks";
-import { checkFormLogin, checkFormRegister } from "../helpers";
-import { Apellido, NombreText, Registrese, RegistroBoton, checkbox, correoText, inputApellido, inputCorreo, inputNombre, inputPassword, médico, passwordText, registroText, terminosYCondiciones, tienesCuente } from "../estilos/registroPaciente";
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import { startRegister, setError } from "../../store"
+import { useError, useForm } from "../../hooks"
+import { checkFormLogin, checkFormRegister } from "../helpers"
+import { Apellido, NombreText, Registrese, RegistroBoton, checkbox, correoText, inputApellido, inputCorreo, inputNombre, inputPassword, médico, passwordText, registroText, terminosYCondiciones, tienesCuente } from "../estilos/registroPaciente"
 
 const formData = {
   Email: "",
   Surname: "",
   Name: "",
   Password: "",
-};
+}
 
 export const RegisterPage = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false)
 
   const handleOnChange = () => {
-    setIsChecked(!isChecked);
-  };
-  const dispatch = useDispatch();
+    setIsChecked(!isChecked)
+  }
+  const dispatch = useDispatch()
   const {
     Email,
     Name,
     Surname,
     Password,
     onInputChange,
-  } = useForm(formData);
+  } = useForm(formData)
 
-  const { error } = useSelector((state) => state.auth);
+  const { error } = useSelector((state) => state.auth)
 
   const {
     errorMail,
@@ -39,16 +39,16 @@ export const RegisterPage = () => {
     setErrorPassword,
     setErrorName,
     setErrorSurname,
-  } = useError();
+  } = useError()
  
   useEffect(() => {
     if (error) {
-      dispatch(setError());
+      dispatch(setError())
     }
-  }, [error, dispatch]);
+  }, [error, dispatch])
 
   const onSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     if (
       checkFormRegister({
@@ -65,9 +65,9 @@ export const RegisterPage = () => {
       })
       && isChecked===true
     ) {
-      dispatch(startRegister({ Email, Password, Name, Surname }));
+      dispatch(startRegister({ Email, Password, Name, Surname }))
     }
-  };
+  }
 
   return (
     <div className="container">
@@ -163,5 +163,5 @@ export const RegisterPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,20 +1,19 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom"; // Usamos NavLink en lugar de Link
-import { startLogout } from "../../store/auth/thunks";
-import { FaSignOutAlt } from 'react-icons/fa';
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useLocation } from "react-router-dom"
+import { startLogout } from "../../store/auth/thunks"
+import { FaSignOutAlt } from 'react-icons/fa'
 
 export const Navbar = () => {
-  const dispatch = useDispatch();
-  const { name } = useSelector((state) => state.auth);
-  const location = useLocation();
+  const dispatch = useDispatch()
+  const { name } = useSelector((state) => state.auth)
+  const location = useLocation()
 
   const logout = () => {
-    dispatch(startLogout());
-  };
+    dispatch(startLogout())
+  }
 
-  // Definimos las variables para los colores del fondo y del texto
-  const bgColor = location.pathname === "/" ? "#f8f9fa" : "#007bff"; // Azul más claro cuando no hay coincidencia de ruta
+  const bgColor = location.pathname === "/" ? "#f8f9fa" : "#007bff"
 
   return (
     <nav
@@ -26,7 +25,6 @@ export const Navbar = () => {
           <ul className="navbar-nav ms-auto">
          
             <li className="nav-item">
-              {/* Utilizamos solo el ícono de logout sin texto */}
               <button
                 className="btn"
                 style={{
@@ -43,5 +41,5 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
+  )
 }

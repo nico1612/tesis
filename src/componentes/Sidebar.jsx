@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faFileAlt } from '@fortawesome/free-solid-svg-icons';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles.css';
-import { FaCommentAlt, FaUser } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faFileAlt } from '@fortawesome/free-solid-svg-icons'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles.css'
+import { FaCommentAlt, FaUser } from 'react-icons/fa'
+import { useSelector } from 'react-redux'
 
 export const Sidebar = () => {
-  const { name } = useSelector((state) => state.auth);
-  const bgColor = location.pathname === "/" ? "#f8f9fa" : "#007bff"; // Azul más claro cuando no hay coincidencia de ruta
-  const textColor = location.pathname === "/" ? "#000" : "#fff"; // Texto negro cuando no hay coincidencia de ruta
+  const { name } = useSelector((state) => state.auth)
+  const bgColor = location.pathname === "/" ? "#f8f9fa" : "#007bff"
+  const textColor = location.pathname === "/" ? "#000" : "#fff"
 
   return (
     <div  style={{ display: '1', height:"100vh",background: "#07D2FE" }} className="sidebar-container">
@@ -56,5 +56,5 @@ export const Sidebar = () => {
         </ul>
       </nav>
     </div>
-  );
-};
+  )
+}

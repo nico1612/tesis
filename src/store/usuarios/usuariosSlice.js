@@ -11,43 +11,42 @@ export const pacientesSlice = createSlice({
     },
     reducers: {
         addNewEmpty: (state, action) => {
-            state.pacientes.push(action.payload);
-            state.isSaving = false;
+            state.pacientes.push(action.payload)
+            state.isSaving = false
         },
         setActivePaciente: (state, action) => {
-            state.active = action.payload;
+            state.active = action.payload
             console.log(state.active)
 
         },
         setPacientes: (state, action) => {
-            state.pacientes = action.payload;
+            state.pacientes = action.payload
         },
         setSaving: (state) => {
-            state.isSaving = false;
-            state.messageSaved = '';
+            state.isSaving = false
+            state.messageSaved = ''
         },
         updatePacientes: (state, action) => {
 
             state.pacientes = state.pacientes.map((paciente) => {
                 if (paciente.uid === action.payload.paciente.uid) {
-                    paciente.estado = !paciente.estado;
+                    paciente.estado = !paciente.estado
                     console.log(paciente.estado)
-                    return paciente;
+                    return paciente
                 }
-                return paciente;
-            });
+                return paciente
+            })
         },
         clearPacienteLogout: (state) => {
-            state.isSaving = false;
-            state.messageSaved = '';
-            state.pacientes = [];
-            state.active = null;
+            state.isSaving = false
+            state.messageSaved = ''
+            state.pacientes = []
+            state.active = null
             state.change = true;
-        },
+        }
     },
-});
+})
 
-// Action creators are generated for each case reducer function
 export const { 
     addNewEmpty,
     setActivePaciente,
@@ -55,6 +54,6 @@ export const {
     setSaving,
     updatePacientes,
     clearPacienteLogout,
-} = pacientesSlice.actions;
+} = pacientesSlice.actions
 
-export default pacientesSlice.reducer;
+export default pacientesSlice.reducer

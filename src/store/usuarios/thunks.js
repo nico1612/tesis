@@ -1,5 +1,5 @@
-import axios from "axios";
-import { setActivePaciente, setPacientes } from "./usuariosSlice";
+import axios from "axios"
+import { setActivePaciente, setPacientes } from "./usuariosSlice"
 
 const url=import.meta.env.VITE_APP_IP
 
@@ -12,9 +12,9 @@ export const startGettingpacientes=()=>{
             headers: {
               "Content-Type": "application/json",
             },
-        };
+        }
 
-        const response = await axios(`${url}/api/pacientes/`, options);
+        const response = await axios(`${url}/api/pacientes/`, options)
         const {usuario}=response.data
         console.log(usuario)
         dispatch( setPacientes(usuario))
@@ -33,11 +33,11 @@ export const putUsuario=({ paciente})=>{
               "Content-Type": "application/json",
             },
             data:{"usuarios":paciente}
-        };
+        }
 
         const id=paciente.uid
-       
-        await axios(`${url}/api/pacientes/${id}`, options);
+
+        await axios(`${url}/api/pacientes/${id}`, options)
         
     }
 

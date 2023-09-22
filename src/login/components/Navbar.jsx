@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
 
 export const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false)
 
   const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
+    setShowMenu(!showMenu)
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-nav"> {/* Cambia la clase bg-light por bg-nav */}
@@ -40,5 +40,5 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
