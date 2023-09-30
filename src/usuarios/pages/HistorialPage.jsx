@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import CryptoJS from "crypto-js"
 
 export const HistorialPage = () => {
   const url = import.meta.env.VITE_APP_IP
@@ -18,7 +19,13 @@ export const HistorialPage = () => {
           axios.get(`${url}/api/buscar/consultas/${id}`),
           axios.get(`${url}/api/pacientes/estadisticas/${id}`)
         ])
-        setConsultas(consultasResponse.data.results)
+        let {results} =consultasResponse.data
+        results.map((result)=>{
+          var dencriptcion=CryptoJS.AES.decrypt(result.img,import.meta.env.VITE_APP_SECRETORPRIVATEKEY)
+          console.log(dencriptcion)
+          result.img=dencriptcion.toString(CryptoJS.enc.Utf8)
+        })
+        setConsultas(results)
         setEstadisticas(estadisticasResponse.data.resultados)
         setLoading(false)
       } catch (error) {

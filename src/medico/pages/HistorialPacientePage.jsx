@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import CryptoJS from "crypto-js"
 
 export const HistorialPacientesPage = () => {
   const location = useLocation()
@@ -14,8 +15,14 @@ export const HistorialPacientesPage = () => {
   useEffect(() => {
     const fetchConsultas = async () => {
       try {
-        const response = await axios.get(`${url}/api/buscar/consultas/${id}`)
-        setConsultas(response.data.results)
+        const response = await axios.get(`${url}/api/buscar/consulta/${id}`)
+        let {results} =response.data
+        results.map((result)=>{
+          var dencriptcion=CryptoJS.AES.decrypt(result.img,import.meta.env.VITE_APP_SECRETORPRIVATEKEY)
+          console.log(dencriptcion)
+          result.img=dencriptcion.toString(CryptoJS.enc.Utf8)
+        })
+        setConsultas(results)
         setLoading(false)
       } catch (error) {
         console.error("Error en la solicitud:", error.message)

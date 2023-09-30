@@ -11,6 +11,7 @@ export const HomePage = () => {
   const [archivos, setArchivos] = useState([])
   const [resultados, setResultados] = useState()
   const [base64,setBase64]=useState()
+
   const subirArchivos = (e) => {
     setArchivos(e.target.files)
     Array.from(e.target.files).forEach(archivo=>{
@@ -38,14 +39,17 @@ export const HomePage = () => {
     formData.append("id", userId)
     formData.append("encriptcion",encriptcion)
     try {
-      const results = await axios.put(`${url}/api/uploads/files/2`, formData, {
+      let results = await axios.put(`${url}/api/uploads/files/2`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       alert("Imagen enviada exitosamente.")
       setArchivos([])
-      console.log(results.data)
+
+      var dencriptcion=CryptoJS.AES.decrypt(results.data.img,import.meta.env.VITE_APP_SECRETORPRIVATEKEY)
+      results.data.img=dencriptcion.toString(CryptoJS.enc.Utf8)
+
       const { _id, ...datosSinId } = results.data
       setResultados(datosSinId)
     } catch (error) {
@@ -75,35 +79,39 @@ export const HomePage = () => {
       </form>
       {resultados && (
         <div className="container">
-          <div className="card mb-3">
-            <div className="card-body">
-              <h2 className="card-title mb-3">Resultado:</h2>
-              <p className="card-text">
-                Fecha: {resultados.dia}/{resultados.mes}/{resultados.ano}
-              </p>
-              {resultados.resultadoDA >= 0.5 ? (
-                <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis atópica.</p>
-              ) : (
-                <p className="card-text">El área afectada no coincide con dermatitis atópica.</p>
-              )}
-              {resultados.ResPsoriasis >= 0.5  ? (
-                <p className="card-text">El área afectada tiene similitudes con un caso de psoriasis.</p>
-              ) : (
-                <p className="card-text">El área afectada no coincide con psoriasis.</p>
-              )}
-              {resultados.ResDermatitisContacto >= 0.5  ? (
-                <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis de contacto.</p>
-              ) : (
-                <p className="card-text">El área afectada no coincide con dermatitis de contacto.</p>
-              )}
+        <div className="card mb-3">
+          <div className="card-body">
+            <h2 className="card-title mb-3">Resultado:</h2>
+            <div className="clearfix">
               <img
                 src={resultados.img}
                 alt="Consulta"
-                className="img-fluid"
+                className="img-fluid float-left mr-3"
               />
+              <div className="float-right">
+                <p className="card-text">
+                  Fecha: {resultados.dia}/{resultados.mes}/{resultados.ano}
+                </p>
+                {resultados.resultadoDA >= 0.5 ? (
+                  <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis atópica.</p>
+                ) : (
+                  <p className="card-text">El área afectada no coincide con dermatitis atópica.</p>
+                )}
+                {resultados.ResPsoriasis >= 0.5 ? (
+                  <p className="card-text">El área afectada tiene similitudes con un caso de psoriasis.</p>
+                ) : (
+                  <p className="card-text">El área afectada no coincide con psoriasis.</p>
+                )}
+                {resultados.ResDermatitisContacto >= 0.5 ? (
+                  <p className="card-text">El área afectada tiene similitudes con un caso de dermatitis de contacto.</p>
+                ) : (
+                  <p className="card-text">El área afectada no coincide con dermatitis de contacto.</p>
+                )}
+              </div>
             </div>
           </div>
         </div>
+      </div>
       )}
     </div>
   )
