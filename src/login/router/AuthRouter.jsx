@@ -23,7 +23,7 @@ export const AuthRouter = () => {
           <Route path="/medico" element={<RegisterMedicosPage />} />
 
           <Route path="/*" element={<Navigate to="/auth" />} />
-          <Route path="/terminos" element={<TerminosYCondiciones/>}></Route>
+          <Route path="/register/terminos" element={<TerminosYCondiciones/>}></Route>
         </Routes>
         <Footer style={{ position: "absolute", bottom: "0",width: "100%",height: "40px"}} />
       </div>

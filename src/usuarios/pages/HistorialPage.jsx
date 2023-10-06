@@ -16,13 +16,13 @@ export const HistorialPage = () => {
     const fetchConsultasAndEstadisticas = async () => {
       try {
         const [consultasResponse, estadisticasResponse] = await Promise.all([
-          axios.get(`${url}/api/buscar/consultas/${id}`),
+          axios.get(`${url}/api/buscar/consulta/${id}`),
           axios.get(`${url}/api/pacientes/estadisticas/${id}`)
         ])
         let {results} =consultasResponse.data
+
         results.map((result)=>{
           var dencriptcion=CryptoJS.AES.decrypt(result.img,import.meta.env.VITE_APP_SECRETORPRIVATEKEY)
-          console.log(dencriptcion)
           result.img=dencriptcion.toString(CryptoJS.enc.Utf8)
         })
         setConsultas(results)
@@ -36,7 +36,6 @@ export const HistorialPage = () => {
     }
 
     fetchConsultasAndEstadisticas()
-    console.log(estadisticas)
 
   }, [id, url])
 

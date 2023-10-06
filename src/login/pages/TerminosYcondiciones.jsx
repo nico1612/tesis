@@ -130,6 +130,22 @@ export const TerminosYCondiciones = () => {
 
                 <h2 style={estiloSubtitulo}>Contacto</h2>
                 <p style={estiloParrafo}>Preguntas: Si tiene preguntas sobre esta Política de Privacidad, puede ponerse en contacto con nosotros en [dirección de correo electrónico de contacto]. Le recomendamos leer esta Política de Privacidad detenidamente y asegurarse de que comprende nuestras prácticas en relación con el uso de las imágenes proporcionadas por los usuarios. Al utilizar la Aplicación, acepta los términos descritos en esta Política de Privacidad.</p>
+                <h2> Deslinde de responsabilidad e Información sobre Salud</h2>
+                <p>La información contenida en esta plataforma es de carácter informativa, en concepto de servicio a la sociedad para promover la salud del usuario. No constituye un consejo médico ni pretende ser un sustituto de la atención médica brindada por un profesional. Usted asume la responsabilidad al usar la misma.
+                    Siempre busque el consejo de su médico antes de iniciar cualquier tratamiento nuevo o suspender un tratamiento existente. Hable con su profesional médico sobre cualquier pregunta que pueda tener al respecto. Nada de lo contenido en esta plataforma se destina a ser utilizado para el diagnóstico o tratamiento médico.
+                    La información contenida en esta plataforma no debe ser utilizada como sustituto para el cuidado y conocimiento que su médico pueda proporcionarle a usted.
+                    La información contenida en Dermi-Solution está diseñada para complementar la información que obtenga de su médico. Si hay un desacuerdo entre la información presentada en esta plataforma y lo que su médico ha dicho es probable que lo expresado por su médico sea lo correcto que es quien conoce su problemática médica.
+                    La información contenida en esta plataforma tiene los siguientes limitaciones, en comparación a ser examinado por su médico:</p>
+                <ul>
+                    <li>Usted puede tener una conversación con su médico</li>
+                    <li>Su médico puede realizar examen físico y las pruebas necesarias.</li>
+                    <li>Usted puede tener un problema médico subyacente que requiera un médico para detectarla.</li>
+                    <li>Si está tomando medicamentos pueden influir en cómo se experimentan síntomas distintos.</li>
+                </ul>
+                <p>Al usar Dermi-Solution acepta la información proporcionada. Ni Dermi-Solution ni los proveedores de la información contenida en esta plataforma tendrán ninguna responsabilidad hacia usted como resultado del uso, correcto o incorrecto, la interpretación o la aplicación que usted haga de la información contenida en la plataforma, o hacer cualquier garantía expresa o implícita con respecto a la exactitud, contenido, integridad, fiabilidad o eficacia de la información contenida en este sitio web.
+                    Consulte siempre a su médico para que le prescriba los tratamientos, pruebas y recomendaciones sobre salud adecuados. No debe basarse en información del sitio web para autodiagnosticarse.
+                </p>
+
             </div>
             <button  style={estiloBoton} onClick={aceptar} disabled={!scrollAtBottom}>aceptar</button>
         </div>

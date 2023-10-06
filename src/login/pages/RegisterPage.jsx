@@ -141,7 +141,7 @@ export const RegisterPage = () => {
               onChange={handleOnChange}
               style={checkbox}
             />
-            <Link to="/terminos" style={terminosYCondiciones} > acepto terminos y condiciones</Link>
+            <Link to="/auth/register/terminos" style={terminosYCondiciones} > Acepto términos y condiciones</Link>
           </div>
             <div className="d-grid">
               <button style={RegistroBoton} type="submit">
