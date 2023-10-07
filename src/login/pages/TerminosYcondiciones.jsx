@@ -84,13 +84,6 @@ export const TerminosYCondiciones = () => {
         <div>
             <div id="contenido" style={estiloTerminos} onScroll={handleScroll}>
                 <h1 style={estiloTitulo}>Términos y Condiciones</h1>
-                <p style={estiloParrafo}>La política de privacidad es de suma importancia debido a la naturaleza de la información que se maneja. Por lo tanto, cuando los usuarios se registran en la aplicación, deben aceptar los términos y condiciones de la política de privacidad impuesta por los desarrolladores. Esta política comprende lo siguiente:</p>
-                <ul style={estiloLista}>
-                    <li>El tratamiento de los datos personales.</li>
-                    <li>La información recopilada.</li>
-                    <li>El acceso, almacenamiento, procesamiento, uso, seguridad y compartimiento de los mismos.</li>
-                </ul>
-
                 <p style={estiloParrafo}>Política de Privacidad de DERMI-SOLUTION (en adelante, la “Aplicación”). [Insertar nombre legal de la sociedad] se compromete a proteger su privacidad y garantiza el cumplimiento de la legislación de protección de datos personales aplicable. Sus datos personales serán tratados de forma lícita, leal y transparente, conforme a fines determinados explícitos y legítimos, y solo si son adecuados, pertinentes y limitados a lo necesario en relación con dichos fines. Además, mantendremos sus datos exactos y actualizados, conservándolos de forma que se permita su identificación solo durante el tiempo necesario para cumplir los fines del tratamiento.</p>
 
                 <p style={estiloParrafo}>Por medio del presente aviso de privacidad, describimos el modo en que se llevará a cabo el tratamiento de sus datos personales, incluyendo cómo recopilamos, usamos y compartimos información, incluidas las imágenes, proporcionadas por los usuarios en relación con el uso de la Aplicación. Al utilizar la Aplicación, el usuario acepta las prácticas descritas en esta Política de Privacidad. En caso de proceder a actualizar este aviso de privacidad, se lo comunicaremos a través de este sitio web.</p>
