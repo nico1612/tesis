@@ -18,7 +18,7 @@ export const Sidebar = () => {
         <div className="sidebar-header">
           <Link className="navbar-brand" to="/">
             <h3 className="navbar-brand">
-              <FaUser />    medico: {name}
+              <FaUser />  Médico: {name}
             </h3>
           </Link>
         </div>

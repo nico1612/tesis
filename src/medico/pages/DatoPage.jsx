@@ -13,9 +13,9 @@ export const DatoPage=()=>{
           <div className="row">
             <div className="col-md-6">
               <h4>Nombre: {name}</h4>
-              <h4>apellido: {apellido}</h4>
+              <h4>Apellido: {apellido}</h4>
               <h4>Correo: {email}</h4>
-              <h4>licencia: {licencia}</h4>
+              <h4>Licencia: {licencia}</h4>
             </div>
           </div>
         </div>
