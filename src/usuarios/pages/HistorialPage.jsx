@@ -57,8 +57,8 @@ export const HistorialPage = () => {
                   <table className="table table-bordered mt-3">
                     <thead className="thead-dark shadow ">
                       <tr>
-                        <th className="text-center" scope="col">enfermedad</th>
-                        <th className="text-center" scope="col">resultado</th>
+                        <th className="text-center" scope="col">Enfermedad</th>
+                        <th className="text-center" scope="col">Resultado</th>
                         <th className="text-center" scope="col">%</th>
                       </tr>
                     </thead>

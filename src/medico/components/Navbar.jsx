@@ -34,7 +34,7 @@ export const Navbar = () => {
                 onClick={logout}
               >
                 <FaSignOutAlt />
-                cerrar sesion
+                Logout
               </button>
             </li>
           </ul>

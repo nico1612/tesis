@@ -140,7 +140,7 @@ export const TerminosYCondiciones = () => {
                 </p>
 
             </div>
-            <button  style={estiloBoton} onClick={aceptar} disabled={!scrollAtBottom}>aceptar</button>
+            <button  style={estiloBoton} onClick={aceptar} disabled={!scrollAtBottom}>Aceptar</button>
         </div>
     )
 }
