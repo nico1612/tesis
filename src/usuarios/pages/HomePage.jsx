@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import axios from "axios"
 import CryptoJS from "crypto-js"
+import './homePage.css'
 
 export const HomePage = () => {
   const { userId } = useSelector((state) => state.auth)
@@ -60,7 +61,7 @@ export const HomePage = () => {
 
   return (
     <div className="container py-4">
-      <h1 className="text-center my-4">Subir imágenes del área afectada</h1>
+      <h1 className="text-center my-4 h1Fondo" >Subir imágenes del área afectada</h1>
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="d-flex justify-content-center">
           <div className="input-group">
@@ -86,7 +87,7 @@ export const HomePage = () => {
               <img
                 src={resultados.img}
                 alt="Consulta"
-                className="img-fluid float-left mr-3"
+                className="img-fluid float-left mr-3 img"
               />
               <div className="float-right">
                 <p className="card-text">

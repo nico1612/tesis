@@ -40,14 +40,14 @@ export const HistorialPage = () => {
   }, [id, url])
 
   return (
-    <div className="container py-4">
-      <div className="card p-4">
+    <div className=" py-4">
+      <div style={{ backgroundColor: '#90e0ef'}} className="card p-4">
         <h2 className="mb-4 text-center">Tu historial</h2>
         {loading ? (
           <div className="text-center">Cargando...</div>
         ) : consultas.length > 0 ? (
           <div>
-            <div className="mb-4 text-center">
+            <div className="mb-4 text-center" style={{background:"0077b6"}}>
               <h3>Estadísticas</h3>
               <p className="lead">
                 <strong>Total de consultas:</strong> {estadisticas.total}
@@ -113,7 +113,7 @@ export const HistorialPage = () => {
                           <p className="card-text">El área afectada no coincide con dermatitis de contacto.</p>
                       )}
                       {consulta.img && (
-                        <img src={consulta.img} alt="Consulta" className="img-fluid" />
+                        <img style={{width:"200px",height:"200px"}} src={consulta.img} alt="Consulta" className="img-fluid" />
                       )}
                     </div>
                   </div>

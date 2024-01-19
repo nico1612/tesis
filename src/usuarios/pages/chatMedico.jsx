@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import io from 'socket.io-client'
-import { BiSend } from 'react-icons/bi' // Importa el ícono que deseas utilizar
+import { BiSend } from 'react-icons/bi' 
 
 const url = import.meta.env.VITE_APP_IP
 
@@ -11,23 +11,17 @@ export const ChatMedico = () => {
     const { uid } = useParams()
     const [messages, setMessages] = useState([])
     const [messageInput, setMessageInput] = useState('')
-    const [socket, setSocket] = useState(null) // Estado para almacenar la instancia del socket
+    const [socket, setSocket] = useState(null) 
 
     useEffect(() => {
         const newSocket = io(url)
-
-        // Reemplaza 'usuario_id' con el ID del usuario actual
         newSocket.emit('joinRoom', 'usuario_id')
-
-        // Suscribirse al canal específico del usuario
         newSocket.on('message', (message) => {
             setMessages((prevMessages) => [...prevMessages, message])
         })
 
-        // Guardar la instancia del socket en el estado
         setSocket(newSocket)
 
-        // Limpieza al desmontar el componente
         return () => {
             if (newSocket) {
                 newSocket.disconnect()
@@ -39,17 +33,16 @@ export const ChatMedico = () => {
         event.preventDefault()
         if (messageInput.trim() !== '') {
             const newMessage = {
-                emisor: userId, // Reemplaza 'usuario_id' con el ID del usuario actual
-                receptor: uid, // Reemplaza 'receptor_id' con el ID del receptor del mensaje
+                emisor: userId,
+                receptor: uid,
                 mensaje: messageInput,
             }
 
-            // Enviar el mensaje al servidor de Socket.io
+
             if (socket) {
                 socket.emit('chatMessage', newMessage)
             }
 
-            // Actualizar los mensajes localmente
             setMessages((prevMessages) => [...prevMessages, newMessage])
             setMessageInput('')
         }

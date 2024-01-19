@@ -12,7 +12,7 @@ export const Navbar = () => {
   }
 
   return (
-    <nav style={{background: "#07D2FE"}} className="navbar navbar-expand-lg ">
+    <nav style={{background: "#07D2FE", width:"100%"}} className="navbar navbar-expand-lg ">
       <div className="container">
         <button
           className="navbar-toggler"

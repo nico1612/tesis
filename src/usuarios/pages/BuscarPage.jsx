@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useForm } from '../../hooks'
 import { useSelector } from 'react-redux'
 import { FormBuscar, MedicosBuscar } from '../components'
+import "./buscarPage.css"
 
 const url=import.meta.env.VITE_APP_IP
 
@@ -53,7 +54,7 @@ export const BuscarPage = () => {
   }
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 buscar">
       <div className="row justify-content-center">
         <div className="col-md-8">
           <h1 className="text-center mb-4">Buscar médico</h1>

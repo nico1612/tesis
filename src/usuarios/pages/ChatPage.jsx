@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Card, Button, Spinner, Row, Col } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-import { AiOutlineMessage } from 'react-icons/ai' // Importa el ícono que deseas utilizar
+import { AiOutlineMessage } from 'react-icons/ai'
 
 const url = import.meta.env.VITE_APP_IP
 
@@ -34,7 +34,7 @@ export const ChatPage = () => {
     }
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-4" style={{backgroundColor:"0077b6"}}>
             <h1 className="text-center mb-4">Lista de médicos</h1>
             {loading ? (
                 <div className="text-center">

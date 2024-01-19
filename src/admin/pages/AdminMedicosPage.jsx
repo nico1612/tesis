@@ -21,9 +21,11 @@ export const AdminMedicosPages = () => {
   };
 
   return (
+    <div style={{backgroundColor:"0096c7"}}>
     <div className="container">
       <h2 className="my-4">Listado de Médicos</h2>
       <TablaMedicos medicos={medicos} cambiarestado={cambiarestado}/>
+    </div>
     </div>
   );
 };
