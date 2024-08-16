@@ -1,0 +1,23 @@
+/* Main layout styles */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Content styles to expand and push the footer down */
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 150PX;
+}
+
+/* Ensure footer is at the bottom */
+footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

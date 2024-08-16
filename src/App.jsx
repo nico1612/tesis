@@ -1,17 +1,27 @@
 import { useDispatch } from 'react-redux'
-import { AppRouter } from './router/AppRouter'
 import { Login } from './store'
+import { AppRouter } from './router/routerGeneral/AppRouter'
 
 function App() {
   const dataJSON = localStorage.getItem("usuario")
-  const usuario = JSON.parse(dataJSON)
-  const dispatch= useDispatch()
-  console.log(usuario)
-  if(usuario){
-    dispatch(Login({usuario}))
+  let usuario = null
+  
+  try {
+    if (dataJSON !== undefined) {
+      usuario = JSON.parse(dataJSON)
+    }
+  } catch (error) {
   }
+  
+  const dispatch = useDispatch()
+  
+  if (usuario) {
+    dispatch(Login({ usuario }))
+  }
+  
+
   return (
-    <AppRouter/>
+    <AppRouter />
   )
 }
 

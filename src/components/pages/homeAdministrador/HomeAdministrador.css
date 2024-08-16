@@ -1,0 +1,57 @@
+/* HomePage.css */
+
+
+.home-page-container {
+    padding: 20px;
+    text-align: center; /* Centra el texto */
+    position: relative;
+    bottom: 100px;
+}
+
+/* Título principal de la página */
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Contenedor del panel de administración */
+.dashboard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Elementos individuales del panel de administración */
+.dashboard-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

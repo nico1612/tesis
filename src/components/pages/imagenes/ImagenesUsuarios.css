@@ -1,0 +1,96 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-container {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control-file {
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.liImagen {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.liImagen img {
+    max-width: 100px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.image-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles for centering cards */
+.image-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinea las tarjetas horizontalmente en el centro */
+    padding: 0;
+    margin: 0 auto; /* Asegura que el contenedor esté centrado */
+    max-width: 75%; /* Evita que el contenedor se expanda más allá del ancho de la pantalla */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.pagination .page-item .page-link {
+    color: #007bff;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}

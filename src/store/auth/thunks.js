@@ -17,7 +17,7 @@ export const startLogin = ({ Email, Password }) => async (dispatch) => {
     }
 
     const response = await axios(`${url}/api/auth/login`, options)
-
+    console.log(response)
     if (response.data.ok) {
       const { data } = response
       const dataJSON = JSON.stringify(data.usuario)

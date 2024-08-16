@@ -1,0 +1,24 @@
+.dato-container {
+    background-color: #9195F6;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.dato-container h4, .dato-container h6 {
+    color: #fff;
+}
+
+.dato-container h4 {
+    font-weight: bold;
+}
+
+.dato-container h6 {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .dato-container {
+        text-align: center;
+        padding: 10px;
+    }
+}

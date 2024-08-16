@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 export const pacientesSlice = createSlice({
     name: 'pacientes',
@@ -42,7 +42,7 @@ export const pacientesSlice = createSlice({
             state.messageSaved = ''
             state.pacientes = []
             state.active = null
-            state.change = true;
+            state.change = true
         }
     },
 })

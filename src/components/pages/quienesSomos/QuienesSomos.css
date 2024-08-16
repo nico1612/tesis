@@ -1,0 +1,92 @@
+/* App.css */
+
+.container {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.display-4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #444;
+}
+
+/* Párrafos */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Tarjetas de lista */
+.card-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    padding: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+}
+
+.card-item strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Secciones */
+section {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Estilos para cada sección */
+.section-intro {
+    background-color: #e0f7fa;
+}
+
+.section-important {
+    background-color: #fff3e0;
+}
+
+.section-objetivos {
+    background-color: #e8f5e9;
+}
+
+.section-compromiso {
+    background-color: #f3e5f5;
+}
+
+.section-contacto {
+    background-color: #e1bee7;
+}
+
+/* Márgenes */
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}

@@ -1,0 +1,111 @@
+
+/* Ajuste de márgenes en filas y columnas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* Para compensar el padding de las columnas */
+}
+
+.col-md-6 {
+    flex: 1;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Espaciado en los encabezados */
+h1 {
+    font-size: 2rem;
+}
+
+/* Estilos específicos para el título de médicos y solicitudes */
+h1.title-medicos {
+    position: relative;
+    left:0px;
+    top:0px
+}
+
+h1.title-solicitud {
+    position: relative;
+    left:0px;
+    top:0px
+}
+
+/* Estilos para listas */
+.list-group {
+    list-style: none;
+    padding: 0;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Botones */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Formulario */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Mensajes de éxito y error */
+.text-success {
+    color: #28a745;
+}
+
+.text-danger {
+    color: #dc3545;
+}

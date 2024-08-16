@@ -15,7 +15,8 @@ export const authSlice = createSlice({
         errorMessage:null,
         error:false,
         token:null,
-        rol:null
+        rol:null,
+        consultas:0
     }, 
 
     reducers: {
@@ -28,6 +29,9 @@ export const authSlice = createSlice({
             state.error=false,
             state.token=payload.token,
             state.rol=payload.usuario.rol
+            if(payload.usuario.consultas){
+                state.consultas=payload.usuario.consultas
+            }
             if(payload.usuario.licencia){
                 state.licencia=payload.usuario.licencia
             }
@@ -44,6 +48,9 @@ export const authSlice = createSlice({
         },
         checkingCredentials:(state)=>{
             state.status='checking'
+        },
+        actualizar:(state,{payload})=>{
+            state.consultas=state.consultas+payload.usuario.consultas
         },
         setError:(state)=>{
             state.error=!state.error

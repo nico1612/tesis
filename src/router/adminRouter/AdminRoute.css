@@ -1,0 +1,18 @@
+/* AdminRoute.css */
+.admin-route-container {
+    display: flex;
+    flex-direction: column;
+}
+  
+.main-content {
+  padding: 20px;
+  flex-grow: 1;
+  margin-top: 150px;
+}
+  
+footer {
+  margin-top: auto;
+  background-color: var(--background-color);
+  text-align: center;
+}
+  

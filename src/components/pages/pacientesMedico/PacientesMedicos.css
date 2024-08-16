@@ -1,0 +1,62 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco para el contenedor */
+    border-radius: 8px; /* Bordes redondeados para el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.list-group {
+    list-style: none;
+    padding: 0;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Color de fondo personalizado para los elementos de la lista */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef; /* Cambio de color en hover */
+    transform: translateY(-2px); /* Ligero levantamiento en hover */
+}
+
+.list-group-item span {
+    flex: 1;
+    font-size: 1rem;
+    color: #555;
+}
+
+.btn {
+    font-size: 0.875rem;
+    border-radius: 4px; /* Bordes redondeados para los botones */
+    padding: 8px 12px; /* Espaciado interno */
+    transition: background-color 0.3s, border-color 0.3s; /* Transiciones suaves */
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border: 1px solid #17a2b8;
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #138496; /* Color de fondo más oscuro en hover */
+    border-color: #117a8b; /* Color del borde más oscuro en hover */
+}

@@ -1,0 +1,123 @@
+/* stylesAuth.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fcd1c6;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.min-vh-100 {
+    min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fcd1c6;
+}
+
+.login-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+.btn-primary {
+    background-color: #343a40;
+    border-color: #343a40;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #505a62;
+    border-color: #505a62;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+.my-3 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.min-vh-100 {
+    min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+.footer {
+    background-color: #343a40; /* Ajusta el color según tus necesidades */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Empuja el footer hacia el fondo */
+    width: 100%;
+}
+ 

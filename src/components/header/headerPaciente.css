@@ -1,0 +1,35 @@
+/* headerPaciente.css */
+
+.navbar {
+    background-color: #f8f9fa; /* Cambia el color de fondo si es necesario */
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    color: #343a40; /* Cambia el color del texto del enlace si es necesario */
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #0056b3; /* Cambia el color del texto del enlace al pasar el cursor si es necesario */
+  }
+  
+  .nav-item {
+    margin-left: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  
+    .nav-item {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+  
