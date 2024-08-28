@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import './cardImagen.css'
 
 export const CardImagen = ({ resultados }) => {
+  console.log(resultados.resultadosEnfermedades[0].enfermedad)
   return (
     <Card style={{ maxWidth: '500px', margin: '0 auto' }} className="mb-3">
       <Card.Body className="card-body">
@@ -22,9 +23,12 @@ export const CardImagen = ({ resultados }) => {
           </Card.Text>
           {resultados.resultadosEnfermedades.map((enfermedad, index) => (
             <Card.Text key={index}>
-              {enfermedad.resultado >= 0.5
-                ? `la evaluación mediante Machine Learning sugiere que el área afectada presenta patrones similares a los de la ${enfermedad.enfermedad}.`
-                : `la evaluación mediante Machine Learning sugiere que el área afectada no presenta patrones similares a los de la ${enfermedad.enfermedad}.`}
+              <Card.Text>
+              el area afectada tiene más probabilidad de ser {enfermedad.enfermedad} 
+              </Card.Text>
+             <Card.Text>
+             con un porcentaje de {enfermedad.resultado*100} presicion
+             </Card.Text>
             </Card.Text>
           ))}
         </div>
