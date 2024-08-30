@@ -21,7 +21,9 @@ export const CardImagen = ({ resultados }) => {
           <Card.Text>
             Fecha: {resultados.dia}/{resultados.mes}/{resultados.ano}
           </Card.Text>
-          {resultados.resultadosEnfermedades.map((enfermedad, index) => (
+          {resultados.resultadosEnfermedades.map((enfermedad, index) => {
+            if(enfermedad.enfermedad!=='no ser ninguna enfermedad'){
+              return(
             <Card.Text key={index}>
               <Card.Text>
               el area afectada tiene más probabilidad de ser {enfermedad.enfermedad} 
@@ -29,8 +31,14 @@ export const CardImagen = ({ resultados }) => {
              <Card.Text>
              con un porcentaje de {enfermedad.resultado*100} presicion
              </Card.Text>
-            </Card.Text>
-          ))}
+            </Card.Text>)}else{
+              return  (<Card.Text key={index}>
+                <Card.Text>
+                no se ha detectado ninguna enfermedad en el area enviada
+                </Card.Text>
+              </Card.Text>)
+            }
+          })}
         </div>
       </Card.Body>
     </Card>
