@@ -34,7 +34,7 @@ export const CardImagen = ({ resultados }) => {
               el area afectada tiene más probabilidad de ser {enfermedad.enfermedad} 
               </Card.Text>
              <Card.Text>
-             con un porcentaje de {resultadoFormateado} presicion
+             con un porcentaje de {resultadoFormateado}% presicion
              </Card.Text>
             </Card.Text>)}else{
               return  (<Card.Text key={index}>
