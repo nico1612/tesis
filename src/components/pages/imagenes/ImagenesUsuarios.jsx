@@ -49,10 +49,10 @@ export const ImagenesUsuarios = () => {
 
         setLoading(true)
 
-        const formData = new FormData()
-        formData.append("id", userId)
-        formData.append("encriptcion", encriptcion)
-        console.log(encriptcion)
+        const formData ={
+            id:userId,
+            encriptcion: encriptcion
+        }
 
         try {
             const response = await axios.put(`${url}/api/uploads/files/2`, formData, {
