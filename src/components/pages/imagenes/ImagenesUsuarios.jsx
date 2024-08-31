@@ -28,8 +28,8 @@ export const ImagenesUsuarios = () => {
         reader.readAsDataURL(archivo)
         reader.onload = () => {
             const base64Result = reader.result.split(",")[1]
-            const encrypted = CryptoJS.AES.encrypt(base64Result, key).toString()
-            setEncriptcion(encrypted)
+            // const encrypted = CryptoJS.AES.encrypt(base64Result, key).toString()
+            setEncriptcion(base64Result)
         }
     }
 
