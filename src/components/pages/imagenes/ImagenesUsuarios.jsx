@@ -51,7 +51,7 @@ export const ImagenesUsuarios = () => {
 
         const formData ={
             id:userId,
-            encriptcion: encriptcion
+            encriptcion
         }
 
         try {
