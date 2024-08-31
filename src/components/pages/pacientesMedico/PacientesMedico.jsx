@@ -29,7 +29,7 @@ export const PacienteMedico = () => {
 
   const verHistorial = (usuario) => {
     const { nombre, apellido, uid } = usuario
-    navigate(`/doctor-patients/${nombre}`, {
+    navigate(`/doctorPatients/${nombre}`, {
       state: { id: uid, nombre, apellido },
     })
   }

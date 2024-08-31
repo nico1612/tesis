@@ -27,10 +27,10 @@ export const HeaderMedico = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/doctor-requests">Solicitud de Pacientes</Link>
+            <Link className="nav-link" to="/doctorRequests">Solicitud de Pacientes</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/doctor-patients">Pacientes que Trata</Link>
+            <Link className="nav-link" to="/doctorPatients">Pacientes que Trata</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" onClick={logout} to="/logout">Cerrar Sesión</Link>

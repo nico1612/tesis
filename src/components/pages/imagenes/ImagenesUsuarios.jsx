@@ -55,6 +55,7 @@ export const ImagenesUsuarios = () => {
         }
 
         try {
+            console.log(formData)
             const response = await axios.put(`${url}/api/uploads/files/2`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",

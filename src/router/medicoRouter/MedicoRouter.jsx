@@ -13,9 +13,9 @@ export const MedicoRouter = () => {
       <div style={{ flex: 1, marginTop:'50px', marginBottom:'100px' }}>
         <Routes>
           <Route path="home" element={<HomeMedico />} />
-          <Route path="doctor-patients" element={<PacienteMedico />} />
-          <Route path="doctor-patients/:nombre" element={<HistorialPacienteMedico />} />
-          <Route path="doctor-requests" element={<SolicitudesPacientes />} />
+          <Route path="doctorPatients" element={<PacienteMedico />} />
+          <Route path="doctorPatients/:nombre" element={<HistorialPacienteMedico />} />
+          <Route path="doctorRequests" element={<SolicitudesPacientes />} />
           <Route path="/*" element={<Navigate to="/home" />} />
         </Routes>
       </div>
