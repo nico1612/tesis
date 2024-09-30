@@ -29,7 +29,6 @@ export const medicosSlice = createSlice({
             state.medicos = state.medicos.map((medico) => {
                 if (medico.uid === action.payload.medico.medico.uid) {
                     medico.estado = !medico.estado
-                    console.log(medico.estado)
                     return medico
                 }
                 return medico

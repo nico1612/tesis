@@ -16,7 +16,6 @@ export const pacientesSlice = createSlice({
         },
         setActivePaciente: (state, action) => {
             state.active = action.payload
-            console.log(state.active)
 
         },
         setPacientes: (state, action) => {
@@ -31,7 +30,6 @@ export const pacientesSlice = createSlice({
             state.pacientes = state.pacientes.map((paciente) => {
                 if (paciente.uid === action.payload.paciente.uid) {
                     paciente.estado = !paciente.estado
-                    console.log(paciente.estado)
                     return paciente
                 }
                 return paciente

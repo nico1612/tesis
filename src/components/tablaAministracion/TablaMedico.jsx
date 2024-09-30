@@ -1,7 +1,11 @@
-import React from "react";
-import "./TablaMedico.css"; // Asegúrate de que la ruta sea correcta
+import React from "react"
+import "./TablaMedico.css" 
 
 export const TablaMedico = ({ medicos, cambiarestado }) => {
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+  }
+
   return (
     <table className="table table-bordered table-sm">
       <thead className="table-primary">
@@ -16,8 +20,8 @@ export const TablaMedico = ({ medicos, cambiarestado }) => {
       <tbody>
         {medicos.map((medico) => (
           <tr key={medico.id}>
-            <td className="text-center">{medico.nombre}</td>
-            <td className="text-center">{medico.apellido}</td>
+            <td className="text-center">{capitalizeFirstLetter(medico.nombre)}</td>
+            <td className="text-center">{capitalizeFirstLetter(medico.apellido)}</td>
             <td className={`text-center badge ${medico.estado ? "bg-success text-white" : "bg-danger text-white"}`}>
               {medico.estado ? "Activo" : "Inactivo"}
             </td>
@@ -34,5 +38,5 @@ export const TablaMedico = ({ medicos, cambiarestado }) => {
         ))}
       </tbody>
     </table>
-  );
-};
+  )
+}

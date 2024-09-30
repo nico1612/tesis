@@ -1,16 +1,16 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { putMedicos } from '../../store';
-import axios from 'axios';
-import './Modificar.css'; // Asegúrate de importar el CSS
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { putMedicos } from '../../store'
+import axios from 'axios'
+import './Modificar.css' // Asegúrate de importar el CSS
 
-const url = import.meta.env.VITE_APP_IP;
+const url = import.meta.env.VITE_APP_IP
 
 export const Modificar = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { active } = useSelector((state) => state.medico);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { active } = useSelector((state) => state.medico)
 
   const eliminar = async () => {
     const formData = {
@@ -18,25 +18,25 @@ export const Modificar = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-    };
-    await axios(`${url}/api/medico/${active.medico.uid}`, formData);
-    navigate(-1);
-  };
+    }
+    await axios(`${url}/api/medico/${active.medico.uid}`, formData)
+    navigate(-1)
+  }
 
   const handleChangeValue = () => {
     // Crea una copia del objeto active y del objeto medico
-    const newActive = { ...active };
-    newActive.medico = { ...active.medico };
+    const newActive = { ...active }
+    newActive.medico = { ...active.medico }
 
     // Modifica el valor del estado en la copia
-    newActive.medico.estado = !active.medico.estado;
+    newActive.medico.estado = !active.medico.estado
 
     // Despacha la acción para actualizar el estado con la copia modificada
-    dispatch(putMedicos({ medico: newActive.medico }));
+    dispatch(putMedicos({ medico: newActive.medico }))
 
     // Navega de regreso a la página anterior
-    navigate(-1);
-  };
+    navigate(-1)
+  }
 
   return (
     <div className="modificar-container ">
@@ -83,5 +83,5 @@ export const Modificar = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

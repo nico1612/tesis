@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "./headerPaciente.css";
+import "./headerPaciente.css"
 import { useDispatch } from "react-redux"
 import { startLogout } from "../../store"
 

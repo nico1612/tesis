@@ -1,7 +1,7 @@
 import React from 'react'
-import './QuienesSomos.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faLightbulb, faBook } from '@fortawesome/free-solid-svg-icons';
+import './QuienesSomos.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCog, faLightbulb, faBook } from '@fortawesome/free-solid-svg-icons'
 
 export const QuienesSomos = () => {
     return (
@@ -24,6 +24,8 @@ export const QuienesSomos = () => {
                 datos, y no por médicos o profesionales de la salud. La app no pretende sustituir el consejo médico profesional,
                 diagnóstico o tratamiento. Siempre recomendamos consultar a un dermatólogo u otro profesional de la salud para
                 obtener una evaluación y diagnóstico precisos.
+                Te recordamos que esta app no reemplaza ni sustituye el consejo médico.
+                Te recomendamos recurrir a un profesional de la salud para obtener una evaluación y diagnóstico preciso.
                 </p>
             </section>
 
@@ -38,11 +40,6 @@ export const QuienesSomos = () => {
                     <li className="card-item">
                         <FontAwesomeIcon icon={faLightbulb} className="icon" />
                         <strong> Fácil de usar:</strong> Una interfaz intuitiva que te permite obtener información rápidamente.
-                    </li>
-                    <li className="card-item">
-                        <FontAwesomeIcon icon={faBook} className="icon" />
-                        <strong> Educación y concienciación:</strong> Proporcionamos recursos educativos para ayudarte a entender mejor
-                        las condiciones de la piel.
                     </li>
                 </ul>
             </section>
@@ -63,6 +60,7 @@ export const QuienesSomos = () => {
                 electrónico o enlace de contacto].
                 </p>
            </section>
+    
            </div>
         </div>
     )

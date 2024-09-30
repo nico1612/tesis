@@ -17,7 +17,6 @@ export const startLogin = ({ Email, Password }) => async (dispatch) => {
     }
 
     const response = await axios(`${url}/api/auth/login`, options)
-    console.log(response)
     if (response.data.ok) {
       const { data } = response
       const dataJSON = JSON.stringify(data.usuario)
@@ -72,7 +71,6 @@ export const startRegisterMedico = ({ Email, Password, Name, Surname, Licencia }
     }
 
     const response=await axios(`${url}/api/medico`, options)
-    console.log(response.data)
   } catch (error) {
     console.error(error)
   }

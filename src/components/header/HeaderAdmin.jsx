@@ -1,16 +1,16 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { RiLogoutBoxLine } from 'react-icons/ri';
-import { startLogout } from "../../store/auth/thunks";
-import "./HeaderAdmin.css"; // Archivo CSS para los estilos del Navbar
+import React from "react" 
+import { useDispatch } from "react-redux" 
+import { Link } from "react-router-dom" 
+import { RiLogoutBoxLine } from 'react-icons/ri' 
+import { startLogout } from "../../store/auth/thunks" 
+import "./HeaderAdmin.css" 
 
 export const HeaderAdmin = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch() 
 
   const logout = () => {
-    dispatch(startLogout());
-  };
+    dispatch(startLogout()) 
+  } 
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -39,8 +39,13 @@ export const HeaderAdmin = () => {
               Logout
             </button>
           </li>
+          <li className="nav-item" style={{backgroundColor:'black'}}>
+            <button className="btn btn-primary logout-button" onClick={logout}>
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
-  );
-};
+  ) 
+} 

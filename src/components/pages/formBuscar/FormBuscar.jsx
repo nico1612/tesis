@@ -1,4 +1,4 @@
-import './FormBuscar.css';
+import './FormBuscar.css'
 export const FormBuscar = ({ onSubmit, searchText, onInputChange }) => {
     return (
         <form onSubmit={onSubmit}>
@@ -10,5 +10,5 @@ export const FormBuscar = ({ onSubmit, searchText, onInputChange }) => {
             />
             <button type="submit">Buscar</button>
         </form>
-    );
-};
+    )
+}

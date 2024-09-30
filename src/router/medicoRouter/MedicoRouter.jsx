@@ -1,10 +1,10 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { HomeMedico } from "../../components/pages/homeMedico/HomeMedico";
-import { HeaderMedico } from "../../components/header/HeaderMedico";
-import { Footer } from "../../components/footer/Footer";
-import { SolicitudesPacientes } from "../../components/pages/solicitudes/SolicitudesPacientes";
-import { PacienteMedico } from "../../components/pages/pacientesMedico/PacientesMedico";
-import { HistorialPacienteMedico } from "../../components/pages/historialPacienteMedico/HistorialPacienteMedico";
+import { Navigate, Route, Routes } from "react-router-dom"
+import { HomeMedico } from "../../components/pages/homeMedico/HomeMedico"
+import { HeaderMedico } from "../../components/header/HeaderMedico"
+import { Footer } from "../../components/footer/Footer"
+import { SolicitudesPacientes } from "../../components/pages/solicitudes/SolicitudesPacientes"
+import { PacienteMedico } from "../../components/pages/pacientesMedico/PacientesMedico"
+import { HistorialPacienteMedico } from "../../components/pages/historialPacienteMedico/HistorialPacienteMedico"
 
 export const MedicoRouter = () => {
   return (
@@ -21,5 +21,5 @@ export const MedicoRouter = () => {
       </div>
       <Footer />
     </div>
-  );
-};
+  )
+}

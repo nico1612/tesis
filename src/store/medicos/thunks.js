@@ -23,7 +23,6 @@ export const putMedicos=({ medico})=>{
 
     return async (dispatch)=>{
 
-        console.log(medico)
         const options = {
             method: "PUT",
             headers: {
@@ -44,6 +43,5 @@ export const cambiarEstado=({medico})=>{
     return async (dispatch)=>{
       
        dispatch(updateMedicos(medico))
-        console.log(medico.estado)
     }
 }

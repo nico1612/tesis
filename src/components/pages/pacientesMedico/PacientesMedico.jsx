@@ -34,9 +34,20 @@ export const PacienteMedico = () => {
     })
   }
 
-  if (loading) {
-    return <div>Loading...</div>
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
   }
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    )
+  }
+  
 
   return (
     <div className="container">
@@ -45,7 +56,7 @@ export const PacienteMedico = () => {
         {pacientes && pacientes.length > 0 ? (
           pacientes.map((paciente) => (
             <li key={paciente.uid} className="list-group-item">
-              <span>{paciente.nombre} {paciente.apellido}</span>
+              <span>{capitalizeFirstLetter(paciente.nombre)} {capitalizeFirstLetter(paciente.apellido)}</span>
               <button
                 className="btn btn-info btn-sm"
                 onClick={() => verHistorial(paciente)}

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './HomeAdministrador.css'; // Importa el archivo CSS para HomePage
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './HomeAdministrador.css' // Importa el archivo CSS para HomePage
 
 export const HomeAdministrador = () => {
     return (
@@ -19,5 +19,5 @@ export const HomeAdministrador = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}

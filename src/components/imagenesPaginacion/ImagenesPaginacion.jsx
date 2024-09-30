@@ -2,13 +2,13 @@ import { Pagination } from "react-bootstrap"
 import CardImagen from "../cardImagen/CardImagen"
 import './ImagenesPaginacion.css'
 
-export const ImagenesPaginacion=({error,currentItems,consultas,itemsPerPage,paginate,currentPage})=>{
+export const ImagenesPaginacion=({currentItems,consultas,itemsPerPage,paginate,currentPage,modificado,setModificado,paciente})=>{
     return(
         <>
             <div className="row">
                 {currentItems.map((item, index) => (
                     <div className="listItem col-6" key={index}>
-                        <CardImagen resultados={item} />
+                        <CardImagen resultados={item} modificado={modificado} setModificado={setModificado} paciente={paciente}/>
                     </div>
                 ))}
             </div>

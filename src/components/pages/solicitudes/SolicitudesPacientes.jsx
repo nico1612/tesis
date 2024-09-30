@@ -12,7 +12,6 @@ export const SolicitudesPacientes = () => {
     const fetchSolicitudes = async () => {
       try {
         const response = await axios.get(`${url}/api/buscar/solicitud/${userId}`)
-        console.log(response.data.results)
         if (response.data.results.length > 0) {
           setSolicitudes(response.data.results)
         } else {

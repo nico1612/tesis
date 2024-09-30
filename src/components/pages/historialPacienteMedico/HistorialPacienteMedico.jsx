@@ -16,6 +16,7 @@ export const HistorialPacienteMedico = () => {
   const [totalPages, setTotalPages] = useState(1)
   const consultasPorPagina = 2
   const [error, setError] = useState(null)
+  const [modificado,setModificado]=useState(true)
   const itemsPerPage = 2
 
   const indexOfLastItem = currentPage * itemsPerPage
@@ -51,7 +52,7 @@ export const HistorialPacienteMedico = () => {
     }
 
     fetchConsultas()
-  }, [id, url, currentPage])
+  }, [id, url, currentPage,modificado])
 
   const regresar = () => {
     navigate(-1)
@@ -62,7 +63,7 @@ export const HistorialPacienteMedico = () => {
       <h2 className="mt-5">Historial de Imágenes</h2>
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row mt-3">
-        <ImagenesPaginacion error={error} currentPage={currentPage} currentItems={currentItems} consultas={consultas} itemsPerPage={itemsPerPage} paginate={paginate}/>
+        <ImagenesPaginacion modificado={modificado} setModificado={setModificado} error={error} currentPage={currentPage} currentItems={currentItems} consultas={consultas} itemsPerPage={itemsPerPage} paginate={paginate}/>
         <button className="btn btn-info mt-3" onClick={regresar}>Regresar</button>
       </div>
     </div>
