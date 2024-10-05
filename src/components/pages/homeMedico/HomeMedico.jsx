@@ -10,13 +10,13 @@ export const HomeMedico=()=>{
             <CardHome
                 title="Solicitud de Pacientes"
                 text="Revisa y gestiona aquí las solicitudes de los pacientes."
-                link="doctorRequests"
+                link="/doctorRequests"
                 linkText="Ir"
             />
             <CardHome
                 title="Pacientes que Trata"
                 text="Consulta aquí la lista de pacientes que estás tratando."
-                link="doctorPatients"
+                link="/doctorPatients"
                 linkText="Ir"
             />
             </div>
