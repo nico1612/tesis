@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import './Header.css'
+import { Logo } from "./logo"
 
 export const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="/">Dermitection</Link>
+            <Logo/>
             <button 
                 className="navbar-toggler" 
                 type="button" 

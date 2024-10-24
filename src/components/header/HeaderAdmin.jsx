@@ -1,9 +1,9 @@
 import React from "react" 
 import { useDispatch } from "react-redux" 
 import { Link } from "react-router-dom" 
-import { RiLogoutBoxLine } from 'react-icons/ri' 
 import { startLogout } from "../../store/auth/thunks" 
 import "./HeaderAdmin.css" 
+import { Logo } from "./logo"
 
 export const HeaderAdmin = () => {
   const dispatch = useDispatch() 
@@ -14,7 +14,7 @@ export const HeaderAdmin = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
-      <Link className="navbar-brand" to="/home">Dermitection</Link>
+      <Logo/>
       <button
         className="navbar-toggler"
         type="button"

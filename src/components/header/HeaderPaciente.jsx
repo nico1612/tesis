@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import "./headerPaciente.css"
 import { useDispatch } from "react-redux"
 import { startLogout } from "../../store"
+import { Logo } from "./logo"
 
 export const HeaderPaciente = () => {
   const dispatch = useDispatch()
@@ -11,7 +12,7 @@ export const HeaderPaciente = () => {
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/homePaciente">DERMITECTION</Link>
+      <Logo/>
       <button
         className="navbar-toggler"
         type="button"

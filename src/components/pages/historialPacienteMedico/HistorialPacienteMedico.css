@@ -87,3 +87,31 @@ h1 {
 .btn {
     margin: 0 5px;
 }
+
+/* Botón de regresar mejorado */
+.btn-regresar {
+    background-color: #ff6b6b; /* Color de fondo */
+    color: white; /* Color de texto */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para efectos */
+    display: inline-block; /* Alineación en línea */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto más moderno */
+  }
+  
+  .btn-regresar:hover {
+    background-color: #ff4b4b; /* Color al pasar el mouse (hover) */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al hacer hover */
+  }
+  
+  .btn-regresar:active {
+    background-color: #ff3b3b; /* Color al hacer clic (active) */
+    box-shadow: none; /* Elimina la sombra al hacer clic */
+    transform: translateY(2px); /* Efecto de "presionar" */
+  }
+  

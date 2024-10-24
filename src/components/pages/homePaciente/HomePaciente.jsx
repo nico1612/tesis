@@ -1,33 +1,50 @@
-import { Link } from "react-router-dom"
-import "./homePaciente.css"
+import { Link } from "react-router-dom";
+import { Container, Typography, Grid, Card, CardContent, CardActionArea } from '@mui/material';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 
 export const HomePaciente = () => {
   return (
-    <div className="container">
-      <h1 className="mt-5">Bienvenido</h1>
-      <p className="lead">Utiliza el siguiente menú para acceder a las diferentes funcionalidades del sistema.</p>
+    <Container maxWidth="md" sx={{ textAlign: 'center', mt: 5 }}>
+      <Typography variant="h4" gutterBottom>
+        Bienvenido
+      </Typography>
+      <Typography variant="body1" color="textSecondary" paragraph>
+        Utiliza el siguiente menú para acceder a las diferentes funcionalidades del sistema.
+      </Typography>
 
-      <div className="menu">
-        <div className="menu-item">
-          <Link to="/imagenes" className="menu-link">
-            <div className="menu-icon">&#128247;</div>
-            <div className="menu-details">
-              <h5 className="menu-title">Cargar Imágenes</h5>
-              <p className="menu-text">Ver historial y carga de imágenes.</p>
-            </div>
-          </Link>
-        </div>
-        <div className="menu-item">
-          <Link to="/medicos" className="menu-link">
-            <div className="menu-icon">&#128104;&#8205;&#127973;</div>
-            <div className="menu-details">
-              <h5 className="menu-title">Médicos Tratantes</h5>
-              <p className="menu-text">Consulta y gestiona tus médicos tratantes. Envía una solicitud a un médico.</p>
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
-  )
-}
-
+      <Grid container spacing={4} justifyContent="center">
+        <Grid item xs={12} sm={6}>
+          <Card>
+            <CardActionArea component={Link} to="/imagenes">
+              <CardContent>
+                <CameraAltIcon sx={{ fontSize: 50, color: '#1976d2' }} />
+                <Typography variant="h5" gutterBottom>
+                  Cargar Imágenes
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  Ver historial y carga de imágenes.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Card>
+            <CardActionArea component={Link} to="/medicos">
+              <CardContent>
+                <MedicalServicesIcon sx={{ fontSize: 50, color: '#1976d2' }} />
+                <Typography variant="h5" gutterBottom>
+                  Médicos Tratantes
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  Consulta y gestiona tus médicos tratantes. Envía una solicitud a un médico.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};

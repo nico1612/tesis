@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { startLogout } from '../../store'
+import { Logo } from './logo'
 
 export const HeaderMedico = () => {
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ export const HeaderMedico = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/home">Dermitection</Link>
+      <Logo/>
       <button
         className="navbar-toggler"
         type="button"

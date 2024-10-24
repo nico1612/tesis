@@ -1,7 +1,8 @@
-import { Pagination } from "react-bootstrap"
+import { Pagination, Select, MenuItem, FormControl, InputLabel, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material'
 import CardImagen from "../cardImagen/CardImagen"
 import './ImagenesPaginacion.css'
 import { useState } from "react"
+import { Table } from 'react-bootstrap'
 
 export const ImagenesPaginacion = ({ consultas, modificado, setModificado, paciente }) => {
     const [currentPage, setCurrentPage] = useState(1)
@@ -21,7 +22,7 @@ export const ImagenesPaginacion = ({ consultas, modificado, setModificado, pacie
         startPage = Math.max(1, endPage - maxPagesVisible + 1)
     }
 
-    const handlePaginate = (pageNumber) => {
+    const handlePaginate = (event, pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
@@ -33,11 +34,23 @@ export const ImagenesPaginacion = ({ consultas, modificado, setModificado, pacie
     return (
         <>
             <div className="row">
-                {currentItems.map((item, index) => (
-                    <div className="listItem col-6" key={index}>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="center">Imagen</TableCell>
+                            <TableCell align="center">Fecha</TableCell>
+                            <TableCell align="center">Resultados</TableCell>
+                            <TableCell align="center">Comentario</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    {currentItems.map((item, index) => (
                         <CardImagen resultados={item} modificado={modificado} setModificado={setModificado} paciente={paciente} />
-                    </div>
                 ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
             </div>
 
             <div className="pagination-summary">
@@ -47,41 +60,34 @@ export const ImagenesPaginacion = ({ consultas, modificado, setModificado, pacie
             </div>
 
             <div className="items-per-page-selector">
-                <label htmlFor="itemsPerPage">Items por página: </label>
-                <select id="itemsPerPage" value={itemsPerPage} onChange={handleItemsPerPageChange}>
-                    <option value={2}>2</option>
-                    <option value={4}>4</option>
-                    <option value={6}>6</option>
-                    <option value={8}>8</option>
-                </select>
+                <FormControl variant="outlined" size="small">
+                    <InputLabel id="itemsPerPage-label">Items por página</InputLabel>
+                    <Select
+                        labelId="itemsPerPage-label"
+                        id="itemsPerPage"
+                        value={itemsPerPage}
+                        onChange={handleItemsPerPageChange}
+                        label="Items por página"
+                    >
+                        <MenuItem value={2}>2</MenuItem>
+                        <MenuItem value={4}>4</MenuItem>
+                        <MenuItem value={6}>6</MenuItem>
+                        <MenuItem value={8}>8</MenuItem>
+                    </Select>
+                </FormControl>
             </div>
 
-            <Pagination>
-                {currentPage > 1 && (
-                    <Pagination.First onClick={() => handlePaginate(1)} />
-                )}
-
-                {currentPage > 1 && (
-                    <Pagination.Prev onClick={() => handlePaginate(currentPage - 1)} />
-                )}
-
-                {Array.from({ length: endPage - startPage + 1 }, (_, i) => {
-                    const page = startPage + i
-                    return (
-                        <Pagination.Item key={page} active={page === currentPage} onClick={() => handlePaginate(page)}>
-                            {page}
-                        </Pagination.Item>
-                    )
-                })}
-
-                {currentPage < totalPages && (
-                    <Pagination.Next onClick={() => handlePaginate(currentPage + 1)} />
-                )}
-
-                {currentPage < totalPages && (
-                    <Pagination.Last onClick={() => handlePaginate(totalPages)} />
-                )}
-            </Pagination>
+            <Pagination
+                count={totalPages}
+                page={currentPage}
+                onChange={handlePaginate}
+                siblingCount={1}
+                boundaryCount={1}
+                shape="rounded"
+                color="primary"
+                showFirstButton
+                showLastButton
+            />
         </>
     )
 }

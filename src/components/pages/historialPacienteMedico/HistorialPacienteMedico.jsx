@@ -3,17 +3,15 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import CryptoJS from 'crypto-js'
 import './HistorialPacienteMedico.css'
-import { ImagenesPaginacion } from '../../imagenesPaginacion/ImagenesPaginacion'
+import { ImagenesPaginacionDoctor } from '../../imagenesPaginacion/imagenesPaginationDoctor'
 
 export const HistorialPacienteMedico = () => {
   const location = useLocation()
   const { id } = location.state
   const url = import.meta.env.VITE_APP_IP
 
-  const [loading, setLoading] = useState(true)
   const [consultas, setConsultas] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(1)
   const consultasPorPagina = 2
   const [error, setError] = useState(null)
   const [modificado,setModificado]=useState(true)
@@ -42,11 +40,8 @@ export const HistorialPacienteMedico = () => {
           return result
         })
         setConsultas(results)
-        setTotalPages(totalPages)
-        setLoading(false)
       } catch (error) {
         setError("Error en la solicitud: " + error.message)
-        setLoading(false)
         setConsultas([])
       }
     }
@@ -63,7 +58,7 @@ export const HistorialPacienteMedico = () => {
       <h2 className="mt-5">Historial de Imágenes</h2>
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row mt-3">
-        <ImagenesPaginacion modificado={modificado} setModificado={setModificado} error={error} currentPage={currentPage} currentItems={currentItems} consultas={consultas} itemsPerPage={itemsPerPage} paginate={paginate}/>
+        <ImagenesPaginacionDoctor modificado={modificado} setModificado={setModificado} error={error} currentPage={currentPage} currentItems={currentItems} consultas={consultas} itemsPerPage={itemsPerPage} paginate={paginate}/>
         <button className="btn btn-info mt-3" onClick={regresar}>Regresar</button>
       </div>
     </div>

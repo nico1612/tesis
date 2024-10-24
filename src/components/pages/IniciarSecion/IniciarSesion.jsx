@@ -1,87 +1,100 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
-import { useError, useForm } from "../../../hooks"
-import { setError, startLogin } from "../../../store"
-import { checkFormLogin } from "../../helpers/checkFormLogin"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useError, useForm } from "../../../hooks";
+import { setError, startLogin } from "../../../store";
+import { checkFormLogin } from "../../helpers/checkFormLogin";
+import { Button, TextField, Typography, Container, Box } from '@mui/material';
 
 const formData = {
   Email: "",
   Password: ""
-}
+};
 
 export const IniciarSesion = () => {
-  const dispatch = useDispatch()
-  const { Email, Password, onInputChange } = useForm(formData)
+  const dispatch = useDispatch();
+  const { Email, Password, onInputChange } = useForm(formData);
 
-  const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError()
-  const { error } = useSelector((state) => state.auth)
+  const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError();
+  const { error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (error) {
-      dispatch(setError())
+      dispatch(setError());
     }
-  }, [error, dispatch])
+  }, [error, dispatch]);
 
   const onSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     if (checkFormLogin({ Email, Password, setErrorMail, setErrorPassword })) {
-      dispatch(startLogin({ Email, Password }))
+      dispatch(startLogin({ Email, Password }));
     }
-  }
+  };
 
   return (
-    <div className="centered-container">
-      <div>
-        <div>
-          <div>
-            {error && (
-              <div className="alert alert-danger" role="alert">
-                Usuario y/o contraseña incorrectas
-              </div>
-            )}
-            <form className="border" onSubmit={onSubmit}>
-              <h1>Iniciar sesión</h1>
-              <div className={`mb-3 ${errorMail ? "has-error" : ""}`}>
-                <label className="form-label">Mail</label>
-                <input 
-                  type="email"
-                  className={`form-control ${errorMail ? "is-invalid" : ""}`}
-                  name="Email"
-                  value={Email}
-                  onChange={onInputChange}
-                />
-                {errorMail && <div className="invalid-feedback">Mail es requerido correctamente</div>}
-              </div>
-
-              <div className={`mb-3 ${errorPassword ? "has-error" : ""}`}>
-                <label className="form-label">Password</label>
-                <input
-                  type="password"
-                  className={`form-control ${errorPassword ? "is-invalid" : ""}`}
-                  name="Password"
-                  value={Password}
-                  onChange={onInputChange}
-                />
-                {errorPassword && <div className="invalid-feedback">Contraseña es requerida</div>}
-              </div>
-
-              <div className="d-grid">
-                <button type="submit" className="btn btn-primary">
-                  Iniciar sesión         
-                </button>
-              </div>
-              <div className="my-3 text-center">
-                <span>No tienes cuenta? </span> <Link to="/auth/register">Registrarse</Link>
-              </div>
-              <div className="text-center">
-                <span>Registro médico </span> <Link to="/auth/medico">Registrarse</Link>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <Container component="main" maxWidth="xs">
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Typography component="h1" variant="h5">
+          Iniciar Sesión
+        </Typography>
+        {error && (
+          <Typography color="error" sx={{ mt: 2 }}>
+            Usuario y/o contraseña incorrectas
+          </Typography>
+        )}
+        <Box component="form" onSubmit={onSubmit} sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            name="Email"
+            autoComplete="email"
+            autoFocus
+            value={Email}
+            onChange={onInputChange}
+            error={!!errorMail}
+            helperText={errorMail && "Mail es requerido correctamente"}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="Password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={Password}
+            onChange={onInputChange}
+            error={!!errorPassword}
+            helperText={errorPassword && "Contraseña es requerida"}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Iniciar sesión
+          </Button>
+          <Typography align="center" sx={{ mt: 2 }}>
+            No tienes cuenta? <Link to="/auth/register">Registrarse</Link>
+          </Typography>
+          <Typography align="center" sx={{ mt: 1 }}>
+            Registro médico <Link to="/auth/medico">Registrarse</Link>
+          </Typography>
+        </Box>
+      </Box>
+    </Container>
+  );
+};

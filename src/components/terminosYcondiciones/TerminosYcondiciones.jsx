@@ -37,8 +37,8 @@ export const TerminosYCondiciones = () => {
         maxHeight: '500px',
         overflowY: 'scroll', 
         position: 'absolute',
-        top: '10%', 
-        left:"30%"
+        top: '16%', 
+        left:"20%"
     }
 
     const estiloTitulo = {
@@ -71,8 +71,8 @@ export const TerminosYCondiciones = () => {
         borderRadius: "15%",
         cursor: "pointer",
         position: 'absolute',
-        top: '80%', 
-        left:"55%"
+        top: '85%', 
+        left:"50%"
     }
     
 
