@@ -10,7 +10,7 @@ export const AppRouter = () => {
   const { status, rol } = useSelector((state) => state.auth)
 
   return (
-    <div style={{backgroundColor: "#fcd1c6"}}>
+    <div style={{backgroundColor: "#e3e3e3"}}>
        <Routes >
       {status === "authenticated" ? (
         <>

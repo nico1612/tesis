@@ -8,8 +8,8 @@
 /* Content styles to expand and push the footer down */
 .content {
     flex: 1;
-    padding: 20px;
-    margin-bottom: 150PX;
+    /* padding: 20px; */
+    /* margin-bottom: 150PX; */
 }
 
 /* Ensure footer is at the bottom */

@@ -1,11 +1,19 @@
 /* stylesHome.css */
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #fcd1c6; /* Asegúrate de que el color de fondo sea el deseado */
+    text-align: center;
+    background-image: linear-gradient(to right, rgba(0, 128, 128, 1) 30%, rgba(0, 0, 0, 0.7) 70%), url('../home/medico.jpg');
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* Altura completa de la pantalla */
+    display: flex; /* Para centrar el contenido */
+    flex-direction: column; /* Para centrar el contenido */
+    justify-content: center; /* Para centrar el contenido */
+
+    color: white; /* Cambia el color del texto para mayor contraste con el fondo */
 }
 
 .home-title {
@@ -14,15 +22,119 @@
 }
 
 .home-title h1 {
-    color: #343a40; /* Color para el encabezado */
+    font-size: 3.3vw; /* El tamaño cambiará según el ancho de la pantalla */
+    margin-left: 10%; /* Espaciado de 30px desde la izquierda */
+    text-align: left;
+    font-family: "PT Sans", sans-serif;
+    color: #ffffff; /* Color para el encabezado */
 }
 
 .home-title p {
-    color: #343a40; /* Color para el párrafo */
+    font-size: 1.5vw; /* El tamaño cambiará según el ancho de la pantalla */
+    margin-left: 10%; /* Espaciado de 30px desde la izquierda */
+    text-align: left;
+    font-family: "PT Sans", sans-serif;
+    color: #ffffff; /* Color para el párrafo */
 }
 
-.home-description {
-    max-width: 800px; /* Limita el ancho del párrafo */
+
+/* Estilo para la Sección de QUIENES SOMOS */
+
+
+.quienesSomosSeccion {
+    background-color: #ffffff;
+}
+
+.quienesSomosSeccion h2 {
+    font-family: "Raleway", sans-serif;
+    font-size: 2.2vw; /* El tamaño cambiará según el ancho de la pantalla */
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+
+.iconoQS {
+    font-size: 3.5vw;
+    color: #00796b;
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 10px;
+}
+
+
+.descriptionQS {
+    font-size: 1vw;
+    font-family: "PT Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
     text-align: center;
     line-height: 1.6;
+    margin: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo para la Sección de IMPORTANT */
+
+.importanteSeccion {
+    background-color: #00796b;
+    margin-bottom: 100px;
+}
+
+
+.importanteSeccion h2 {
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 2.2vw; /* El tamaño cambiará según el ancho de la pantalla */
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+
+
+.iconoImportante {
+    font-size: 3.5vw;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 10px;
+}
+
+
+.descriptionImportante {
+    color: #fff;
+    font-size: 1vw;
+    font-family: "PT Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+

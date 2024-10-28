@@ -9,6 +9,7 @@ export const DatoPage = () => {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
+  /*
   return (
     <div className="dato-container container mt-5">
       <div className="row">
@@ -19,4 +20,6 @@ export const DatoPage = () => {
       </div>
     </div>
   )
+  */
+
 }

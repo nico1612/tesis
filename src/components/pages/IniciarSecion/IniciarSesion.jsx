@@ -5,6 +5,7 @@ import { useError, useForm } from "../../../hooks";
 import { setError, startLogin } from "../../../store";
 import { checkFormLogin } from "../../helpers/checkFormLogin";
 import { Button, TextField, Typography, Container, Box } from '@mui/material';
+import "./IniciarSesion.css";
 
 const formData = {
   Email: "",
@@ -14,7 +15,6 @@ const formData = {
 export const IniciarSesion = () => {
   const dispatch = useDispatch();
   const { Email, Password, onInputChange } = useForm(formData);
-
   const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError();
   const { error } = useSelector((state) => state.auth);
 
@@ -26,31 +26,23 @@ export const IniciarSesion = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
     if (checkFormLogin({ Email, Password, setErrorMail, setErrorPassword })) {
       dispatch(startLogin({ Email, Password }));
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography component="h1" variant="h5">
+    <Container component="main" maxWidth="xs" className="main-container">
+      <Box className="login-box">
+        <Typography component="h1" variant="h5" className="header-text">
           Iniciar Sesión
         </Typography>
         {error && (
-          <Typography color="error" sx={{ mt: 2 }}>
+          <Typography className="error-text">
             Usuario y/o contraseña incorrectas
           </Typography>
         )}
-        <Box component="form" onSubmit={onSubmit} sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={onSubmit} className="form-container">
           <TextField
             margin="normal"
             required
@@ -64,6 +56,7 @@ export const IniciarSesion = () => {
             onChange={onInputChange}
             error={!!errorMail}
             helperText={errorMail && "Mail es requerido correctamente"}
+            className="form-field"
           />
           <TextField
             margin="normal"
@@ -78,19 +71,20 @@ export const IniciarSesion = () => {
             onChange={onInputChange}
             error={!!errorPassword}
             helperText={errorPassword && "Contraseña es requerida"}
+            className="form-field"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            className="submit-button"
           >
             Iniciar sesión
           </Button>
-          <Typography align="center" sx={{ mt: 2 }}>
+          <Typography align="center" className="link-text">
             No tienes cuenta? <Link to="/auth/register">Registrarse</Link>
           </Typography>
-          <Typography align="center" sx={{ mt: 1 }}>
+          <Typography align="center" className="link-text">
             Registro médico <Link to="/auth/medico">Registrarse</Link>
           </Typography>
         </Box>

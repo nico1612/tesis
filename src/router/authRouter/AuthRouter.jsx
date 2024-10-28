@@ -13,7 +13,7 @@ export const AuthRouter = () => {
   return (
     <div className="d-flex flex-column min-vh-100">
       <Header />
-      <div style={{ flex: 1, marginTop: '50px', marginBottom: '150px' }}>
+      <div style={{ /* flex: 1, marginTop: '50px', marginBottom: '150px' */ }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />

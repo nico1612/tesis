@@ -4,7 +4,7 @@ import logo from './logos.jpeg';
 export const Logo=()=>{
     return(
         <Link className="navbar-brand" to="/homePaciente">
-            <img src={logo} alt="Logo" style={{ width: '130px', marginRight: '10px' }} />
+            <img src={logo} alt="Logo" style={{ width: '270px', marginRight: '10px', marginLeft: "20px" }} />
         </Link>
     )
 }
