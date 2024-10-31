@@ -50,6 +50,7 @@
     font-size: 2.2vw; /* El tamaño cambiará según el ancho de la pantalla */
     text-align: center;
     padding-bottom: 1%;
+    color: #00796b;
 }
 
 
@@ -92,7 +93,7 @@
 
 .importanteSeccion {
     background-color: #00796b;
-    margin-bottom: 100px;
+    
 }
 
 
@@ -128,6 +129,116 @@
     text-align: center;
     line-height: 1.6;
     margin: 0;
+}
+
+
+.objetivoSeccion{
+    background-color: #fff;
+}
+
+.objetivoSeccion h2{
+    font-size: 2.2vw;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #00796b;
+    font-family: "Raleway", sans-serif;
+}
+
+.objetivoSeccion p{
+    font-size: 1vw;
+    font-family: "PT Sans", sans-serif;
+    color: #555;
+}
+
+
+.textoObjetivo{
+    justify-content: center;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+.compromisoSeccion{
+    background-color: #00796b;
+}
+
+.compromisoSeccion h2{
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 2.2vw;
+    font-family: "Raleway", sans-serif;
+}
+
+.textoCompromiso{
+    display: flex;
+    justify-content: center;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+.compromisoSeccion p{
+    font-size: 1vw;
+    font-family: "PT Sans", sans-serif;
+    color: #fff;
+}
+
+.contactoSeccion{
+    background-color: #fff;
+    margin-bottom: 100px;
+}
+
+.contactoSeccion h2{
+    font-size: 2.2vw;
+    font-family: "Raleway", sans-serif;
+    color: #00796b;
+    margin-top: 0;
+}
+
+.contactoSeccion p{
+    font-size: 1vw;
+    font-family: "PT Sans", sans-serif;
+    color: #555;
+
+}
+
+
+.contactoSeccion {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.iconoContacto {
+    margin-bottom: 15px;
+}
+
+.iconoTelefonoCirculo {
+    width: 3.5vw;
+    height: 3.5vw;
+    background-color: #00796b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.iconoTelefonoCirculo i {
+    color: white;
+    font-size: 1.7vw;
 }
 
 

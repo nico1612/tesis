@@ -31,6 +31,50 @@ export const Home = () => {
                 <p className='descriptionImportante'>Queremos aclarar que DERMITECTION ha sido desarrollada por un equipo de especialistas en tecnología y datos, y no por médicos o profesionales de la salud. La app no pretende sustituir el consejo médico profesional, diagnóstico o tratamiento. Siempre recomendamos consultar a un dermatólogo u otro profesional de la salud para obtener una evaluación y diagnóstico precisos.</p>
             </div>
 
+            <div className='objetivoSeccion'>
+                <h2>Nuestro objetivo es ofrecerte:</h2>
+                <div className='textoObjetivo'>
+                <p><strong> Acceso a la tecnología avanzada:</strong> Con algoritmos de Machine Learning, facilitamos el análisis y
+                comparación de imágenes de la piel.</p>
+                <p><strong> Fácil de usar:</strong> Una interfaz intuitiva que te permite obtener información rápidamente.</p>
+                </div>
+            </div>
+
+
+            <div className='compromisoSeccion'>
+                <h2>Nuestro compromiso</h2>
+                <div className='textoCompromiso'>
+                    <p>
+                    Nos comprometemos a mejorar continuamente nuestra tecnología y a ofrecerte una herramienta fiable y segura. Tu
+                    privacidad y la seguridad de tus datos son nuestra prioridad. Agradecemos tus comentarios y sugerencias para
+                    seguir mejorando.
+                    </p>
+                </div>
+            </div>
+
+            <div className="contactoSeccion">
+                <div className="iconoContacto">
+                    <div className="iconoTelefonoCirculo">
+                        <i className="fas fa-phone"></i>
+                    </div>
+                </div>
+                <h2>Contacto</h2>
+                <p>Si tienes alguna pregunta o inquietud, no dudes en ponerte en contacto con nosotros a través de los siguientes medios:</p>
+
+                <div className="contact-details">
+                    <div className="contact-item">
+                        <p>Email: <a href="mailto:info@tuempresa.com">info@dermisolution.com</a></p>
+                    </div>
+                    <div className="contact-item">
+                        <p>Teléfono: <a href="tel:+123456789">+1 234 567 89</a></p>
+                    </div>
+                    <div className="contact-item">
+                        <p>Dirección: Lima 757, C1073 Cdad. Autónoma de Buenos Aires</p>
+                    </div>
+                </div>
+            </div>
+
+
 
 
             
