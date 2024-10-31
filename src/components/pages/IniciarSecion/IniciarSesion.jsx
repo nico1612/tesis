@@ -32,9 +32,10 @@ export const IniciarSesion = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs" className="main-container">
+    <Container component="main" maxWidth="xs" className="main-container"
+    >
       <Box className="login-box">
-        <Typography component="h1" variant="h5" className="header-text">
+        <Typography component="h1" variant="h5" className="header-text" style={{fontFamily: "DM Sans"}}>
           Iniciar Sesión
         </Typography>
         {error && (
@@ -78,13 +79,14 @@ export const IniciarSesion = () => {
             fullWidth
             variant="contained"
             className="submit-button"
+            style={{fontFamily: "DM Sans", fontWeight: 900, borderRadius: "25px", marginTop: "20px", marginBottom: "10px"}}
           >
             Iniciar sesión
           </Button>
-          <Typography align="center" className="link-text">
+          <Typography align="center" className="link-text" style={{fontFamily: "DM Sans", fontWeight: 900, marginBottom: "7px"}}>
             No tienes cuenta? <Link to="/auth/register">Registrarse</Link>
           </Typography>
-          <Typography align="center" className="link-text">
+          <Typography align="center" className="link-text" style={{fontFamily: "DM Sans", fontWeight: 900, marginBottom: "7px"}}>
             Registro médico <Link to="/auth/medico">Registrarse</Link>
           </Typography>
         </Box>

@@ -17,7 +17,7 @@ html, body {
 }
 
 .min-vh-100 {
-    min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+    min-height: 150vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
 }
 
 .login-container {

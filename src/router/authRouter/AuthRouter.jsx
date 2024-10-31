@@ -11,7 +11,7 @@ import { Header } from "../../components/header/Header"
 
 export const AuthRouter = () => {
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100" style={{backgroundImage: "linear-gradient(to right, rgba(0, 128, 128, 1) 30%, rgba(0, 0, 0, 0.7) 70%), url('../../../assets/medico.jpg')"}}>
       <Header />
       <div style={{ /* flex: 1, marginTop: '50px', marginBottom: '150px' */ }}>
         <Routes>
