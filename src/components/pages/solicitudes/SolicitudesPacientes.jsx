@@ -52,7 +52,7 @@ export const SolicitudesPacientes = () => {
 
   return (
     <div className="container">
-      <h1 className="mt-5">Solicitud de Pacientes</h1>
+      <h1 className="mt-5" style={{ color: "#fff", fontFamily: "DM Sans" }}>Solicitud de Pacientes</h1>
       <ul className="list-group mt-3">
         {solicitudes && solicitudes.length > 0 ? (
           solicitudes.map((solicitud) => (

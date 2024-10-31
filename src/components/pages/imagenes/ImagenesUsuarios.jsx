@@ -143,9 +143,9 @@ export const ImagenesUsuarios = () => {
 
     return (
         <div className="container">
-            <div className='row'>
-                <div className="form-container col-12">
-                    <Typography variant="h4">Envío de Imágenes</Typography>
+            <div className='row' style={{justifyContent: "center"}}>
+                <div className="form-container col-12" style={{width: "90%"}}>
+                    <Typography variant="h4" style={{fontFamily: "DM Sans"}}>Envío de Imágenes</Typography>
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <TextField
                             fullWidth
@@ -159,7 +159,7 @@ export const ImagenesUsuarios = () => {
                             onChange={subirArchivos}
                             helperText="El tamaño máximo permitido para la imagen es de 1 MB."
                         />
-                        <Button type="submit" variant="contained" color="primary">Enviar Imagen</Button>
+                        <Button type="submit" variant="contained" color="primary" style={{fontFamily: "DM Sans"}}>Enviar Imagen</Button>
                     </form>
                     {loading && (
                         <Box textAlign="center" mt={2}>
@@ -173,7 +173,7 @@ export const ImagenesUsuarios = () => {
                     )}
                 </div>
                 <div className='col-12'>
-                    <Typography variant="h4">Historial de Imágenes</Typography>
+                    <Typography variant="h4" style={{ color: "#fff", fontFamily: "DM Sans" }} >Historial de Imágenes</Typography>
                     {error && (
                         <Typography color="error">{error}</Typography>
                     )}

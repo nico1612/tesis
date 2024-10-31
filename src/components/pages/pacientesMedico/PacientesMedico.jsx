@@ -51,13 +51,22 @@ export const PacienteMedico = () => {
 
   return (
     <div className="container">
-      <h1 className="mt-5">Pacientes que Trata</h1>
-      <ul className="list-group mt-3">
+      <h1 className="mt-5" style={{ color: "#fff", fontFamily: "DM Sans", fontSize: "50px", paddingBottom: "20px" }}>Pacientes que Trata</h1>
+      <ul className="list-group mt-3" style={{ justifyContent: "center", display: "flex", alignItems: "center"}}>
         {pacientes && pacientes.length > 0 ? (
           pacientes.map((paciente) => (
-            <li key={paciente.uid} className="list-group-item">
-              <span>{capitalizeFirstLetter(paciente.nombre)} {capitalizeFirstLetter(paciente.apellido)}</span>
+            <li key={paciente.uid} className="list-group-item" 
+              style={{ 
+                      width: "70%", 
+                      justifyItems: "center",
+                      alignItems: "center",
+                      borderRadius: "20px",
+                      marginBottom: "25px",
+                      fontFamily: "DM Sans"
+                      }}>
+              <span style={{ fontSize: "40px", marginBottom: "25px"}}>{capitalizeFirstLetter(paciente.nombre)} {capitalizeFirstLetter(paciente.apellido)}</span>
               <button
+                style={{ fontSize: "35px", marginBottom: "25px", borderRadius: "25px" }}
                 className="btn btn-info btn-sm"
                 onClick={() => verHistorial(paciente)}
               >

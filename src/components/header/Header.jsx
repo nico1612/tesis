@@ -22,9 +22,9 @@ export const Header = () => {
                     <li className="nav-item">
                         <Link className="nav-link" to="/">Home</Link>
                     </li>
-                    <li className="nav-item">
+                    {/*<li className="nav-item">
                         <Link className="nav-link" to="/auth/quienes-somos">Quienes Somos</Link>
-                    </li>
+                    </li>*/}
                     <li className="nav-item">
                         <Link className="nav-link" to="/auth/iniciar-sesion">Iniciar Sesión</Link>
                     </li>

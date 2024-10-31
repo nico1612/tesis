@@ -54,13 +54,24 @@ export const HistorialPacienteMedico = () => {
   }
 
   return (
-    <div className="container">
-      <h2 className="mt-5">Historial de Imágenes</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
-      <div className="row mt-3">
-        <ImagenesPaginacionDoctor modificado={modificado} setModificado={setModificado} error={error} currentPage={currentPage} currentItems={currentItems} consultas={consultas} itemsPerPage={itemsPerPage} paginate={paginate}/>
-        <button className="btn btn-info mt-3" onClick={regresar}>Regresar</button>
-      </div>
+<div className="container">
+  <h2 className="mt-5" style={{ color: "#fff" }}>Historial de Imágenes</h2>
+  {error && <div className="alert alert-danger">{error}</div>}
+  <div className="row mt-3 text-center"> {/* Añade text-center aquí */}
+    <ImagenesPaginacionDoctor 
+      modificado={modificado} 
+      setModificado={setModificado} 
+      error={error} 
+      currentPage={currentPage} 
+      currentItems={currentItems} 
+      consultas={consultas} 
+      itemsPerPage={itemsPerPage} 
+      paginate={paginate} 
+    />
+    <div className="col-12"> {/* Envuelve el botón en un contenedor centrado */}
+      <button className="btn btn-info mt-3" onClick={regresar}>Regresar</button>
     </div>
+  </div>
+</div>
   )
 }

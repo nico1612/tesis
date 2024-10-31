@@ -1,151 +1,203 @@
 /* Estilos generales para la tabla */
-.table {
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+.table-container {
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1rem;
-    text-align: left;
+    overflow-x: auto; /* Permite hacer scroll horizontal si es necesario */
 }
 
+.table {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    width: 100%;
+    max-width: 97%; /* Se ajusta al tamaño de la pantalla */
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
 
+.table thead th {
+    background-color: #00796b;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    padding: 12px;
+}
+
+/* Estilo de las filas del cuerpo de la tabla */
+.table tbody tr {
+    border-bottom: 1px solid #dddddd; /* Agrega separadores de fila */
+}
+
+/* Colores alternos para las filas */
+.table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Blanco */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #a10606; /* Gris claro */
+}
+
+/* Estilo para las celdas */
+.table tbody td {
+    padding: 12px;
+    color: #333333;
+    border: none; /* Sin borde de columna */
+}
 
 /* Fondo para cada columna de celdas */
+/*
 .table th:nth-child(1), .table td:nth-child(1) {
-    background-color: #eaf4fe; /* Azul claro */
+    background-color: #e8f4fd;
 }
 
 .table th:nth-child(2), .table td:nth-child(2) {
-    background-color: #f0f8ff; /* Azul muy claro */
+    background-color: #f1f8ff;
 }
 
 .table th:nth-child(3), .table td:nth-child(3) {
-    background-color: #f9f9f9; /* Gris claro */
+    background-color: #f7fafc;
 }
 
 .table th:nth-child(4), .table td:nth-child(4) {
-    background-color: #f5f5f5; /* Gris muy claro */
+    background-color: #f2f4f6;
 }
 
 .table th:nth-child(5), .table td:nth-child(5) {
-    background-color: #eef7fb; /* Azul grisáceo */
+    background-color: #eaf3fb;
 }
 
 .table th:nth-child(6), .table td:nth-child(6) {
-    background-color: #e7eff6; /* Celeste suave */
+    background-color: #e2eef9;
 }
 
-/* Filas alternas con diferente color */
-.table tbody tr:nth-child(odd) {
-    background-color: #f9f9f9; /* Gris claro */
-}
 
-.table tbody tr:hover {
-    background-color: #eaf4fe; /* Azul claro al pasar el mouse */
-}
-
-/* Estilos de la paginación */
+/* Resumen de la paginación */
 .pagination-summary {
-    margin: 10px 0;
+    margin: 15px 0;
     font-size: 0.9rem;
     text-align: right;
-    color: #000; /* Color negro para el resumen de paginación */
+    color: #555;
 }
 
+/* Selector de ítems por página */
 .items-per-page-selector {
+    
     margin-bottom: 10px;
     font-size: 0.9rem;
-}
-
-.items-per-page-selector label {
-    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 #itemsPerPage {
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc; /* Borde gris claro */
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 /* Estilos de la paginación */
 .pagination {
     display: flex;
     justify-content: center;
+    gap: 6px;
     margin-top: 20px;
 }
 
-.pagination .page-item {
-    margin: 0 5px;
-}
-
 .pagination .page-item .page-link {
-    color: #007bff; /* Azul principal */
-    padding: 8px 12px;
+    color: #007bff;
+    padding: 8px 14px;
     text-decoration: none;
-    border: 1px solid #ddd; /* Borde gris */
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
 .pagination .page-item .page-link:hover {
     background-color: #007bff;
+    color: white;
+    transform: scale(1.05);
 }
 
 .pagination .page-item.active .page-link {
     background-color: #007bff;
+    color: white;
     border-color: #007bff;
 }
 
-/* Botones de agregar comentario */
+/* Botones */
 button {
-    background-color: #007bff; /* Azul principal */
-    color: white; /* Color de texto blanco en botones */
+    margin-top: 5%;
+    width: 30%;
+    background-color: #007bff;
+    color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 button:hover {
-    background-color: #0056b3; /* Azul más oscuro */
+    background-color: #0056b3;
+    transform: scale(1.02);
 }
 
 /* Campos de entrada */
 input[type="text"] {
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc; /* Borde gris claro */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 10px;
 }
 
-/* Estilo para mensajes */
+/* Mensajes */
 .alert {
     margin-top: 10px;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .alert-info {
-    background-color: #eaf4fe; /* Azul claro */
-    color: #31708f; /* Azul más oscuro */
+    background-color: #e0f2ff;
+    color: #31708f;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
-    .table th, .table td {
-        font-size: 0.9rem;
-        padding: 10px;
+    .table thead th, .table tbody td {
+        font-size: 0.85rem;
+        padding: 8px;
     }
 
     .pagination-summary {
         text-align: center;
+        font-size: 0.8rem;
     }
 
     .pagination {
         flex-wrap: wrap;
+    }
+
+    .items-per-page-selector {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     #itemsPerPage {

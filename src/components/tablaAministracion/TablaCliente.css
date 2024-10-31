@@ -13,7 +13,6 @@
     color: #fff;
     font-weight: bold;
     padding: 12px;
-    text-align: left;
   }
   
   .table tbody tr {
@@ -29,6 +28,7 @@
   }
   
   .table td {
+    font-family: "DM Sans";
     padding: 12px;
     border: 1px solid #ddd;
   }
@@ -65,4 +65,142 @@
   .table .btn-danger:hover {
     background-color: #c82333;
   }
+
+
+
+
+
+  /* Contenedor del selector de elementos por página */
+.items-per-page-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+/* Estilo de la etiqueta */
+.items-per-page-label {
+  font-family: "DM Sans";
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 4px; /* Espacio entre la etiqueta y el selector */
+}
+
+/* Estilo del selector */
+.items-per-page-selector .MuiFormControl-root {
+  min-width: 150px;
+}
+
+.items-per-page-selector .MuiSelect-root {
+  padding: 10px;
+  font-size: 14px;
+}
+
   
+
+
+
+
+
+
+
+  /* Estilo para el selector de elementos por página */
+.items-per-page-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.items-per-page-selector .MuiFormControl-root {
+    min-width: 150px;
+    margin-right: 16px;
+}
+
+.items-per-page-selector .MuiInputLabel-root {
+    color: #555;
+}
+
+.items-per-page-selector .MuiOutlinedInput-root {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.items-per-page-selector .MuiSelect-root {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.items-per-page-selector .MuiMenuItem-root {
+    font-size: 14px;
+}
+
+/* Estilo para la paginación */
+.MuiPagination-root {
+  margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.MuiPaginationItem-root {
+    color: #1976d2;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.MuiPaginationItem-root:hover {
+    background-color: rgba(25, 118, 210, 0.1);
+}
+
+.MuiPaginationItem-page.Mui-selected {
+    background-color: #1976d2;
+    color: #fff;
+}
+
+.MuiPaginationItem-page.Mui-selected:hover {
+    background-color: #1565c0;
+}
+
+.MuiPaginationItem-page {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: 0 4px;
+}
+
+.MuiPaginationItem-ellipsis {
+    color: #999;
+}
+
+/* Estilo para los números de paginación */
+.MuiPaginationItem-root {
+  margin-bottom: 100px;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #1976d2; /* Color del texto */
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 50%; /* Hacer los números circulares */
+    width: 36px; /* Ancho consistente */
+    height: 36px; /* Alto consistente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px; /* Espacio entre los números */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Color de fondo en hover */
+.MuiPaginationItem-root:hover {
+    background-color: #f2f2f2; /* Fondo gris claro en hover */
+    color: #1565c0; /* Color de texto en hover */
+}
+
+/* Estilo para el número de página seleccionado */
+.MuiPaginationItem-page.Mui-selected {
+    background-color: #1976d2; /* Fondo del número seleccionado */
+    color: #fff; /* Texto blanco para el número seleccionado */
+}
+
+.MuiPaginationItem-page.Mui-selected:hover {
+    background-color: #1565c0; /* Color más oscuro en hover para el seleccionado */
+}

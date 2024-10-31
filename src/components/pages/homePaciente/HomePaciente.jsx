@@ -9,7 +9,6 @@ export const HomePaciente = () => {
     <Box
       sx={{
         textAlign: 'center',
-        mt: 5,
         backgroundImage: `linear-gradient(to right, rgba(0, 128, 128, 1) 30%, rgba(0, 0, 0, 0.7) 70%), url(${imagenMedico})`,
         backgroundSize: 'cover',  // Asegura que la imagen cubra todo el fondo
         backgroundPosition: 'center',  // Centra la imagen
@@ -53,14 +52,14 @@ export const HomePaciente = () => {
       <Box sx={{ flex: 2, mt: 4, padding: "40px" }}> {/* Agregado: margen superior */}
         <Grid container direction="column" spacing={4} justifyContent="center">
           <Grid item xs={12}>
-            <Card sx={{ borderRadius: "25px", height: "100%" }}>
+            <Card sx={{ borderRadius: "25px", height: "100%", backgroundColor: "rgba(255, 255, 255, 0)", border: "2px solid white" }}>
               <CardActionArea component={Link} to="/imagenes">
                 <CardContent>
                   <CameraAltIcon sx={{ fontSize: 50, color: '#1976d2' }} />
-                  <Typography variant="h5" gutterBottom>
+                  <Typography variant="h5" style={{color: "#fff", fontFamily: "DM Sans"}} gutterBottom> 
                     Cargar Imágenes
                   </Typography>
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography variant="body2" color="textSecondary" style={{color: "#fff", fontFamily: "DM Sans"}}>
                     Ver historial y carga de imágenes.
                   </Typography>
                 </CardContent>
@@ -68,14 +67,14 @@ export const HomePaciente = () => {
             </Card>
           </Grid>
           <Grid item xs={12}>
-            <Card sx={{ borderRadius: "25px", height: "100%" }}>
+            <Card sx={{ borderRadius: "25px", height: "100%", backgroundColor: "rgba(255, 255, 255, 0)", border: "2px solid white" }}>
               <CardActionArea component={Link} to="/medicos">
                 <CardContent>
                   <MedicalServicesIcon sx={{ fontSize: 50, color: '#1976d2' }} />
-                  <Typography variant="h5" gutterBottom>
+                  <Typography variant="h5" style={{color: "#fff", fontFamily: "DM Sans"}} gutterBottom>
                     Médicos Tratantes
                   </Typography>
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography variant="body2" color="textSecondary" style={{color: "#fff", fontFamily: "DM Sans"}}>
                     Consulta y gestiona tus médicos tratantes. Envía una solicitud a un médico.
                   </Typography>
                 </CardContent>

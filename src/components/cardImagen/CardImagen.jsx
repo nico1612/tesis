@@ -85,7 +85,7 @@ export const CardImagen = ({ resultados, modificado, setModificado, paciente }) 
                                             variant="outlined"
                                             size="small"
                                         />
-                                        <Button onClick={agregarComentario} variant="contained" color="primary">
+                                        <Button onClick={agregarComentario} variant="contained" color="primary" style={{width: "90%", marginTop: "20px", marginBottom: "15px",borderRadius: "25px"}}>
                                             Enviar Comentario
                                         </Button>
                                     </>

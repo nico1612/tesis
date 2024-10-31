@@ -35,12 +35,12 @@ export const ImagenesPaginacionDoctor = ({ consultas, modificado, setModificado,
             <table className="table">
                 <thead>
                     <tr>
-                        <th class={{ color: '#000000'}}>Imagen</th>
-                        <th class={{ color: '#000000'}}> Fecha</th>
-                        <th class={{ color: '#000000'}}>Resultado</th>
-                        <th class={{ color: '#000000'}}>Comentario Paciente</th>
-                        <th class={{ color: '#000000'}}>Comentario Médico</th>
-                        <th class={{ color: '#000000'}}>Acciones</th>
+                        <th style={{ textAlign: 'center' }}>Imagen</th>
+                        <th style={{ textAlign: 'center' }}> Fecha</th>
+                        <th style={{ textAlign: 'center' }}>Resultado</th>
+                        <th style={{ textAlign: 'center' }}>Comentario Paciente</th>
+                        <th style={{ textAlign: 'center' }}>Comentario Médico</th>
+                        <th style={{ textAlign: 'center' }}>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,13 +57,13 @@ export const ImagenesPaginacionDoctor = ({ consultas, modificado, setModificado,
             </table>
 
             <div className="pagination-summary">
-                <p>
+                <p style={{ color: "#fff", fontFamily: "DM Sans" }}>
                     Mostrando {currentItems.length} de {consultas.length} elementos en {totalPages} página{totalPages > 1 ? 's' : ''}.
                 </p>
             </div>
 
             <div className="items-per-page-selector">
-                <label htmlFor="itemsPerPage">Items por página: </label>
+                <label htmlFor="itemsPerPage" style={{ color: "#fff", fontFamily: "DM Sans" }}>Items por página: </label>
                 <select id="itemsPerPage" value={itemsPerPage} onChange={handleItemsPerPageChange}>
                     <option value={2}>2</option>
                     <option value={4}>4</option>

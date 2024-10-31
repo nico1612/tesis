@@ -10,7 +10,7 @@ export const MedicoRouter = () => {
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <HeaderMedico />
-      <div style={{ flex: 1, marginTop:'50px', marginBottom:'100px' }}>
+      <div style={{ /*flex: 1, marginTop:'50px', marginBottom:'100px'*/ }}>
         <Routes>
           <Route path="home" element={<HomeMedico />} />
           <Route path="doctorPatients" element={<PacienteMedico />} />

@@ -34,7 +34,7 @@ export const ImagenesPaginacion = ({ consultas, modificado, setModificado, pacie
     return (
         <>
             <div className="row">
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} style={{ boxShadow:"none", backgroundColor: "rgba(255, 255, 255, 0)" }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
@@ -54,20 +54,19 @@ export const ImagenesPaginacion = ({ consultas, modificado, setModificado, pacie
             </div>
 
             <div className="pagination-summary">
-                <p>
+                <p style={ {color: "#fff", fontFamily: "DM Sans"} } >
                     Mostrando {currentItems.length} de {consultas.length} elementos en {totalPages} página{totalPages > 1 ? 's' : ''}.
                 </p>
             </div>
 
             <div className="items-per-page-selector">
+                <label className="items-per-page-label">Items por página</label>
                 <FormControl variant="outlined" size="small">
-                    <InputLabel id="itemsPerPage-label">Items por página</InputLabel>
                     <Select
                         labelId="itemsPerPage-label"
                         id="itemsPerPage"
                         value={itemsPerPage}
                         onChange={handleItemsPerPageChange}
-                        label="Items por página"
                     >
                         <MenuItem value={2}>2</MenuItem>
                         <MenuItem value={4}>4</MenuItem>
@@ -83,10 +82,30 @@ export const ImagenesPaginacion = ({ consultas, modificado, setModificado, pacie
                 onChange={handlePaginate}
                 siblingCount={1}
                 boundaryCount={1}
-                shape="rounded"
                 color="primary"
                 showFirstButton
                 showLastButton
+                sx={{
+                    '& .MuiPaginationItem-root': {
+                        backgroundColor: '#ffffff', // Cambia el color de fondo de los círculos
+                        color: '#1976d2', // Cambia el color del texto (número de página)
+                        borderRadius: '50%', // Forma circular
+                        width: '36px', // Ancho del círculo
+                        height: '36px', // Alto del círculo
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        margin: '0 4px', // Espacio entre los elementos
+                        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Sombra suave opcional
+                    },
+                    '& .MuiPaginationItem-root:hover': {
+                        backgroundColor: '#f0f0f0', // Fondo gris claro en hover
+                    },
+                    '& .MuiPaginationItem-page.Mui-selected': {
+                        backgroundColor: '#1976d2', // Fondo del número seleccionado
+                        color: '#ffffff', // Texto blanco para el número seleccionado
+                    },
+                }}
             />
         </>
     )
