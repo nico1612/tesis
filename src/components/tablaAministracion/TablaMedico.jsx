@@ -22,8 +22,10 @@ export const TablaMedico = ({ medicos, cambiarestado }) => {
           <tr key={medico.id}>
             <td className="text-center">{capitalizeFirstLetter(medico.nombre)}</td>
             <td className="text-center">{capitalizeFirstLetter(medico.apellido)}</td>
-            <td className={`text-center badge ${medico.estado ? "bg-success text-white" : "bg-danger text-white"}`}>
-              {medico.estado ? "Activo" : "Inactivo"}
+            <td style={{ padding: 0 }}>
+              <div className={`text-center badge ${medico.estado ? "bg-success text-white" : "bg-danger text-white"}`} style={{ width: "50%", height: "100%" }}>
+                {medico.estado ? "Activo" : "Inactivo"}
+              </div>
             </td>
             <td className="text-center">{medico.licencia}</td>
             <td className="text-center">

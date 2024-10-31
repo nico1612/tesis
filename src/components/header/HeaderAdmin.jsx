@@ -34,12 +34,7 @@ export const HeaderAdmin = () => {
           <li className="nav-item">
             <Link className="nav-link" to="/medicos">Médicos</Link>
           </li>
-          <li className="nav-item">
-            <button className="btn btn-primary logout-button" onClick={logout}>
-              Logout
-            </button>
-          </li>
-          <li className="nav-item" style={{backgroundColor:'black'}}>
+          <li className="nav-item" style={{backgroundColor:'#FF0000', borderRadius: "25px", fontFamily: "DM Sans"}}>
             <button className="btn btn-primary logout-button" onClick={logout}>
               Logout
             </button>

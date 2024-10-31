@@ -12,7 +12,7 @@ export const AdminRoute = () => {
   return (
     <div className="admin-route-container">
       <HeaderAdmin />
-      <div className="main-content" style={{marginBottom: '150px'}}>
+      <div className="main-content">
         <Routes>
           <Route path="/home" element={<HomeAdministrador />} />
           <Route path="/pacientes" element={<AdminPacientesPages />} />

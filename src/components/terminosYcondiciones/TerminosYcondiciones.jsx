@@ -1,3 +1,5 @@
+import { faAlignJustify } from "@fortawesome/free-solid-svg-icons"
+import { width } from "@fortawesome/free-solid-svg-icons/fa0"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -26,8 +28,8 @@ export const TerminosYCondiciones = () => {
     }, [])
 
     const estiloTerminos = {
-        fontFamily: 'Arial, sans-serif',
-        maxWidth: '800px',
+        width: "60%",
+        fontFamily: "DM Sans",
         margin: '0 auto',
         padding: '20px',
         backgroundColor: '#f9f9f9',
@@ -37,8 +39,9 @@ export const TerminosYCondiciones = () => {
         maxHeight: '500px',
         overflowY: 'scroll', 
         position: 'absolute',
-        top: '16%', 
-        left:"20%"
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
     }
 
     const estiloTitulo = {
@@ -65,14 +68,17 @@ export const TerminosYCondiciones = () => {
     }
 
     const estiloBoton = {
-        backgroundColor: "green",
+        fontFamily: "DM Sans",
         color: "white",
         border: "none",
-        borderRadius: "15%",
+        borderRadius: "25px",
         cursor: "pointer",
         position: 'absolute',
-        top: '85%', 
-        left:"50%"
+        top: '75%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: "20%",
+        marginBottom: "50px"
     }
     
 

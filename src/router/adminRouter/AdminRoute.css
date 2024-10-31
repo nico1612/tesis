@@ -5,9 +5,10 @@
 }
   
 .main-content {
-  padding: 20px;
   flex-grow: 1;
-  margin-top: 150px;
+
+  background-image: linear-gradient(to right, rgba(0, 128, 128, 1) 30%, rgba(0, 0, 0, 0.7) 90%);
+  box-shadow: none;
 }
   
 footer {
