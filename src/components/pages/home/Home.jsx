@@ -63,7 +63,7 @@ export const Home = () => {
 
                 <div className="contact-details">
                     <div className="contact-item">
-                        <p>Email: <a href="mailto:info@tuempresa.com">info@dermisolution.com</a></p>
+                        <p>Email: <a href="mailto:info@tuempresa.com">info@dermitection.com</a></p>
                     </div>
                     <div className="contact-item">
                         <p>Teléfono: <a href="tel:+123456789">+1 234 567 89</a></p>

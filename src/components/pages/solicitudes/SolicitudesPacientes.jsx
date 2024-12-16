@@ -73,7 +73,7 @@ export const SolicitudesPacientes = () => {
             </li>
           ))
         ) : (
-          <li className="list-group-item">No hay solicitudes pendientes</li>
+          <li style={{width:'50%', position:'relative', left:'25%'}} className="list-group-item">No hay solicitudes pendientes</li>
         )}
       </ul>
     </div>
