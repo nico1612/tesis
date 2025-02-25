@@ -1,5 +1,3 @@
-import { faAlignJustify } from "@fortawesome/free-solid-svg-icons"
-import { width } from "@fortawesome/free-solid-svg-icons/fa0"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
