@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { Container, Typography, Grid, Card, CardContent, CardActionArea, Box } from '@mui/material';
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
-import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
+import { Link } from "react-router-dom"
+import { Typography, Grid, Card, CardContent, CardActionArea, Box } from '@mui/material'
+import CameraAltIcon from '@mui/icons-material/CameraAlt'
+import MedicalServicesIcon from '@mui/icons-material/MedicalServices'
 import imagenMedico from "../homePaciente/medico.jpg"
 
 export const HomePaciente = () => {
@@ -21,7 +21,7 @@ export const HomePaciente = () => {
         color: 'white',  // Cambia el color del texto para mayor contraste con el fondo
       }}
     >
-            <Box
+    <Box
       sx={{
         display: 'flex',
         justifyContent: 'center', // Centra horizontalmente
@@ -86,5 +86,5 @@ export const HomePaciente = () => {
     </Box>
 
     </Box>
-  );
-};
+  )
+}

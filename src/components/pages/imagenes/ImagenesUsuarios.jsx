@@ -20,11 +20,11 @@ import {
 } from '@mui/material'
 
 export const ImagenesUsuarios = () => {
-    const { userId } = useSelector((state) => state.auth)
+    const { userId,token } = useSelector((state) => state.auth)
     const url = import.meta.env.VITE_APP_IP
     const key = import.meta.env.VITE_APP_SECRETORPRIVATEKEY
     const id = userId
-
+console.log(token)
     const [consultas, setConsultas] = useState([])
     const [archivos, setArchivos] = useState([])
     const [encriptcion, setEncriptcion] = useState('')
@@ -82,9 +82,10 @@ export const ImagenesUsuarios = () => {
         }
 
         try {
-            const response = await axios.put(`${url}/api/uploads/files/2`, formData, {
+            const response = await axios.put(`${url}/api/uploads/files/${id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`
                 },
             })
             const decryptedData = CryptoJS.AES.decrypt(response.data.img, key).toString(CryptoJS.enc.Utf8)
@@ -103,25 +104,45 @@ export const ImagenesUsuarios = () => {
         }
     }
 
-    useEffect(() => {
-        const fetchConsultasAndEstadisticas = async () => {
-            try {
-                const [consultasResponse, estadisticasResponse] = await Promise.all([
-                    axios.get(`${url}/api/buscar/consulta/${id}`),
-                    axios.get(`${url}/api/pacientes/estadisticas/${id}`)
-                ])
-                let { results } = consultasResponse.data
-                results = results.map((result) => {
-                    const decryptedData = CryptoJS.AES.decrypt(result.img, key).toString(CryptoJS.enc.Utf8)
-                    return { ...result, img: decryptedData }
-                })
-                setConsultas(results)
-            } catch (error) {
-                console.error("Error en la solicitud:", error.message)
-                setError("Error al cargar los datos.")
-                setConsultas([])
+    const fetchConsultasAndEstadisticas = async () => {
+
+        try {
+        const [consultasResponse, estadisticasResponse] = await Promise.all([
+        axios.get(`${url}/api/buscar/consulta/${id}`, {
+            headers: {
+            Authorization: `Bearer ${token}`
             }
+        }),
+        axios.get(`${url}/api/pacientes/estadisticas/${id}`, {
+            headers: {
+            Authorization: `Bearer ${token}`
+            }
+        })
+        ])
+
+
+            let { results = [] } = consultasResponse.data
+
+            results = results.map((result) => {
+            const decryptedData = CryptoJS.AES.decrypt(result.img, key)
+                .toString(CryptoJS.enc.Utf8)
+
+            if (!decryptedData) {
+                console.warn("No se pudo desencriptar imagen:", result.id)
+            }
+
+            return { ...result, img: decryptedData }
+            })
+
+            setConsultas(results)
+        } catch (error) {
+            setError(
+            error.response?.data?.msg || "Error al cargar los datos."
+            )
+            setConsultas([])
         }
+    }
+    useEffect(() => {
         fetchConsultasAndEstadisticas()
     }, [id, url, key, modificado])
 

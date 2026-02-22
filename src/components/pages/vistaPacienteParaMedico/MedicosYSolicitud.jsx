@@ -5,7 +5,7 @@ import { Button, Typography, CircularProgress, Grid, TextField, List, ListItem, 
 import { useForm } from '../../../hooks';
 
 export const MedicosYSolicitud = () => {
-    const { userId } = useSelector((state) => state.auth);
+    const { userId,token } = useSelector((state) => state.auth);
     const url = import.meta.env.VITE_APP_IP;
 
     const [message, setMessage] = useState('');
@@ -18,7 +18,10 @@ export const MedicosYSolicitud = () => {
     useEffect(() => {
         const fetchMedicos = async () => {
             try {
-                const { data } = await axios.get(`${url}/api/buscar/relaciones/${userId}`);
+                const { data } = await axios.get(`${url}/api/buscar/relaciones/${userId}`, {headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`}
+                },);
                 setMedicos(data.results);
                 setLoading(false);
             } catch (error) {
@@ -32,7 +35,12 @@ export const MedicosYSolicitud = () => {
 
     const handleEliminar = async (medicoId) => {
         try {
-            await axios.delete(`${url}/api/buscar/medicos/${medicoId}`);
+            await axios.delete(`${url}/api/buscar/medicos/${medicoId}`,{
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`
+                },
+            });
             setMedicos(medicos.filter(medico => medico.id !== medicoId));
         } catch (error) {
             console.error("Error al eliminar el médico:", error.message);
@@ -42,7 +50,13 @@ export const MedicosYSolicitud = () => {
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.get(`${url}/api/buscar/medicos/${searchText}`);
+            const response = await axios.get(`${url}/api/buscar/medicos/${searchText}`,{
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`
+                },
+            }
+            );
             setResultadosBusqueda(response.data.results);
         } catch (error) {
             console.error('Error en la solicitud:', error.message);
@@ -56,7 +70,13 @@ export const MedicosYSolicitud = () => {
                 receptor: medico.uid,
                 emisor: userId,
             };
-            await axios.post(`${url}/api/solicitud`, formData);
+            await axios.post(`${url}/api/solicitud`, formData,{
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`
+                },
+                }
+            );
             setMessage('Solicitud enviada exitosamente.');
             setHasSentRequest(true);
         } catch (error) {

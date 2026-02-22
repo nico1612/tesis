@@ -5,7 +5,7 @@ import axios from 'axios'
 import './PacientesMedicos.css'
 
 export const PacienteMedico = () => {
-  const { userId } = useSelector((state) => state.auth)
+  const { userId,token } = useSelector((state) => state.auth)
   const url = import.meta.env.VITE_APP_IP
   const [pacientes, setPacientes] = useState([])
   const [loading, setLoading] = useState(true)
@@ -14,7 +14,12 @@ export const PacienteMedico = () => {
   useEffect(() => {
     const fetchPacientes = async () => {
       try {
-        const response = await axios.get(`${url}/api/pacientes/${userId}`)
+        const response = await axios.get(`${url}/api/pacientes/${userId}`,{
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`
+          },
+        })
         setPacientes(response.data.usuarios)
         setLoading(false)
       } catch (error) {

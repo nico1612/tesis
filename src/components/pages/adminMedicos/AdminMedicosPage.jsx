@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { setActiveMedico, startGettingMedicos } from "../../../store"
 import {TablaMedico} from '../../tablaAministracion/TablaMedico'
+
 export const AdminMedicosPages = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()

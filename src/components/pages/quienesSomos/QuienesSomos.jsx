@@ -7,7 +7,7 @@ export const QuienesSomos = () => {
     return (
         <div className="container mt-5">
             <h1 className="display-4">Quiénes Somos</h1>
-            <div class="row">
+            <div className="row">
 
             <section className="mt-4 section-intro">
                 <p>

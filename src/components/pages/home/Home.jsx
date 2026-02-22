@@ -12,7 +12,7 @@ export const Home = () => {
             </div>
             <div className='quienesSomosSeccion'>
                 <div className="iconoQS">
-                    <i class="fas fa-question-circle"></i>
+                    <i className="fas fa-question-circle"></i>
                 </div>
                 <h2>¿Quiénes Somos?</h2>
                 
@@ -25,7 +25,7 @@ export const Home = () => {
 
             <div className='importanteSeccion'>
                 <div className="iconoImportante">
-                    <i class="fas fa-exclamation-circle"></i>
+                    <i className="fas fa-exclamation-circle"></i>
                 </div>                
                 <h2>Importante</h2>
                 <p className='descriptionImportante'>Queremos aclarar que DERMITECTION ha sido desarrollada por un equipo de especialistas en tecnología y datos, y no por médicos o profesionales de la salud. La app no pretende sustituir el consejo médico profesional, diagnóstico o tratamiento. Siempre recomendamos consultar a un dermatólogo u otro profesional de la salud para obtener una evaluación y diagnóstico precisos.</p>

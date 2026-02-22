@@ -8,7 +8,7 @@ import { UsuariosRouter } from "../usuariosRouter/UsuariosRouter"
 
 export const AppRouter = () => {
   const { status, rol } = useSelector((state) => state.auth)
-
+console.log(status,rol)
   return (
     <div style={{backgroundColor: "#e3e3e3"}}>
        <Routes >
@@ -19,9 +19,8 @@ export const AppRouter = () => {
           {rol=== "ADMIN_ROLE" && <Route path="/*" element={<AdminRoute/>}/>}
         </>
       ) : (
-        <Route path="/auth/*" element={<AuthRouter />} />
+        <Route path="/*" element={<AuthRouter />} />
       )}
-      <Route path="/*" element={<Navigate to="/auth/" />} />
     </Routes>
 
     </div>

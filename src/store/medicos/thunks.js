@@ -1,47 +1,40 @@
 import axios from "axios"
-import { setMedicos, updateMedicos } from "./medicosSlice"
+import { setMedicos } from "./medicosSlice"
 
-const url=import.meta.env.VITE_APP_IP
+const url = import.meta.env.VITE_APP_IP
 
-export const startGettingMedicos=()=>{
+export const startGettingMedicos = () => {
+  return async (dispatch, getState) => {
 
-    return async (dispatch)=>{
-        const options = {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-        }
-        const {data} = await axios(`${url}/api/medico/`, options)
-        const {medicos} =data
-        dispatch( setMedicos(medicos))
-    }
+    const { token } = getState().auth
 
+    const { data } = await axios.get(`${url}/api/medico/`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+
+    const { medicos } = data
+    dispatch(setMedicos(medicos))
+  }
 }
 
-export const putMedicos=({ medico})=>{
+export const putMedicos = ({ medico }) => {
+  return async (dispatch, getState) => {
 
-    return async (dispatch)=>{
+    const { token } = getState().auth
+    const id = medico.uid
 
-        const options = {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            data:{"medico":medico}
+    await axios.put(
+      `${url}/api/medico/${id}`,
+      { medico },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
         }
-
-        const id=medico.uid
-       
-        await axios(`${url}/api/medico/${id}`, options)
-        
-    }
-
-}
-export const cambiarEstado=({medico})=>{
-
-    return async (dispatch)=>{
-      
-       dispatch(updateMedicos(medico))
-    }
+      }
+    )
+  }
 }

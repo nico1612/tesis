@@ -1,35 +1,36 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { useError, useForm } from "../../../hooks";
-import { setError, startLogin } from "../../../store";
-import { checkFormLogin } from "../../helpers/checkFormLogin";
-import { Button, TextField, Typography, Container, Box } from '@mui/material';
-import "./IniciarSesion.css";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import { useError, useForm } from "../../../hooks"
+import { setError, startLogin } from "../../../store"
+import { checkFormLogin } from "../../helpers/checkFormLogin"
+import { Button, TextField, Typography, Container, Box } from '@mui/material'
+import "./IniciarSesion.css"
 
 const formData = {
   Email: "",
   Password: ""
-};
+}
 
 export const IniciarSesion = () => {
-  const dispatch = useDispatch();
-  const { Email, Password, onInputChange } = useForm(formData);
-  const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError();
-  const { error } = useSelector((state) => state.auth);
+  const dispatch = useDispatch()
+  const { Email, Password, onInputChange } = useForm(formData)
+  const { errorMail, setErrorMail, errorPassword, setErrorPassword } = useError()
+  const { error } = useSelector((state) => state.auth)
 
   useEffect(() => {
     if (error) {
-      dispatch(setError());
+      dispatch(setError())
     }
-  }, [error, dispatch]);
+  }, [error, dispatch])
 
   const onSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
+    console.log(checkFormLogin({ Email, Password, setErrorMail, setErrorPassword }))
     if (checkFormLogin({ Email, Password, setErrorMail, setErrorPassword })) {
-      dispatch(startLogin({ Email, Password }));
+      dispatch(startLogin({ Email, Password }))
     }
-  };
+  }
 
   return (
     <Container component="main" maxWidth="xs" className="main-container"
@@ -92,5 +93,5 @@ export const IniciarSesion = () => {
         </Box>
       </Box>
     </Container>
-  );
-};
+  )
+}

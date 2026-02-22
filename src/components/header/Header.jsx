@@ -26,7 +26,7 @@ export const Header = () => {
                         <Link className="nav-link" to="/auth/quienes-somos">Quienes Somos</Link>
                     </li>*/}
                     <li className="nav-item">
-                        <Link className="nav-link" to="/auth/iniciar-sesion">Iniciar Sesión</Link>
+                        <Link className="nav-link" to="/iniciar-sesion">Iniciar Sesión</Link>
                     </li>
                 </ul>
             </div>

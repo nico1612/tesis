@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useError, useForm } from "../../../hooks"
 import { setError, startRegisterMedico } from "../../../store"
-import "./MedicoRegister.css";
+import "./MedicoRegister.css"
 
 const formData = {
   Email: "",

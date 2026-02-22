@@ -8,6 +8,7 @@ const url=import.meta.env.VITE_APP_IP
 export const startLogin = ({ Email, Password }) => async (dispatch) => {
   try {
     dispatch(checkingCredentials())
+     console.log({ Email, Password })
     const options = {
       method: "POST",
       headers: {
@@ -17,11 +18,12 @@ export const startLogin = ({ Email, Password }) => async (dispatch) => {
     }
 
     const response = await axios(`${url}/api/auth/login`, options)
+    console.log(response)
     if (response.data.ok) {
       const { data } = response
       const dataJSON = JSON.stringify(data.usuario)
       localStorage.setItem("usuario", dataJSON)
-
+console.log(data)
       dispatch(login(data))
     } else {
       dispatch(setError())

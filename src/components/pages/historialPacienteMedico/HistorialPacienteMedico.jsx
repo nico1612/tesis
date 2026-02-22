@@ -4,10 +4,13 @@ import axios from 'axios'
 import CryptoJS from 'crypto-js'
 import './HistorialPacienteMedico.css'
 import { ImagenesPaginacionDoctor } from '../../imagenesPaginacion/imagenesPaginationDoctor'
+import { useSelector } from 'react-redux'
 
 export const HistorialPacienteMedico = () => {
   const location = useLocation()
   const { id } = location.state
+      const { token } = useSelector((state) => state.auth)
+  
   const url = import.meta.env.VITE_APP_IP
 
   const [consultas, setConsultas] = useState([])
@@ -24,28 +27,41 @@ export const HistorialPacienteMedico = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const fetchConsultas = async () => {
-      try {
-        const response = await axios.get(`${url}/api/buscar/consulta/${id}`, {
-          params: {
-            page: currentPage,
-            limit: consultasPorPagina,
-          },
-        })
-        let { results, totalPages } = response.data
-        results = results.map((result) => {
-          const dencriptcion = CryptoJS.AES.decrypt(result.img, import.meta.env.VITE_APP_SECRETORPRIVATEKEY)
-          result.img = dencriptcion.toString(CryptoJS.enc.Utf8)
-          return result
-        })
-        setConsultas(results)
-      } catch (error) {
-        setError("Error en la solicitud: " + error.message)
-        setConsultas([])
+  const fetchConsultas = async () => {
+  try {
+    const response = await axios.get(`${url}/api/buscar/consulta/${id}`, {
+      params: {
+        page: currentPage,
+        limit: consultasPorPagina,
+      },
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-    }
+    })
 
+    let { results, totalPages } = response.data
+
+    results = results.map((result) => {
+      const desencriptado = CryptoJS.AES.decrypt(
+        result.img,
+        import.meta.env.VITE_APP_SECRETORPRIVATEKEY
+      )
+
+      return {
+        ...result,
+        img: desencriptado.toString(CryptoJS.enc.Utf8)
+      }
+    })
+
+    setConsultas(results)
+  } catch (error) {
+    setError("Error en la solicitud: " + error.message)
+    setConsultas([])
+  }
+}
+
+
+  useEffect(() => {
     fetchConsultas()
   }, [id, url, currentPage,modificado])
 

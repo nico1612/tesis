@@ -5,12 +5,15 @@ const url=import.meta.env.VITE_APP_IP
 
 export const startGettingpacientes=()=>{
 
-    return async (dispatch)=>{
+    return async (dispatch, getState) => {
+
+        const { token } = getState().auth
 
         const options = {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`
             },
         }
 
@@ -23,22 +26,22 @@ export const startGettingpacientes=()=>{
 
 }
 
-export const putUsuario=({ paciente})=>{
+export const putUsuario = ({ paciente }) => {
+  return async (dispatch, getState) => {
 
-    return async (dispatch)=>{
+    const { token } = getState().auth
 
-        const options = {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            data:{"usuarios":paciente}
+    const id = paciente.uid
+
+    await axios.put(
+      `${url}/api/pacientes/${id}`,
+      { usuarios: paciente },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
         }
-
-        const id=paciente.uid
-
-        await axios(`${url}/api/pacientes/${id}`, options)
-        
-    }
-
+      }
+    )
+  }
 }

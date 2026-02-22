@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import logo from './logos.jpeg';
+import logo from './logos.jpeg'
 
 export const Logo=()=>{
     return(

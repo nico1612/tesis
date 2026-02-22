@@ -16,7 +16,7 @@ export const UsuariosRouter = () => {
       <DatoPage />
       <div className="content">
         <Routes>
-          <Route path="home" element={<HomePaciente />} />
+          <Route path="/home" element={<HomePaciente />} />
           <Route path="/*" element={<Navigate to="/home" />} />
           <Route path="/imagenes" element={<ImagenesUsuarios />} />
           <Route path='/medicos' element={<MedicosYSolicitud />} />
